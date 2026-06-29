@@ -1,0 +1,259 @@
+.custom-multicolumn-list .title {
+  margin: 0;
+}
+
+.custom-multicolumn-list.no-heading .title {
+  display: none;
+}
+
+.custom-multicolumn-list .title-wrapper-with-link {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .custom-multicolumn-list .title-wrapper-with-link {
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .custom-multicolumn-list__title {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .custom-multicolumn-list .page-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.custom-multicolumn-list-card__image-wrapper--third-width {
+  width: 33%;
+}
+
+.custom-multicolumn-list-card__image-wrapper--half-width {
+  width: 50%;
+}
+
+.custom-multicolumn-list-list__item.center .custom-multicolumn-list-card__image-wrapper:not(.custom-multicolumn-list-card__image-wrapper--full-width),
+.custom-multicolumn-list-list__item:only-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-multicolumn-list .button {
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .custom-multicolumn-list .button {
+    margin-top: 4rem;
+  }
+}
+
+.custom-multicolumn-list-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.custom-multicolumn-list-list__item:only-child {
+  max-width: 72rem;
+}
+
+.custom-multicolumn-list-list__item--empty {
+  display: none;
+}
+
+.custom-multicolumn-list:not(.background-none) .custom-multicolumn-list-card {
+  background: rgb(var(--color-background));
+  height: 100%;
+}
+
+.custom-multicolumn-list.background-primary .custom-multicolumn-list-card {
+  background: rgb(var(--color-background))
+    linear-gradient(rgba(var(--color-foreground), 0.04), rgba(var(--color-foreground), 0.04));
+}
+
+.custom-multicolumn-list-list h3 {
+  line-height: calc(1 + 0.5 / max(1, var(--font-heading-scale)));
+}
+
+.custom-multicolumn-list-list h3,
+.custom-multicolumn-list-list p {
+  margin: 0;
+}
+
+.custom-multicolumn-list-card-spacing {
+  padding-top: 2.5rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.custom-multicolumn-list-card__info > :nth-child(2) {
+  margin-top: 0.6rem;
+}
+
+.custom-multicolumn-list-list__item.center .media--adapt,
+.custom-multicolumn-list-list__item .media--adapt .custom-multicolumn-list-card__image {
+  width: auto;
+}
+
+.custom-multicolumn-list-list__item.center .media--adapt img {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 749px) {
+  .custom-multicolumn-list-list {
+    margin: 0;
+    width: 100%;
+  }
+
+  .custom-multicolumn-list-list:not(.slider) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .custom-multicolumn-list-list:not(.slider) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .custom-multicolumn-list-list.slider {
+    padding: 0;
+  }
+
+  .custom-multicolumn-list-list__item,
+  .grid--4-col-desktop .custom-multicolumn-list-list__item {
+    padding-bottom: 0;
+  }
+
+  .background-none .grid--2-col-tablet .custom-multicolumn-list-list__item {
+    margin-top: 4rem;
+  }
+}
+
+.background-none .custom-multicolumn-list-card-spacing {
+  padding: 0;
+  margin: 0;
+}
+
+.custom-multicolumn-list-card__info {
+  padding: 1.5rem 2.5rem 2.5rem;
+}
+
+.background-none .custom-multicolumn-list-card__info {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.background-none .slider .custom-multicolumn-list-card__info {
+  padding-bottom: 0;
+}
+
+.background-none .custom-multicolumn-list-card__image-wrapper + .custom-multicolumn-list-card__info {
+  padding-top: 2rem;
+}
+
+.background-none .slider .custom-multicolumn-list-card__info {
+  padding-left: 0.5rem;
+}
+
+.background-none .slider .custom-multicolumn-list-card__image-wrapper + .custom-multicolumn-list-card__info {
+  padding-left: 1.5rem;
+}
+
+.background-none .custom-multicolumn-list-list:not(.slider) .center .custom-multicolumn-list-card__info {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+@media screen and (max-width: 749px) {
+  .background-none .slider .custom-multicolumn-list-card__info {
+    padding-bottom: 1rem;
+  }
+
+  .custom-multicolumn-list.background-none .slider.slider--mobile {
+    margin-bottom: 0rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .background-none .custom-multicolumn-list-card__image-wrapper {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  /* .background-none .custom-multicolumn-list-list .custom-multicolumn-list-card__info,
+  .background-none .custom-multicolumn-list-list:not(.slider) .center .custom-multicolumn-list-card__info {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  } */
+}
+
+.custom-multicolumn-list-card {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.custom-multicolumn-list-card > .custom-multicolumn-list-card__image-wrapper--full-width:not(.custom-multicolumn-list-card-spacing) {
+  border-top-left-radius: calc(var(--text-boxes-radius) - var(--text-boxes-border-width));
+  border-top-right-radius: calc(var(--text-boxes-radius) - var(--text-boxes-border-width));
+  overflow: hidden;
+}
+
+.custom-multicolumn-list.background-none .custom-multicolumn-list-card {
+  border-radius: 0;
+}
+
+.custom-multicolumn-list-card__info .link {
+  text-decoration: none;
+  font-size: inherit;
+  margin-top: 1.5rem;
+}
+
+.custom-multicolumn-list-card__info .icon-wrap {
+  margin-left: 0.8rem;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 990px) {
+  .custom-multicolumn-list-list__item--empty {
+    display: list-item;
+  }
+}
+
+
+/*** Edited css ***/
+
+.custom-multicolumn-list .custom-multicolumn-list-list h3 {
+  font-size: 20px;
+}
+
+.custom-multicolumn-list .custom-multicolumn-list-card .custom-multicolumn-list-card__image-wrapper {
+  margin: 0;
+}
+
+.custom-multicolumn-list .custom-multicolumn-list-card__image-wrapper .media {
+  border-radius: calc(var(--media-radius));
+}
+
+@media screen and (min-width: 750px) {
+  .custom-multicolumn-list-list {
+    --grid-desktop-horizontal-spacing: 30px;
+  }
+}
+@media screen and (max-width: 749px) {
+  .custom-multicolumn-list-list {
+    --grid-mobile-horizontal-spacing: 15px;
+  }
+}

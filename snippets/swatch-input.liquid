@@ -1,0 +1,74 @@
+{% comment %}
+  Renders a swatch input component.
+  Accepts:
+  - id: {String} unique input id
+  - type: {String} input type. Accepts 'radio' or 'checkbox', defaults to 'radio' (optional)
+  - name: {String} input name,
+  - value: {ProductOptionValueDrop} input value
+  - swatch: {SwatchDrop} the swatch drop
+  - product_form_id: {String} id of the form associted with the input
+  - checked: {Boolean} default checked status
+  - disabled: {Boolean} default disabled status (optional)
+  - visually_disabled: {Boolean} style the swatch as disabled, but leave the input enabled (optional)
+  - shape: {String} swatch shape. Accepts 'square', defaults to circle (optional)
+  - help_text: {String} additional content to render inside the label (optional)
+  - additional_props: {String} (optional) additional properties to attach to the input
+
+  Usage:
+   {% render 'swatch-input',
+      id: input_id,
+      name: input_name,
+      value: input_value,
+      swatch: swatch,
+      product_form_id: product_form_id,
+      checked: checked
+    %}
+{% endcomment %}
+
+<input
+  type="{{ type | default: 'radio' }}"
+  id="{{ id }}"
+  name="{{ name }}"
+  value="{{ value }}"
+  form="{{ product_form_id }}"
+  class="swatch-input__input{% if visually_disabled %} visually-disabled{% endif %}"
+  {% if checked %}
+    checked
+  {% endif %}
+  {% if disabled %}
+    disabled
+  {% endif %}
+  {% if additional_props %}
+    {{ additional_props }}
+  {% endif %}
+>
+
+<!-- zenon start --> 
+{% assign variant_needed = null %}
+{% for variant in product.variants %}
+  {% if variant.options contains value %}
+    {% assign variant_needed = variant %}
+  {% endif %}
+{% endfor %}
+
+{% if variant_needed.featured_image != blank and section.settings.color_swatch_option == 'image_option' %}
+  <label for="{{ id }}"
+    title="{{ value }}"
+    class="swatch-input__label{% if shape == 'square' %} swatch-input__label--square{% endif %} option-image">
+    <img src="{{ variant_needed.featured_image | img_url }}" alt="{{ variant_needed.title }}" title="{{ value }}">
+  </label>
+{% else %}
+  <label
+      for="{{ id }}"
+      title="{{ value }}"
+      class="swatch-input__label{% if shape == 'square' %} swatch-input__label--square{% endif %}"
+    >
+      {% render 'swatch', swatch: swatch, shape: shape %}
+      {{ help_text }}
+  </label>
+{% endif %}
+<!-- zenon end -->
+
+
+
+

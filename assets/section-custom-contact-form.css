@@ -1,0 +1,214 @@
+.contact .section-title {
+  text-align: center;
+}
+
+.contact .section-title .sub-title p {
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  padding: 0 0 50px 0;
+}
+
+.contact-us__list-social.list-social:only-child {
+  justify-content: flex-start;
+}
+
+.contact .list-social__link {
+  border-radius: 100%;
+  transition: all 0.1s ease-in-out;
+}
+
+.contact .list-social__item {
+  padding-right: 5px;
+}
+
+.contact .list-social__item:last-child {
+  padding-right: 0;
+}
+
+.contact .image-text h4 {
+  font-size: 15px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  line-height: 2.2rem;
+  letter-spacing: 0.7px;
+  margin: 0;
+  padding-bottom: 12px;
+  font-family: var(--font-body-family);
+}
+
+.contact .image-text img {
+  padding-right: 2rem;
+  border: none;
+}
+
+.contact .contact-main {
+  padding: 0 20px;
+  max-width: 1229px;
+  margin: 0 auto;
+  --grid-desktop-horizontal-spacing: 30px;
+}
+
+.contact .contact-form .contact__button .button {
+  width: 100%;
+  font-size: 20px;
+  min-height: calc(5rem + var(--buttons-border-width) * 2);
+}
+
+.contact .contact-main .contact-detail .title-label {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 0 1.5rem 0;
+}
+
+.contact .contact-main .contact-detail .main-block {
+  margin-bottom: 2.5rem;
+}
+
+.contact .contact-main .contact-detail .main-block .work-label p {
+  margin: 0;
+  line-height: 1.67;
+}
+
+.contact .contact-main .contact-detail {
+  border: 1px solid #eeeeee;
+}
+
+.contact .contact-main .detail-inner {
+  padding: 5rem 5rem 0 5rem;
+}
+
+.contact .contact-main .main-contact-img img,
+.contact .contact-main .main-contact-img svg {
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.contact .section_contact_form .text-area {
+  min-height: 12.1rem;
+}
+
+.contact .section_contact_form .field:after {
+  display: none;
+}
+
+.contact .field {
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.contact .field__input,
+.contact .customer .field input {
+  padding: 1.5rem;
+  border: .1rem solid #eeeeee;
+  transition: none;
+  min-height: 5rem;
+  order: 2;
+}
+
+.contact .field__input:focus,
+.customer .field input:focus {
+  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) #000000;
+  outline: 0;
+  padding: 1.5rem;
+}
+
+.contact .field__input:hover,
+.customer .field input:hover {
+  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) #000000;
+  outline: 0;
+}
+
+.contact .field__label {
+  font-size: 1.6rem;
+  color: #000;
+  position: static;
+  order: 1;
+  text-align: left;
+}
+
+.contact .field__input::placeholder,
+.contact .customer .field input::placeholder {
+  opacity: 1;
+}
+
+.contact .field__input::-webkit-input-placeholder,
+.contact .customer .field input::-webkit-input-placeholder {
+  font-size: 1.5rem;
+  color: #c2c2c2;
+}
+
+@media only screen and (max-width: 1024px) {
+  .contact .contact-main .detail-inner {
+    padding: 3rem 3rem 0;
+  }
+}
+
+@media only screen and (max-width: 989px) {
+  .contact .contact-main .contact-detail .title-label {
+    font-size: 18px;
+  }
+
+  .contact .field__label {
+    font-size: 1.4rem;
+  }
+
+  .contact .image-text h4 {
+    font-size: 14px;
+  }
+
+  .contact .image-text img {
+    padding-right: 1rem;
+  }
+
+  .contact .contact-main .detail-inner {
+    padding: 2rem 2rem 0;
+  }
+
+  .contact .contact-form .contact__button .button {
+    font-size: 16px;
+    min-height: calc(4.5rem + var(--buttons-border-width)* 2);
+  }
+
+  .contact .field {
+    row-gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 749px) {
+  .grid--2-col .grid__item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact .contact-main .social_media .list-social {
+    padding-bottom: 2rem;
+  }
+
+  .contact .contact-main {
+    padding: 0;
+  }
+
+  .contact .field {
+    margin-top: 20px;
+  }
+
+  .contact .field__input::-webkit-input-placeholder,
+  .contact .customer .field input::-webkit-input-placeholder {
+    font-size: 1.4rem;
+  }
+
+  .contact .contact-main .contact-detail .main-block {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .contact__button button {
+    width: 100%;
+  }
+}

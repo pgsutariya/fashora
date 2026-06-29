@@ -1,0 +1,803 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-73991b54-b71b-4542-bbab-4c6d3a90c403",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_banner_JmiBwt": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_LiV7Qj": {
+          "type": "heading",
+          "settings": {
+            "heading": "ABOUT US",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LiV7Qj"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_class": "",
+        "layout": "full_bleed",
+        "image": "shopify://shop_images/about-banner.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "section_color_scheme": "",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collage_grid_VxthiM": {
+      "type": "collage-grid",
+      "blocks": {
+        "image_Fxn8in": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-collage-grid-img-01.webp",
+            "link": "shopify://collections/all",
+            "overlay_label": "Cap and Purse"
+          }
+        },
+        "image_UJqMVR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-collage-grid-img-02.webp",
+            "link": "shopify://collections/all",
+            "overlay_label": "Swimsuit"
+          }
+        },
+        "image_WGxbJr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-collage-grid-img-03.webp",
+            "link": "shopify://collections/all",
+            "overlay_label": "One-Piece Nightgown"
+          }
+        },
+        "image_jVMtAP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-collage-grid-img-04.webp",
+            "link": "shopify://collections/all",
+            "overlay_label": "Linen Shirt"
+          }
+        },
+        "image_8hyPRJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-collage-grid-img-05.webp",
+            "link": "shopify://collections/all",
+            "overlay_label": "Summer Gown"
+          }
+        },
+        "image_RkBGdL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-collage-grid-img-06.webp",
+            "link": "shopify://collections/all",
+            "overlay_label": "Casual Wear"
+          }
+        }
+      },
+      "block_order": [
+        "image_Fxn8in",
+        "image_UJqMVR",
+        "image_WGxbJr",
+        "image_jVMtAP",
+        "image_8hyPRJ",
+        "image_RkBGdL"
+      ],
+      "name": "t:sections.collage-grid.presets.name",
+      "settings": {
+        "heading": "HAND-PICKED BRANDS, AND THE STYLE WE LOVE...",
+        "heading_size": "h1",
+        "subheading": "<p>Your one-stop shop for the best swimwear. Supportive bra sized swim separates in sizes D Cup to H Cup. Flattering one pieces. Dare to bare ultra cheeky cuts. Sustainable and eco-conscious suits. Bold prints, fresh colors, and luxe textures.</p>",
+        "tagline": "<em><strong>The best for women, by women.</strong></em>",
+        "section_color_scheme": "",
+        "full_width": false,
+        "show_overlay_on_hover": true,
+        "padding_top": 100,
+        "padding_bottom": 50,
+        "gap": 30,
+        "media-radius": 10
+      }
+    },
+    "f669d7ea-1643-46b7-94d0-4e4adc864320": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--20627963937074__f669d7ea-1643-46b7-94d0-4e4adc864320-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "ABOUT ME!",
+            "heading_size": "h1"
+          }
+        },
+        "template--20627963937074__f669d7ea-1643-46b7-94d0-4e4adc864320-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Egestas congue quisque egestas diam in arcu. Elementum sagittis vitae et leo duis. Pretium nibh ipsum consequat nisl vel pretium lectus quam id. Pulvinar neque laoreet suspendisse interdum consectetur.</p>",
+            "text_style": "body"
+          }
+        },
+        "template--20627963937074__f669d7ea-1643-46b7-94d0-4e4adc864320-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "VIEW MORE",
+            "button_link": "#",
+            "button_style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "template--20627963937074__f669d7ea-1643-46b7-94d0-4e4adc864320-heading-1",
+        "template--20627963937074__f669d7ea-1643-46b7-94d0-4e4adc864320-text-1",
+        "template--20627963937074__f669d7ea-1643-46b7-94d0-4e4adc864320-button-1"
+      ],
+      "settings": {
+        "section_layout": "full_bleed",
+        "class_name": "",
+        "image": "shopify://shop_images/about-image-with-text-img-01.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-5c2f6738-90ad-435b-abca-0c0c149d151a",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 100
+      }
+    },
+    "multicolumn_JJN6DY": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_YaYhy3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-icon-01.webp",
+            "title": "Made with Love",
+            "text": "<p>We handcraft clothes from soft naturalfabrics, perfect for keeping comfortableand cozy.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_MPeJcf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-icon-02.webp",
+            "title": "Innovation & Safe",
+            "text": "<p>Our clothes are designed to help people create their unique adventures and make meaningful discoveries.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_TjRgeK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-icon-03.webp",
+            "title": "Eco Friendly",
+            "text": "<p>We make sure that each item we produce respects the environment, ensuring that the planet is not harmed.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_YaYhy3",
+        "column_MPeJcf",
+        "column_TjRgeK"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "image_width": "third",
+        "custom_width": 30,
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "column_bkg_color": "#efefef",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "color_scheme": "background-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_icons_MDF73t": {
+      "type": "image-with-icons",
+      "blocks": {
+        "heading_ibzb38": {
+          "type": "heading",
+          "settings": {
+            "heading": "FASHORA FASHION WORK AND QUALITY",
+            "heading_size": "h1"
+          }
+        },
+        "icon_with_text_VJgy6J": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "shopify://shop_images/about-lay-1-img-with-icon-icon-01.webp",
+            "heading": "Soft Fabric",
+            "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          }
+        },
+        "icon_with_text_tAp4Dm": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "shopify://shop_images/about-lay-1-img-with-icon-icon-02.webp",
+            "heading": "Lightweight",
+            "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          }
+        },
+        "icon_with_text_kragLq": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon": "shopify://shop_images/about-lay-1-img-with-icon-icon-03.webp",
+            "heading": "All Day Comfort",
+            "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          }
+        }
+      },
+      "block_order": [
+        "heading_ibzb38",
+        "icon_with_text_VJgy6J",
+        "icon_with_text_tAp4Dm",
+        "icon_with_text_kragLq"
+      ],
+      "settings": {
+        "class_name": "one-column",
+        "custom_page_width": 1300,
+        "image": "shopify://shop_images/about-lay-1-img-with-icon-img-01.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 52,
+        "padding_bottom": 88
+      }
+    },
+    "count_down_3FhXmR": {
+      "type": "count-down",
+      "blocks": {
+        "column_gfgGXg": {
+          "type": "column",
+          "settings": {
+            "number_of_count": "6",
+            "title": "Years of experience",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QCmmaJ": {
+          "type": "column",
+          "settings": {
+            "number_of_count": "5000",
+            "title": "Happy Customers",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_zNBDdg": {
+          "type": "column",
+          "settings": {
+            "number_of_count": "1000",
+            "title": "Products in stock",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_z3TidT": {
+          "type": "column",
+          "settings": {
+            "number_of_count": "9.4",
+            "title": "Score on ecomerce",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_gfgGXg",
+        "column_QCmmaJ",
+        "column_zNBDdg",
+        "column_z3TidT"
+      ],
+      "name": "t:sections.count-down.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "background_color": "#ffffff",
+        "text_color": "#000",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "full_width": false,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "ae0f69b9-8d77-4132-bc45-5023d341eb82": {
+      "type": "image-banner",
+      "blocks": {
+        "caption_NKUPaY": {
+          "type": "caption",
+          "settings": {
+            "caption": "WE ARE CHANTILLY",
+            "text_style": "subtitle",
+            "text_size": "large"
+          }
+        },
+        "template--20627963937074__ae0f69b9-8d77-4132-bc45-5023d341eb82-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE BEST FOR WOMEN, BY WOMEN.",
+            "heading_size": "h1"
+          }
+        },
+        "template--20627963937074__ae0f69b9-8d77-4132-bc45-5023d341eb82-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "We feature: Supportive bra sized swim separates in sizes D Cup to H Cup. Flattering one pieces. Dare to bare ultra cheeky uts. Sustainable and eco-conscious suits. Bold prints, fresh colors, and luxe textures.",
+            "text_style": "body"
+          }
+        },
+        "template--20627963937074__ae0f69b9-8d77-4132-bc45-5023d341eb82-buttons-1": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Collections",
+            "button_link_1": "shopify://collections",
+            "button_style_1": "solid",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "caption_NKUPaY",
+        "template--20627963937074__ae0f69b9-8d77-4132-bc45-5023d341eb82-heading-1",
+        "template--20627963937074__ae0f69b9-8d77-4132-bc45-5023d341eb82-text-1",
+        "template--20627963937074__ae0f69b9-8d77-4132-bc45-5023d341eb82-buttons-1"
+      ],
+      "settings": {
+        "custom_class": "",
+        "layout": "full_bleed",
+        "image": "shopify://shop_images/about-layout-1-image-banner-img-01.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "top-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "testimonial_FnQgEk": {
+      "type": "testimonial",
+      "blocks": {
+        "testimonial_rnTU6V": {
+          "type": "testimonial",
+          "settings": {
+            "file_video_url": "",
+            "image_rating_stars": "shopify://shop_images/icon_5_stars.svg",
+            "review_title": "Would HIGHLY Recommend",
+            "review_content": "<p>Lorem ipsum dolor sit amet consectetur. Risus felis quis sed lacus. Donec rhoncus proin eu fusce viverra nunc. Eu in ultrices amet tincidunt quisque. Tortor condimentum posuere habitant purus. Maecenas.</p>",
+            "reviewer_name": "Austin Gilbert on Nov 23, 2020",
+            "verified_buyer_text": "",
+            "reviewer_post": "",
+            "product": ""
+          }
+        },
+        "testimonial_EUjtVj": {
+          "type": "testimonial",
+          "settings": {
+            "file_video_url": "",
+            "image_rating_stars": "shopify://shop_images/icon_5_stars.svg",
+            "review_title": "Would HIGHLY Recommend",
+            "review_content": "<p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet Velit officia consequat duis enim velit veniam sunt nostrud amet.</p>",
+            "reviewer_name": "Austin Gilbert on Nov 23, 2020",
+            "verified_buyer_text": "",
+            "reviewer_post": "",
+            "product": ""
+          }
+        },
+        "testimonial_8XjAG7": {
+          "type": "testimonial",
+          "settings": {
+            "file_video_url": "",
+            "image_rating_stars": "shopify://shop_images/icon_5_stars.svg",
+            "review_title": "Would HIGHLY Recommend",
+            "review_content": "<p>Neque sed adipiscing et interdum sollicitudin sed elementum aliquet quis. Eu magna nisi facilisis diam. Posuere volutpat nulla aliquet accumsan aliquet feugiat et.</p>",
+            "reviewer_name": "Austin Gilbert on Nov 23, 2020",
+            "verified_buyer_text": "",
+            "reviewer_post": "",
+            "product": ""
+          }
+        },
+        "testimonial_NK7qjq": {
+          "type": "testimonial",
+          "settings": {
+            "file_video_url": "",
+            "image_rating_stars": "shopify://shop_images/icon_5_stars.svg",
+            "review_title": "Would HIGHLY Recommend",
+            "review_content": "<p>Ultricies a gravida eu viverra libero tellus id a nec. Lorem ipsum dolor sit amet consectetur. Lectus a in et et ante. Arcu sed viverra ac vitae dolor. Non morbi nulla porttitor ornare.</p>",
+            "reviewer_name": "Austin Gilbert on Nov 23, 2020",
+            "verified_buyer_text": "",
+            "reviewer_post": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_rnTU6V",
+        "testimonial_EUjtVj",
+        "testimonial_8XjAG7",
+        "testimonial_NK7qjq"
+      ],
+      "name": "t:sections.testimonial.presets.name",
+      "settings": {
+        "title": "TESTIMONIALS",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "description": "",
+        "description_style": "body",
+        "testimonials_to_show": 6,
+        "columns_desktop": 4,
+        "full_width": true,
+        "enable_slider": true,
+        "enable_autoplay": false,
+        "reverse_direction": false,
+        "color_scheme": "",
+        "column_bkg_color": "",
+        "image_ratio": "adapt",
+        "desktop_column_alignment": "left",
+        "columns_mobile": "1",
+        "padding_top": 100,
+        "padding_bottom": 60
+      }
+    },
+    "multirow_EnEU4Q": {
+      "type": "multirow",
+      "blocks": {
+        "row_ChDMrY": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-multirow-img-01.webp",
+            "caption": "",
+            "heading": "OUR VALUES",
+            "text": "<p>We are focused as a company on the idea of more eco and less ego.<br/>The brands we feature have all paved the way for sustainability in swimwear, with their collections featuring a variety of textiles including recycled, organic, and plant-based fabrics.</p><p>Not limited by age, size or shape, wearing swimwear that fits, feels good, and frees her to be the woman she’s meant to be.</p>",
+            "button_label": "VIEW More",
+            "button_link": "shopify://collections"
+          }
+        },
+        "row_GTRaEF": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/about-layout-1-multirow-img-02.webp",
+            "caption": "",
+            "heading": "OUR PROMISE",
+            "text": "<p>Committed to sustainability from the ground up. From recycled packaging, fibers, and even earth-inspired prints. Because we think swimwear should help clean up our waters, not pollute them.</p><p>Inspired by exotic travel destinations and the bold colors of the beach, our swimwear designs never go out of style. No matter your shape or size, there’s a selection of suits to find your perfect fit.</p>",
+            "button_label": "VIEW MORE",
+            "button_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "row_ChDMrY",
+        "row_GTRaEF"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "custom_class": "mr_gapless mr_radius_less",
+        "layout": "full_bleed",
+        "image_height": "adapt",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "solid",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "scheme-5c2f6738-90ad-435b-abca-0c0c149d151a",
+        "row_color_scheme": "scheme-5c2f6738-90ad-435b-abca-0c0c149d151a",
+        "mobile_content_alignment": "left",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "logo_slider_4AEKhQ": {
+      "type": "logo-slider",
+      "blocks": {
+        "column_RppAew": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-1.png",
+            "link": "#"
+          }
+        },
+        "column_Fnqmti": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-2.png",
+            "link": "#"
+          }
+        },
+        "column_mrUTy7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-3.png",
+            "link": "#"
+          }
+        },
+        "column_rAfBcj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-4.png",
+            "link": "#"
+          }
+        },
+        "column_7U7Lz8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-5.png",
+            "link": "#"
+          }
+        },
+        "column_nbwCVn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-6.png",
+            "link": "#"
+          }
+        },
+        "column_wYWFct": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-7.png",
+            "link": "#"
+          }
+        },
+        "column_nzwwmw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-8.png",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "column_RppAew",
+        "column_Fnqmti",
+        "column_mrUTy7",
+        "column_rAfBcj",
+        "column_7U7Lz8",
+        "column_nbwCVn",
+        "column_wYWFct",
+        "column_nzwwmw"
+      ],
+      "name": "t:sections.logo-slider.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "title": "BRANDS POPULAR",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur donec sodales sed nibh id vehicula.</p>",
+        "heading_alignment": "center",
+        "auto_rotate": true,
+        "reverse_direction": false,
+        "columns_desktop": 8,
+        "columns_mobile": "3",
+        "padding_top": 40,
+        "padding_bottom": 5
+      }
+    },
+    "logo_slider_Wf9X76": {
+      "type": "logo-slider",
+      "blocks": {
+        "column_3qRKQx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-9.png",
+            "link": "#"
+          }
+        },
+        "column_dFjMWk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-10.png",
+            "link": "#"
+          }
+        },
+        "column_whyPcB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-11.png",
+            "link": "#"
+          }
+        },
+        "column_MfqQ47": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-12.png",
+            "link": "#"
+          }
+        },
+        "column_efH9XB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-13.png",
+            "link": "#"
+          }
+        },
+        "column_bJNwMa": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-14.png",
+            "link": "#"
+          }
+        },
+        "column_hPYdxk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-15.png",
+            "link": "#"
+          }
+        },
+        "column_iyen9F": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-16.png",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "column_3qRKQx",
+        "column_dFjMWk",
+        "column_whyPcB",
+        "column_MfqQ47",
+        "column_efH9XB",
+        "column_bJNwMa",
+        "column_hPYdxk",
+        "column_iyen9F"
+      ],
+      "name": "t:sections.logo-slider.presets.name",
+      "settings": {
+        "layout": "grid",
+        "title": "",
+        "description": "",
+        "heading_alignment": "center",
+        "auto_rotate": true,
+        "reverse_direction": true,
+        "columns_desktop": 8,
+        "columns_mobile": "3",
+        "padding_top": 5,
+        "padding_bottom": 80
+      }
+    },
+    "trust_features_bar_Kw9Nef": {
+      "type": "trust-features-bar",
+      "blocks": {
+        "feature_DKwi7C": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-1.svg",
+            "text": "Free Shipping"
+          }
+        },
+        "feature_7pnCJC": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-2.svg",
+            "text": "Money Back Guarantee"
+          }
+        },
+        "feature_D9TbWx": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-3.svg",
+            "text": "Quick & Easy Returns"
+          }
+        },
+        "feature_3XeQb4": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-4.svg",
+            "text": "24/7 Customer Support"
+          }
+        },
+        "feature_FpUDCW": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-5.svg",
+            "text": "Secure Payments"
+          }
+        }
+      },
+      "block_order": [
+        "feature_DKwi7C",
+        "feature_7pnCJC",
+        "feature_D9TbWx",
+        "feature_3XeQb4",
+        "feature_FpUDCW"
+      ],
+      "name": "Trust Features Bar",
+      "settings": {
+        "bg_color": "#ededed",
+        "border_color": "#000000",
+        "column_border_color": "#bfbfbf",
+        "text_color": "#000000",
+        "icon_width": 30,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_JmiBwt",
+    "collage_grid_VxthiM",
+    "f669d7ea-1643-46b7-94d0-4e4adc864320",
+    "multicolumn_JJN6DY",
+    "image_with_icons_MDF73t",
+    "count_down_3FhXmR",
+    "ae0f69b9-8d77-4132-bc45-5023d341eb82",
+    "testimonial_FnQgEk",
+    "multirow_EnEU4Q",
+    "logo_slider_4AEKhQ",
+    "logo_slider_Wf9X76",
+    "trust_features_bar_Kw9Nef"
+  ]
+}

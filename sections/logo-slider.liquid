@@ -1,0 +1,266 @@
+{{ 'section-logo-slider.css' | asset_url | stylesheet_tag }}
+
+{% render 'swiper-assets' %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div id="logo-slider-{{ section.id }}" class="swiper-container section-{{ section.id }}-padding logo-slider-msg color-{{ section.settings.color_scheme }} gradient">
+  {%- unless section.settings.title == blank -%}
+    <div
+      class="title-wrapper title-wrapper--no-top-margin"
+      style="text-align: {{ section.settings.heading_alignment }};"
+    >
+      <h2
+        id="SectionHeading-{{ section.id }}"
+        class="logo-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      >
+        {{ section.settings.title }}
+      </h2>
+      <div class="logo_description rte">
+        {{ section.settings.description }}
+      </div>
+    </div>
+  {%- endunless -%}
+  <div class="swiper-wrapper grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down" style="justify-content:{{ section.settings.text_alignment }}">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'column' -%}
+        {%- liquid
+          assign logo_alt = block.settings.image.alt
+          if block.settings.image.alt == blank
+            assign logo_alt = 'Logo Media ' | append: forloop.index
+          endif
+        -%}
+        <div class="swiper-slide">
+          <div class="logo-slider" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
+              {%- endif -%}
+                {% if block.settings.image != blank  %} 
+                  <img class="lazyload slider-image" src="{{ block.settings.image | image_url }}" width="" height="" alt="{{ logo_alt }}" loading="lazy" fetch_priority="auto" />
+                {% endif %} 
+              {%- if block.settings.link != blank -%}
+                </a>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% if section.settings.auto_rotate == true %}
+  <script type="text/javascript" defer>
+    $(function() {
+      window.SpeedoFashoraTheme.waitForSwiper(function() {
+        let SwiperTop = new Swiper('#logo-slider-{{ section.id }}.logo-slider-msg', {
+          spaceBetween: 0,
+          centeredSlides: true,
+          speed: 4500,
+          autoplay: {
+            delay: 1,
+            {% if section.settings.reverse_direction %}
+            reverseDirection: true,
+            {% endif %}
+          },
+          loop: true,
+          slidesPerView:'auto',
+          disableOnInteraction: true,
+          breakpoints: {
+            1441: {
+              slidesPerView: {{ section.settings.columns_desktop }},
+              spaceBetween: 20
+            },
+            1280: {
+              slidesPerView: {{ section.settings.columns_desktop | minus: 1 }},
+              spaceBetween: 20
+            },
+            1025: {
+              slidesPerView: {{ section.settings.columns_desktop | minus: 1 }},
+              spaceBetween: 20
+            },
+            750: {
+              slidesPerView: {{ section.settings.columns_desktop | minus: 2 }},
+              spaceBetween: 10
+            },
+            481: {
+              slidesPerView: {{ section.settings.columns_mobile }},
+              spaceBetween: 10
+            },
+            200: {
+              slidesPerView: {{ section.settings.columns_mobile }},
+              spaceBetween: 10
+            }
+          }
+        });
+      });
+    });
+ </script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "t:sections.logo-slider.name",
+    "class": "section section-logo-slider",
+    "tag": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full_bleed",
+            "label": "t:sections.all.layout.options__1.label"
+          },
+          {
+            "value": "grid",			  
+            "label": "t:sections.all.layout.options__2.label"
+          }
+        ],
+        "default": "grid",
+        "label": "t:sections.all.layout.label"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "default": "t:sections.logo-slider.settings.title.default",
+        "label": "t:sections.logo-slider.settings.title.label"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "t:sections.featured-collection.settings.description.label"
+      },
+      {
+        "type": "select",
+        "id": "heading_alignment",
+        "label": "t:sections.collapsible_content.settings.heading_alignment.label",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:sections.collapsible_content.settings.heading_alignment.options__1.label"
+          },
+          {
+            "value": "center",
+            "label": "t:sections.collapsible_content.settings.heading_alignment.options__2.label"
+          },
+          {
+            "value": "right",
+            "label": "t:sections.collapsible_content.settings.heading_alignment.options__3.label"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "checkbox",
+        "id": "auto_rotate",
+        "label": "t:sections.logo-slider.settings.auto_rotate.label",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "reverse_direction",
+        "label": "t:sections.logo-slider.settings.reverse_scroll.label",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "columns_desktop",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "default": 4,
+        "label": "t:sections.testimonial.settings.columns_desktop.label"
+      },
+      {
+        "type": "select",
+        "id": "columns_mobile",
+        "default": "2",
+        "label": "t:sections.testimonial.settings.columns_mobile.label",
+        "options": [
+          {
+            "value": "1",
+            "label": "t:sections.testimonial.settings.columns_mobile.options__1.label"
+          },
+          {
+            "value": "2",
+            "label": "t:sections.testimonial.settings.columns_mobile.options__2.label"
+          },
+          {
+            "value": "3",
+            "label": "t:sections.testimonial.settings.columns_mobile.options__3.label"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "t:sections.logo-slider.blocks.column.name",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "t:sections.logo-slider.blocks.column.settings.image.label"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "t:sections.logo-slider.blocks.column.settings.link.label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.logo-slider.presets.name",
+        "blocks": [
+          {
+            "type": "column"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

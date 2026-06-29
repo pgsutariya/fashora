@@ -1,0 +1,149 @@
+{% comment %}
+  Shopify compare
+  Usage:
+    - Create a new page in the Shopify admin
+      - Admin > Online store > Pages > Add page
+    - Set the new page's template to: 'page.compare'
+    - Do NOT remove the `grid-compare` attribute
+  
+  Notes:
+  - The grid will be populated with product cards using Javascript
+  - Any content inside of the `[grid-compare]` element will be completely replaced by the product cards
+  
+  Tip:
+  - Place a loading element inside the `[grid-compare]` element and it will automatically be removed once the product cards have loaded
+  - Add any liquid code before/after the grid element
+{% endcomment %}
+
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- if settings.compare_enable_quick_add -%}
+  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<div class="page-width">
+<ul class="product-card-compare compare__grid grid product-grid grid--{{ settings.compare_columns_mobile }}-col-tablet-down
+              grid--{{ settings.compare_columns_desktop }}-col-desktop" grid-compare>
+  {% comment %} Sample loading element {% endcomment %}
+  <p class="compare__loader full-width text-center">Loading...</p>
+</ul>
+<div class="compare-text">
+      <h3>{{ 'general.compare_text' | t }}</h3>
+      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
+</div>
+</div>
+
+<style type="text/css">
+  #compare .compare__grid {
+      overflow: hidden;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      margin-top: 80px;
+  }
+  #compare .compare__grid .grid__item {
+      border: 1px  solid #ddd;
+      border-radius: var(--product-card-corner-radius) var(--product-card-corner-radius) 0 0;
+  }
+  #compare .compare__grid .card-wrapper.product-card-wrapper {
+      height: auto;
+      padding: 15px;
+  }
+  #compare .compare__grid .compare-detail {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #ddd;
+      padding: 10px 15px;
+  }
+  #compare .compare__grid .compare-detail.color-list .product_tile_color_holder {
+      display: flex;
+  }
+  #compare .compare__grid .card--standard>.card__content .card__information {
+      min-height: 96px;
+  }
+  #compare .compare__grid .compare-detail .list-label {
+      font-weight: 600;
+  }
+  #compare .compare__grid::-webkit-scrollbar {
+      height: 6px;
+      background: #ccc;
+  }
+  #compare .compare__grid::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+  }
+   #compare .compare__grid .hover_button {
+      background: none;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      bottom: auto;
+      transform: none;
+      visibility: visible;
+      opacity: 1;
+      display: block;
+      width: auto;
+      padding: 0;
+  }
+  #compare .compare__grid .card-wrapper.product-card-wrapper .quick-add__submit {
+      transform: none;
+      visibility: visible;
+      font-size: 15px;
+      width: auto;
+      height: auto;
+      display: block;
+      width: 100%;
+      min-width: auto;
+      min-height: calc(4.6rem + var(--buttons-border-width)* 2);
+      -moz-transition: var(--duration-long) ease 0s;
+      -ms-transition: var(--duration-long) ease 0s;
+      -o-transition: var(--duration-long) ease 0s;
+  }
+  #compare .compare__grid .card-wrapper .quick-add.media-add-to-cart {
+      width: 100%;
+      height: auto;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      margin: 0;
+      padding: 15px;
+  }
+  #compare .compare__grid .product-card-wrapper .hover_button .button.button-compare {
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+  }
+
+  @media screen and (max-width:749px){
+    #compare .compare__grid .card-wrapper .quick-add.media-add-to-cart {
+        padding: 7px;
+    }
+    #compare .compare__grid .card-wrapper.product-card-wrapper .quick-add__submit {
+        min-height: calc(4rem + var(--buttons-border-width)* 2);
+        font-size: 14px;
+    }
+    #compare .compare__grid .hover_button {
+        top: 10px;
+        right: 10px;
+    }
+    #compare .compare__grid {
+        margin-top: 40px;
+    }
+  }
+
+  @media screen and (max-width:480px){
+     #compare .compare__grid .card-wrapper.product-card-wrapper,
+     #compare .compare__grid .compare-detail{
+       padding: 10px;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "templates": ["page"]
+  }
+{% endschema %}

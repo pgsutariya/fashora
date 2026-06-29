@@ -1,0 +1,244 @@
+.scrolls-parallax-image {
+  position: relative;
+  width: 100%;
+}
+
+.scrolls-parallax-image-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrolls-parallax-image-content {
+  text-align: center;
+  z-index: 1;
+  max-width: 975px;
+  position: relative;
+  padding: 0 20px;
+}
+
+.scrolls-parallax-image-subheading {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.05px;
+  font-family: var(--font-body-family);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.scrolls-parallax-image-heading {
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0;
+  font-family: var(--font-heading-family);
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 990px) {
+  .scrolls-parallax-image-heading {
+    font-size: 7rem;
+  }
+}
+
+.scrolls-parallax-image-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2.69rem;
+  border-radius: 50px;
+  text-decoration: none;
+  column-gap: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  transition: all 0.3s ease;
+}
+
+.scrolls-parallax-image-button svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.scrolls-parallax-image-button:hover svg {
+  transform: translateX(4px);
+}
+
+.scrolls-parallax-image-polaroid {
+  background: #fff;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  width: 45vw;
+  max-width: 460px;
+  z-index: 2;
+  will-change: transform;
+  position: absolute;
+}
+
+.scrolls-parallax-image-polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 5 / 6;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 990px) {
+  .scrolls-parallax-image-image-1 {
+    top: 15%;
+    left: 4.91%;
+    transform: rotate(-15deg);
+  }
+
+  .scrolls-parallax-image-image-2 {
+    top: 110%;
+    right: 4.2%;
+    transform: rotate(11deg);
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .scrolls-parallax-image-polaroid {
+    max-width: 380px;
+  }
+
+  .scrolls-parallax-image-heading {
+    font-size: 5.8rem;
+  }
+
+  .scrolls-parallax-image-content {
+    max-width: 820px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .scrolls-parallax-image-polaroid {
+    max-width: 360px;
+  }
+  
+  .scrolls-parallax-image-heading {
+    font-size: 5.2rem;
+  }
+}
+
+@media screen and (max-width: 1279px) { 
+  .scrolls-parallax-image-heading {
+    font-size: 4.6rem;
+  }
+
+  .scrolls-parallax-image-content {
+    max-width: 700px;
+  } 
+}
+
+@media screen and (max-width: 1169px) {  
+  .scrolls-parallax-image-polaroid {
+    max-width: 300px;
+  }
+
+  .scrolls-parallax-image-heading {
+    font-size: 4rem;
+  }
+
+  .scrolls-parallax-image-content {
+    max-width: 650px;
+  }
+} 
+
+@media screen and (max-width: 1023px) {  
+  .scrolls-parallax-image-heading {
+    font-size: 3.6rem;
+  }
+
+  .scrolls-parallax-image-polaroid {
+    max-width: 260px;
+  }
+  
+  .scrolls-parallax-image-content {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .scrolls-parallax-image {
+    height: auto;
+  }
+
+  .scrolls-parallax-image-inner {
+    position: relative;
+    height: 145vh;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 20px;
+    gap: 60px;
+  }
+
+  .scrolls-parallax-image-polaroid {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  .scrolls-parallax-image-image-1 {
+    transform: rotate(-3deg);
+  }
+
+  .scrolls-parallax-image-image-2 {
+    transform: rotate(3deg);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .scrolls-parallax-image-heading {
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .scrolls-parallax-image-content {
+    padding: 0;
+  }
+
+  .scrolls-parallax-image-heading {
+    font-size: 2.8rem;
+  }
+
+  .scrolls-parallax-image-subheading {
+    font-size: 1.6rem;
+  }
+
+  .scrolls-parallax-image-button {
+    padding: 1.1rem 2.2rem;
+  }
+
+  .scrolls-parallax-image-inner {
+    padding: 80px 15px;
+  }
+}
+
+@media screen and (max-width: 479px) { 
+  .scrolls-parallax-image-heading {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .scrolls-parallax-image-subheading {
+    font-size: 1.4rem;
+  }
+  
+  .scrolls-parallax-image-button {
+    padding: 1rem 2rem;
+  }
+}

@@ -1,0 +1,384 @@
+{{ 'section-sub-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="sub-banner section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="{% if section.settings.layout == 'grid' %}page-width{% else %}full-width{% endif %}">
+    {% if section.settings.heading != blank or section.settings.sub_heading != blank %}
+      <div class="title-wrapper--no-top-margin title" style="text-align: {{ section.settings.heading_alignment }};">
+        {% if section.settings.heading != blank %}
+          <h2 class="box__heading {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {{ section.settings.heading | escape }}
+          </h2>
+        {% endif %}
+        
+        {% if section.settings.sub_heading != blank %}
+          <div class="sub-title">
+             {{ section.settings.sub_heading | escape }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    
+    <div class="sub-banner-inner{% if section.settings.select_box %} {{ section.settings.select_box }}{% endif %}">
+     {% for block in section.blocks %}
+       <div class="sub-banner-block {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}>
+         <div class="sub-banner-img">
+          {% if block.settings.image != blank %}
+              {% if block.settings.button_url != blank %}
+                <a href="{{ block.settings.button_url }}"> 
+              {% endif %}
+                {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+                {%- capture sizes -%}
+                  (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                  (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+                {%- endcapture -%}
+                {{
+                block.settings.image
+                | image_url: width: 1500
+                | image_tag: loading: 'lazy', sizes: sizes, widths: widths
+              }}
+              {% if block.settings.button_url != blank %}             
+              </a>
+              {% endif %}
+          {% else %}
+             {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+      
+       {% if  block.settings.title != blank or block.settings.sub_title != blank %}
+        <div class="sub-banner-inner sub-banner-content--{{ section.settings.desktop_content_position }}">
+           <div class="sub-banner-text sub-banner--content-align-{{ section.settings.desktop_content_alignment }}  sub-banner--content-align-mobile-{{ section.settings.mobile_content_alignment }}" style="color:{{ block.settings.text_color }};">
+             {% if  block.settings.sub_title != blank %}
+             	<div class="sub-banner-subtitle">{{block.settings.sub_title}}</div>
+             {% endif %}
+             {% if  block.settings.title != blank %}
+             	<div class="sub-banner-title">{{block.settings.title}}</div>
+             {% endif %}
+             {% if block.settings.button_label != blank %}           
+               <a href="{{ block.settings.button_url }}" 
+                 class="{% if block.settings.button_style == 'link' %}link {% elsif block.settings.button_style == 'solid' %}button{% else %}button button--secondary{% endif %}">
+                 {{ block.settings.button_label }}
+               </a>
+             {% endif %} 
+           </div>
+         </div>
+        {% endif %}
+       </div>
+     {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.sub-banner.name",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full_bleed",
+            "label": "t:sections.all.layout.options__1.label"
+          },
+          {
+            "value": "grid",			  
+            "label": "t:sections.all.layout.options__2.label"
+          }
+        ],
+        "default": "grid",
+        "label": "t:sections.all.layout.label"
+      },
+      {
+        "type" :"text",
+        "id":"heading",
+        "default": "EXCLUSIVE OFFER!",
+        "label":"t:sections.sub-banner.settings.heading.label"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h0",
+            "label": "t:sections.all.heading_size.options__3.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      },
+      {
+        "type": "select",
+        "id": "heading_alignment",
+        "label": "t:sections.collapsible_content.settings.heading_alignment.label",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:sections.collapsible_content.settings.heading_alignment.options__1.label"
+          },
+          {
+            "value": "center",
+            "label": "t:sections.collapsible_content.settings.heading_alignment.options__2.label"
+          },
+          {
+            "value": "right",
+            "label": "t:sections.collapsible_content.settings.heading_alignment.options__3.label"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type" :"text",
+        "id":"sub_heading",
+        "default": "Unbox your Happiness with TORMETI",
+        "label":"t:sections.sub-banner.settings.sub_heading.label"
+      },
+      {
+        "type": "select",
+        "id": "select_box",
+        "label": "t:sections.sub-banner.settings.select_box.label",
+        "options": [
+          {
+            "value": "one_column",
+            "label": "t:sections.sub-banner.settings.select_box.options__1.label"
+          },
+          {
+            "value": "two_column",
+            "label": "t:sections.sub-banner.settings.select_box.options__2.label"
+          },
+          {
+            "value": "three_column",
+            "label": "t:sections.sub-banner.settings.select_box.options__3.label"
+          }
+        ],
+        "default": "two_column"
+      },
+      {
+        "type": "select",
+        "id": "desktop_content_position",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__1.label"
+          },
+          {
+            "value": "top-center",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__2.label"
+          },
+          {
+            "value": "top-right",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__3.label"
+          },
+          {
+            "value": "middle-left",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__4.label"
+          },
+          {
+            "value": "middle-center",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__5.label"
+          },
+          {
+            "value": "middle-right",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__6.label"
+          },
+          {
+            "value": "bottom-left",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__7.label"
+          },
+          {
+            "value": "bottom-center",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__8.label"
+          },
+          {
+            "value": "bottom-right",
+            "label": "t:sections.image-banner.settings.desktop_content_position.options__9.label"
+          }
+        ],
+        "default": "middle-left",
+        "label": "t:sections.image-banner.settings.desktop_content_position.label"
+      },
+      {
+        "type": "select",
+        "id": "desktop_content_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:sections.image-banner.settings.desktop_content_alignment.options__1.label"
+          },
+          {
+            "value": "center",
+            "label": "t:sections.image-banner.settings.desktop_content_alignment.options__2.label"
+          },
+          {
+            "value": "right",
+            "label": "t:sections.image-banner.settings.desktop_content_alignment.options__3.label"
+          }
+        ],
+        "default": "left",
+        "label": "t:sections.image-banner.settings.desktop_content_alignment.label"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-1"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.image-banner.settings.mobile.content"
+      },
+      {
+        "type": "select",
+        "id": "mobile_content_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "t:sections.image-banner.settings.mobile_content_alignment.options__1.label"
+          },
+          {
+            "value": "center",
+            "label": "t:sections.image-banner.settings.mobile_content_alignment.options__2.label"
+          },
+          {
+            "value": "right",
+            "label": "t:sections.image-banner.settings.mobile_content_alignment.options__3.label"
+          }
+        ],
+        "default": "center",
+        "label": "t:sections.image-banner.settings.mobile_content_alignment.label"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 50
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "limit":3,
+        "name": "t:sections.sub-banner.blocks.image.name",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "t:sections.sub-banner.blocks.image.settings.image.label"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "default": "tormeti gold jewellery offer!",
+            "label": "t:sections.sub-banner.blocks.image.settings.title.label"
+          },
+          {
+            "type": "text",
+            "id": "sub_title",
+            "default": "Let’s you discover your inner Beauty",
+            "label": "t:sections.sub-banner.blocks.image.settings.sub_title.label"
+          },
+          {
+            "type" :"text",
+            "id":"button_label",
+            "label":"t:sections.sub-banner.blocks.image.settings.button_label.label"
+          },
+          {
+            "type" :"url",
+            "id":"button_url",
+            "label":"t:sections.sub-banner.blocks.image.settings.button_url.label"
+          },
+          {
+            "type": "select",
+            "id": "button_style",
+            "label": "t:sections.slideshow.blocks.slide.settings.button_style.label",
+            "options": [
+              {
+                "value": "link",
+                "label": "t:sections.slideshow.blocks.slide.settings.button_style.options__1.label"
+              },
+              {
+                "value": "outline",
+                "label": "t:sections.slideshow.blocks.slide.settings.button_style.options__2.label"
+              },
+              {
+                "value": "solid",
+                "label": "t:sections.slideshow.blocks.slide.settings.button_style.options__3.label"
+              }
+            ],
+            "default": "solid"
+          },
+          {
+            "type" :"color",
+            "id":"text_color",
+            "default": "#000",
+            "label":"t:sections.sub-banner.blocks.image.settings.text_color.label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.sub-banner.presets.name",
+        "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

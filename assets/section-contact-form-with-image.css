@@ -1,0 +1,176 @@
+.contact-page-with-img .contact .desc.rte {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.contact-page-with-img .contact .title {
+  margin-bottom: 2rem;
+}
+
+.contact-page-with-img .contact-main {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+.contact-page-with-img .contact-main .contact-img,
+.contact-page-with-img .contact-main .page-width--narrow {
+  width: calc(50% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+}
+
+.contact-page-with-img .contact-main .contact-img .contact-img-inner img {
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.contact-page-with-img .contact-main .title:before {
+  margin: 0 0 auto;
+}
+
+.contact-page-with-img .contact-main .title:after {
+  margin: 10px 0 auto;
+}
+
+.contact-page-with-img .contact-main .title {
+  text-align: left;
+}
+
+.contact-page-with-img .contact-main .contact__button {
+  text-align: left;
+}
+
+/* .contact-main .contact__button .button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+} */
+
+.contact-page-with-img .contact-main .contact-img-inner .placeholder-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.contact-page-with-img .contact-img-inner img { 
+  border-radius: var(--media-radius);
+}
+
+.contact-main-page .page-width {
+  max-width: 1230px
+}
+
+.contact-page-with-img .contact-main .sub-title,
+.contact-page-with-img .contact-main-page .mobile .sub-title {
+  border-radius: 5px;
+  padding: 2px 10px;
+  text-align: left;
+  font-size: 15px;
+  display: inline-block;
+  letter-spacing: .5px;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.contact-page-with-img .contact-main .field__input {
+  padding-left: 0;
+  border-bottom: 1px solid rgba(var(--color-foreground), .50);
+  border-radius: 0;
+}
+
+.contact-page-with-img .contact-main .field__label {
+  left: calc(var(--inputs-border-width) + 0rem);
+}
+
+.contact-page-with-img .contact-main .field:after {
+  box-shadow: none;
+}
+
+.contact-page-with-img .contact-main .field__input:focus {
+  box-shadow: none;
+  border-bottom: 2px solid rgba(var(--color-foreground));
+}
+
+.contact-page-with-img .contact__button .button:not([disabled]):hover:after {
+  box-shadow: none;
+}
+
+.contact-page-with-img .contact-main .contact {
+  text-align: left;
+}
+
+.contact-page-with-img .field__input:focus,
+.contact-page-with-img .field__input:not(:placeholder-shown) {
+  padding: 2rem 1.8rem 0.5rem 0;
+}
+
+@media screen and (min-width: 990px) {
+  .contact-page-with-img .contact-main-page .mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .contact-page-with-img .contact-main {
+    display: flex;
+    gap: 30px;
+    flex-direction: column-reverse;
+  }
+
+  .contact-page-with-img .contact-main .contact-img,
+  .contact-page-with-img .contact-main .page-width--narrow {
+    width: 100%;
+    max-width: 100%;
+    order: 2;
+  }
+
+  .contact-page-with-img .contact-main .contact-img .contact-img-inner {
+    padding-left: 2rem; 
+    padding-right: 2rem;
+  }
+
+  .contact-page-with-img .contact-main .title, .contact-page-with-img .contact-main .contact__button,
+  .contact-page-with-img .contact .desc.rte {
+    text-align: center;
+  }
+
+  .contact-page-with-img .contact-main .title {
+    font-size: 2.6rem;
+  }
+
+  .contact-page-with-img .page-width--narrow {
+    padding: 0 2rem;
+  }
+
+  .contact-page-with-img .contact-main .contact {
+    text-align: center;
+    order: 1;
+  }
+
+  .contact-page-with-img .contact-main .desktop {
+    display: none;
+  }
+
+  .contact-page-with-img .contact-main-page .mobile {
+    display: block;
+    padding: 0 2rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .contact-page-with-img .contact .desc.rte {
+    margin-bottom: 2rem;
+  }
+
+  .contact-page-with-img .contact-main .title {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-page-with-img .contact-main .title {
+    font-size: 2.2rem;
+  }
+  .contact-page-with-img .contact-main .contact-img .contact-img-inner, .contact-page-with-img .page-width--narrow {
+    padding: 0; 
+  }
+}

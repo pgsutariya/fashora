@@ -1,0 +1,129 @@
+.consulting-service {
+  z-index: 1;
+}
+
+.consulting-service__wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.consulting-service:not(.consulting-service--full-width) .consulting-service__wrapper {
+  margin: auto;
+  width: calc(100% - 8rem / var(--font-body-scale));
+}
+
+.consulting-service__blocks {
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .consulting-service__wrapper {
+    width: 100%;
+  }
+
+  .consulting-service__wrapper--left {
+    justify-content: flex-start;
+  }
+
+  .consulting-service__wrapper--right {
+    justify-content: flex-end;
+  }
+
+  .consulting-service__blocks {
+    max-width: 50rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .consulting-service__blocks {
+    max-width: 74rem;
+  }
+}
+
+.consulting-service__blocks * {
+  overflow-wrap: break-word;
+}
+
+.consulting-service__blocks > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.consulting-service__blocks > * + * {
+  margin-top: 2rem;
+}
+
+.consulting-service__blocks > * + a {
+  margin-top: 3rem;
+}
+
+.consulting-service__buttons {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 45rem;
+  word-break: break-word;
+  margin-top: 4.6rem;
+}
+
+.consulting-service__buttons--multiple > * {
+  flex-grow: 1;
+  min-width: 22rem;
+}
+
+.consulting-service__buttons + .consulting-service__buttons {
+  margin-top: 1rem;
+}
+
+.consulting-service__blocks.left .consulting-service__buttons {
+  justify-content: flex-start;
+}
+
+.consulting-service__blocks.right .consulting-service__buttons {
+  justify-content: flex-end;
+}
+
+.consulting-service-wrapper {
+  background: #ededed;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.consulting-service-wrapper .consulting-service {
+  --page-width: 121rem;    
+  border-radius: 0.8rem;
+}
+
+.consulting-service .consulting-service__blocks .consulting-service__buttons .button {
+  min-width: calc(27.4rem + var(--buttons-border-width) * 2);
+  min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+}
+
+.consulting-service .consulting-service__blocks .consulting-service__text {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.2; 
+  letter-spacing: 0.3px;
+  margin-top: 1.5rem;
+}
+
+
+@media screen and (max-width: 989px) {
+  .consulting-service .consulting-service__blocks .consulting-service__text {
+    font-size: 1.8rem;
+  }
+  .consulting-service__buttons {
+    margin-top: 3.6rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .consulting-service .consulting-service__blocks .consulting-service__text {
+    font-size: 1.6rem;
+  }
+  .consulting-service__buttons {
+    margin-top: 2.6rem;
+  }
+}

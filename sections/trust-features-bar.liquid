@@ -1,0 +1,172 @@
+{{ 'section-trust-features-bar.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #trust-bar-{{ section.id }}.trust-bar-wrapper {
+    background-color: {{ section.settings.bg_color }};
+    border-top: 1px solid {{ section.settings.border_color }};
+    border-bottom: 1px solid {{ section.settings.border_color }};
+    padding-inline: 1.5rem;
+  }
+
+  #trust-bar-{{ section.id }}.trust-bar-wrapper .trust-item img {
+    width: {{ section.settings.icon_width }}px;
+  }
+
+  #trust-bar-{{ section.id }}.trust-bar-wrapper .trust-item span {
+    color: {{ section.settings.text_color }};
+  }
+
+  #trust-bar-{{ section.id }}.trust-bar-wrapper .trust-item:not(:last-child):after {
+    background-color: {{ section.settings.column_border_color }};
+  }
+  
+{%- endstyle -%}
+
+<div id="trust-bar-{{ section.id }}" class="trust-bar-wrapper section-{{ section.id }}-padding">
+  <div class="trust-bar-container">
+    
+    {%- for block in section.blocks -%}
+      <div class="trust-item" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <img src="{{ block.settings.image | image_url: width: 100 }}" 
+               alt="{{ block.settings.text | escape }}"
+               loading="lazy"
+               width="{{ section.settings.icon_width }}"
+               height="auto">
+        {%- endif -%}
+        <span>{{ block.settings.text }}</span>
+      </div>
+    {%- endfor -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.trust_features_bar.name",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "t:sections.trust_features_bar.settings.bg_color.label",
+      "default": "#EDEDED"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "t:sections.trust_features_bar.settings.border_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "column_border_color",
+      "label": "t:sections.trust_features_bar.settings.column_border_color.label",
+      "default": "#BFBFBF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.trust_features_bar.settings.text_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "icon_width",
+      "min": 20,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.trust_features_bar.settings.icon_width.label",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 12
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.trust_features_bar.blocks.column.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.trust_features_bar.blocks.column.settings.text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.trust_features_bar.presets.name",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Free Shipping"
+          } 
+        },
+        { 
+          "type": "feature",
+          "settings": { 
+            "text": "Money Back Guarantee"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Quick & Easy Returns"
+          }
+        },
+        { 
+          "type": "feature",
+          "settings": { 
+            "text": "24/7 Customer Support"
+          } 
+        },
+        { 
+          "type": "feature",
+          "settings": {
+            "text": "Secure Payments"
+          } 
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

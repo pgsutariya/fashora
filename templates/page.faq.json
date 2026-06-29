@@ -1,0 +1,312 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-73991b54-b71b-4542-bbab-4c6d3a90c403",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "parallax_MU48pr": {
+      "type": "parallax",
+      "settings": {
+        "parallax_image": "shopify://shop_images/parallax_banner_faqs_img_01.webp",
+        "mobile_parallax_image": "shopify://shop_images/parallax_banner_faqs_img_01_mv.webp",
+        "title": "FAQ'S",
+        "sub_title": "",
+        "button_label": "",
+        "button_link": "",
+        "text_color": "#ffffff",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_m8K4rw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MgB7JD": {
+          "type": "heading",
+          "settings": {
+            "heading": "HAVE QUESTIONS? WE'VE GOT ANSWERS!",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MgB7JD"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_class": "rc_faq_page",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 60
+      }
+    },
+    "cb435de1-8958-455d-8843-8a9ef3413466": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_heading_FyXXji": {
+          "type": "collapsible_heading",
+          "settings": {
+            "heading": "SHIPPING INFORMATION"
+          }
+        },
+        "template--20640852508978__cb435de1-8958-455d-8843-8a9ef3413466-collapsible_row-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long will it take to get my order?",
+            "icon": "none",
+            "row_content": "<p>It takes 2-4 business days for us to process your order once you have submitted it. Once it’s processed, it will then ship out and take another 5-10 business days to deliver depending on what state you live in and which warehouse we ship your items out. For more info on our shipping policy, read it here: Shipping Policy.</p>",
+            "page": ""
+          }
+        },
+        "template--20640852508978__cb435de1-8958-455d-8843-8a9ef3413466-collapsible_row-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why has my order been in the status of “shipment information sent to FedEx (or whatever courier companies)” for so long?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel tellus bibendum semper nulla molestie facilisis amet, duis pellentesque. Donec egestas neque, vulputate tincidunt nunc, nunc, faucibus tristique enim.</p>",
+            "page": ""
+          }
+        },
+        "template--20640852508978__cb435de1-8958-455d-8843-8a9ef3413466-collapsible_row-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you ship to Puerto Rico or outside the United States?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel tellus bibendum semper nulla molestie facilisis amet, duis pellentesque. Donec egestas neque, vulputate tincidunt nunc, nunc, faucibus tristique enim.</p>",
+            "page": ""
+          }
+        },
+        "template--20640852508978__cb435de1-8958-455d-8843-8a9ef3413466-collapsible_row-4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where do you ship from?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel tellus bibendum semper nulla molestie facilisis amet, duis pellentesque. Donec egestas neque, vulputate tincidunt nunc, nunc, faucibus tristique enim.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_UYNWVy": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I just placed an order today and need to make a change on my order, can I?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel tellus bibendum semper nulla molestie facilisis amet, duis pellentesque. Donec egestas neque, vulputate tincidunt nunc, nunc, faucibus tristique enim.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_heading_FyXXji",
+        "template--20640852508978__cb435de1-8958-455d-8843-8a9ef3413466-collapsible_row-1",
+        "template--20640852508978__cb435de1-8958-455d-8843-8a9ef3413466-collapsible_row-2",
+        "template--20640852508978__cb435de1-8958-455d-8843-8a9ef3413466-collapsible_row-3",
+        "template--20640852508978__cb435de1-8958-455d-8843-8a9ef3413466-collapsible_row-4",
+        "collapsible_row_UYNWVy"
+      ],
+      "settings": {
+        "custom_class": "cc_faq_page",
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "color_scheme": "background-2",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "collapsible_content_tpcw7f": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_heading_hzz8kh": {
+          "type": "collapsible_heading",
+          "settings": {
+            "heading": "PRODUCT INFORMATION"
+          }
+        },
+        "collapsible_row_r8mifK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do your items have a product warranty?",
+            "icon": "none",
+            "row_content": "<p>It takes 2-4 business days for us to process your order once you have submitted it. Once it’s processed, it will then ship out and take another 5-10 business days to deliver depending on what state you live in and which warehouse we ship your items out. For more info on our shipping policy, read it here: Shipping Policy.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_heading_hzz8kh",
+        "collapsible_row_r8mifK"
+      ],
+      "settings": {
+        "custom_class": "cc_faq_page",
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "color_scheme": "background-2",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "collapsible_content_V3fBzD": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_heading_YyY3Ak": {
+          "type": "collapsible_heading",
+          "settings": {
+            "heading": "ORDERS AND RETURNS"
+          }
+        },
+        "collapsible_row_WXGTHX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I tried to use a discount code, but it didn’t work. Why can’t I use my code?",
+            "icon": "none",
+            "row_content": "<p>It takes 2-4 business days for us to process your order once you have submitted it. Once it’s processed, it will then ship out and take another 5-10 business days to deliver depending on what state you live in and which warehouse we ship your items out. For more info on our shipping policy, read it here: Shipping Policy.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_gHCgji": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use a discount code on a previous order?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel tellus bibendum semper nulla molestie facilisis amet, duis pellentesque. Donec egestas neque, vulputate tincidunt nunc, nunc, faucibus tristique enim.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dftKzE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "If I want to return the item, what should I do?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel tellus bibendum semper nulla molestie facilisis amet, duis pellentesque. Donec egestas neque, vulputate tincidunt nunc, nunc, faucibus tristique enim.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_mPmjDY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When is Fashora Customer Service available?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel tellus bibendum semper nulla molestie facilisis amet, duis pellentesque. Donec egestas neque, vulputate tincidunt nunc, nunc, faucibus tristique enim.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_fbAemT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I get assembly assistance?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel tellus bibendum semper nulla molestie facilisis amet, duis pellentesque. Donec egestas neque, vulputate tincidunt nunc, nunc, faucibus tristique enim.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_heading_YyY3Ak",
+        "collapsible_row_WXGTHX",
+        "collapsible_row_gHCgji",
+        "collapsible_row_dftKzE",
+        "collapsible_row_mPmjDY",
+        "collapsible_row_fbAemT"
+      ],
+      "settings": {
+        "custom_class": "cc_faq_page",
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "color_scheme": "background-2",
+        "container_color_scheme": "background-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "consulting_service_WUW6wg": {
+      "type": "consulting-service",
+      "blocks": {
+        "heading_tibzM7": {
+          "type": "heading",
+          "settings": {
+            "heading": "CONSULTING SERVICE",
+            "heading_size": "h1"
+          }
+        },
+        "text_hBxLmz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We've shared some of our most frequently asked questions to help you out!</p>"
+          }
+        },
+        "button_rFM4QH": {
+          "type": "button",
+          "settings": {
+            "button_label": "IMMEDIATELY CONSULT",
+            "button_link": "#",
+            "button_style_1": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tibzM7",
+        "text_hBxLmz",
+        "button_rFM4QH"
+      ],
+      "name": "Consulting service",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-8f1d1a37-0f2c-402b-bc81-4bf61676837c",
+        "full_width": true,
+        "margin_top": 40,
+        "margin_bottom": 100,
+        "padding_top": 65,
+        "padding_bottom": 63
+      }
+    }
+  },
+  "order": [
+    "main",
+    "parallax_MU48pr",
+    "rich_text_m8K4rw",
+    "cb435de1-8958-455d-8843-8a9ef3413466",
+    "collapsible_content_tpcw7f",
+    "collapsible_content_V3fBzD",
+    "consulting_service_WUW6wg"
+  ]
+}

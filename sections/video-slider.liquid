@@ -1,0 +1,520 @@
+{{ 'video-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+{% render 'swiper-assets' %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<div id="video-slider-{{ section.id }}" class="video-slider color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding {% if section.settings.layout == 'grid' %} page-width {% else %} full-width{% endif %}">
+    {% if section.settings.title != blank %}
+      <div class="title-wrapper title-wrapper--no-top-margin">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h2>
+        <div class="sub-text {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {{ section.shopify_attributes }}{% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}>
+          {{ section.settings.sub_text }}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="video-slider-wrapper">
+      <div class="video-slider-content swiper-container">
+        <div id="Slider-{{ section.id }}" class="video-slider-list swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="video-slider-list-item swiper-slide">
+
+              <div class="instagram-top">
+                <div class="bottom-contant-main">
+                  {% if block.settings.instagram_img != blank %}
+                    <div class="instagram-img">
+                      <img src="{{ block.settings.instagram_img | image_url }}" width="" height="" loading="lazy" alt="{{ block.settings.instagram_img.alt | default: block.settings.instagram_name }}" />
+                    </div>
+                  {% else %}
+                    <div class="instagram-text">
+                      {{ block.settings.instagram_name | slice: 0 }}
+                    </div>
+                  {% endif %}
+                </div>
+                <div class="instagram-author">
+                  <div class="h3">{{ block.settings.instagram_name | escape }}</div>
+                </div>
+              </div>
+
+              {% if block.settings.image_video == 'image' %}
+                {%- if block.settings.image != blank -%}
+                  {%- if block.settings.image_behavior == 'ambient' or block.settings.image_behavior == 'zoom-in' -%}
+                    {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
+                    {%- capture sizes -%}
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
+                (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
+                {%- endcapture -%}
+                  {%- else -%}
+                    {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+                    {%- capture sizes -%}
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+                {%- endcapture -%}
+                  {%- endif -%}
+                  {%- liquid 
+                    assign vid_img_alt = block.settings.image.alt
+                    if block.settings.image.alt == blank
+                      assign vid_img_alt = 'Video Media ' | append: forloop.index
+                    endif
+                  -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1500
+                    | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority, alt: vid_img_alt
+                  }}
+                {%- else -%}
+                  {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              {% else %}
+                {%- liquid
+                  assign video_alt = block.settings.video.alt
+                  assign alt = 'blocks.video.load_video' | t: description: video_alt | escape
+                  assign poster = block.settings.cover_image
+
+                  if block.settings.video != null
+                    assign ratio_diff = block.settings.video.aspect_ratio | minus: poster.aspect_ratio | abs
+                    if ratio_diff < 0.01 and ratio_diff > 0
+                      assign fix_ratio = true
+                    endif
+                  endif
+                -%}
+                <div
+                  class="video-section__media deferred-media no-js-hidden gradient global-media-settings{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  data-media-id="{{ video_id }}"
+                  style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
+                >
+                  <div>
+                    {% comment %} {{
+                      block.settings.video
+                      | video_tag:
+                        image_size: 'master',
+                        autoplay: true,
+                        loop: block.settings.enable_video_looping,
+                        controls: false,
+                        muted: true,
+                        playsinline: ''
+                    }} {% endcomment %}
+                    {% capture video_element %}
+                      {{ block.settings.video | video_tag: image_size: 'master', autoplay: true, loop: block.settings.enable_video_looping, controls: false, muted: true, playsinline: '', preload: 'none', aria-hidden: true }}
+                    {% endcapture %}
+                    {% if section.index > 1 %}
+                      {% comment %} make poster lazy {% endcomment %}
+                      {% assign video_element = video_element | replace: '<img', '<img loading="lazy" class="lazyload"' %}
+                    {% endif %}
+                    {{ video_element }}
+                  </div>
+                </div>
+              {% endif %}
+
+              <div class="icon-links">
+                <a href="{{ block.settings.instagram_link }}" class="instagram_link" aria-label="See more at Instagram!">
+                  {{- 'icon-instagram.svg' | inline_asset_content -}}
+                </a>
+                <a href="#" class="instagram_link js-native-share" data-share-url="{{ block.settings.share_link }}" data-share-title="Check out this link!" aria-label="Check out this link!" {{ block.shopify_attributes }}>
+                  {{- 'icon-paper-plane.svg' | inline_asset_content -}}
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% comment %}
+      <div class="slider-buttons">
+        <div class="swiper-button-prev slider-button--prev swiper-button-prev-{{ section.id }}">{{ 'icon-caret.svg' | inline_asset_content }}</div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next slider-button--next swiper-button-next-{{ section.id }}">{{ 'icon-caret.svg' | inline_asset_content }}</div>
+      </div>
+      {% endcomment %}
+      {%- if section.settings.button_label != blank -%}
+        <div class="view-all-main">
+          <a
+            {% if section.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+            class="view-all-link"
+          >
+            {{- section.settings.button_label | escape -}}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+          
+<script type="text/javascript" defer>
+  $(document).ready(function () {
+    window.SpeedoFashoraTheme.waitForSwiper(function() {
+      var slider = new Swiper('#video-slider-{{ section.id }} .video-slider-content', {
+        loop: true,
+        loopAdditionalSlides: 5,
+        slidesPerView: 5,
+        centeredSlides: true,
+        slideToClickedSlide: true,
+
+        breakpoints: {
+          1440: {
+            slidesPerView: 4.5,
+            spaceBetween: 110
+          },
+          1280: {
+            slidesPerView: 4,
+            spaceBetween: 90
+          },
+          1170: {
+            slidesPerView: 4,
+            spaceBetween: 70
+          },
+          990: {
+            slidesPerView: 3.2,
+            spaceBetween: 50
+          },
+          750: { 
+            slidesPerView: 3.2,
+            spaceBetween: 35
+          },
+          480: {
+            slidesPerView: 1.8,
+            spaceBetween: 35
+          },
+          0: {
+            slidesPerView: 1.4,
+            spaceBetween: 25
+          }
+        },
+
+        navigation: {
+          nextEl: '.swiper-button-next-{{ section.id }}',
+          prevEl: '.swiper-button-prev-{{ section.id }}',
+        },
+
+        on: {
+          init: function () {
+            playActiveVideo(this);
+          },
+          slideChangeTransitionEnd: function () {
+            playActiveVideo(this);
+          }
+        }
+      });
+
+      // When clicking any slide → go to clicked slide smoothly
+      slider.on('click', function (swiper) {
+        if (swiper.clickedIndex !== undefined) {
+          swiper.slideTo(swiper.clickedIndex);
+        }
+      });
+    });
+  });
+
+  // FUNCTION: Play active slide video only
+  {% comment %} function playActiveVideo(swiper) {
+    // Pause all videos
+    swiper.slides.forEach(function (slide) {
+      let video = slide.querySelector('video');
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+
+    // Play video on real active slide
+    let realIndex = swiper.realIndex;
+
+    swiper.slides.forEach(function (slide) {
+      if (slide.dataset.swiperSlideIndex == realIndex) {
+        let video = slide.querySelector('video');
+        if (video) {
+          video.play();
+        }
+      }
+    });
+  } {% endcomment %}
+  function playActiveVideo(swiper) {
+    // Pause all videos and catch any promise rejections
+    swiper.slides.forEach(function (slide) {
+      var video = slide.querySelector('video');
+      if (video) {
+        // video.pause() is synchronous, no promise needed
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+
+    // Find the real active slide and play its video safely
+    var realIndex = swiper.realIndex;
+
+    swiper.slides.forEach(function (slide) {
+      if (slide.dataset.swiperSlideIndex == realIndex) {
+        var video = slide.querySelector('video');
+        if (video) {
+          // The play() method returns a Promise – we MUST catch it
+          var playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(function(error) {
+              // Silently ignore – the browser blocked autoplay, 
+              // which is perfectly normal. No console error.
+            });
+          }
+        }
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const shareBtns = document.querySelectorAll('.js-native-share');
+
+    shareBtns.forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault(); 
+
+        const urlToShare = btn.getAttribute('data-share-url');
+
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: 'Check out this post!',
+              text: 'I found this amazing content.',
+              url: urlToShare 
+            });
+            console.log('Content shared successfully');
+          } catch (err) {
+            console.error('Error sharing:', err);
+          }
+        }
+        else {
+          if (urlToShare) {
+              window.open(urlToShare, '_blank');
+          } else {
+              alert('Sharing is not supported on this browser.');
+          }
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "t:sections.new_instagram.name",
+    "class": "section section-new_instagram",
+    "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full_bleed",
+            "label": "t:sections.slideshow.settings.layout.options__1.label"
+          },
+          {
+            "value": "grid",
+            "label": "t:sections.slideshow.settings.layout.options__2.label"
+          }
+        ],
+        "default": "full_bleed",
+        "label": "t:sections.slideshow.settings.layout.label"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "default": "Multicolumn",
+        "label": "t:sections.multicolumn.settings.title.label"
+      },
+      {
+        "type": "richtext",
+        "id": "sub_text",
+        "default": "<p>Join our fashion journey on Instagram where elegance meets everyday style. Discover how our followers redefine trends with effortless charm, inspiring you to express your own unique fashion story.</p>",
+        "label": "Sub text"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h0",
+            "label": "t:sections.all.heading_size.options__3.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_video_looping",
+        "label": "t:sections.video.settings.enable_video_looping.label",
+        "default": false
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-1"
+      },
+      {
+        "type": "header",
+        "content": "View All Button"
+      },        
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "t:sections.rich-text.blocks.buttons.settings.button_label_1.default",
+        "label": "t:sections.rich-text.blocks.buttons.settings.button_label_1.label",
+        "info": "t:sections.rich-text.blocks.buttons.settings.button_label_1.info"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "t:sections.rich-text.blocks.buttons.settings.button_link_1.label"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Column",
+        "settings": [
+          {
+            "type": "select",
+            "id": "image_video",
+            "options": [
+              {
+                "value": "image",
+                "label": "t:sections.new_instagram.blocks.column.settings.image_video.options__1.label"
+              },
+              {
+                "value": "video",
+                "label": "t:sections.new_instagram.blocks.column.settings.image_video.options__2.label"
+              }
+            ],
+            "default": "image",
+            "label": "t:sections.new_instagram.blocks.column.settings.image_video.label"
+          }, 
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "t:sections.new_instagram.blocks.column.settings.image.label",
+            "visible_if": "{{ block.settings.image_video == 'image' }}"
+          },
+          {
+            "type": "video",
+            "id": "video",
+            "label": "t:sections.new_instagram.blocks.column.settings.video.label",
+            "visible_if": "{{ block.settings.image_video == 'video' }}"
+          },
+          {
+            "type": "image_picker",
+            "id": "cover_image",
+            "label": "t:sections.new_instagram.blocks.column.settings.cover_image.label",
+            "visible_if": "{{ block.settings.image_video == 'video' }}"
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_video_looping",
+            "label": "t:sections.new_instagram.blocks.column.settings.enable_video_looping.label",
+            "visible_if": "{{ block.settings.image_video == 'video' }}",
+            "default": false
+          },
+          {
+            "type": "image_picker",
+            "id": "instagram_img",
+            "label": "t:sections.new_instagram.blocks.column.settings.instagram_img.label"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "instagram_name",
+            "label": "t:sections.new_instagram.blocks.column.settings.instagram_name.label"
+          },
+          {
+            "type": "url",
+            "id": "instagram_link",
+            "label": "t:sections.new_instagram.blocks.column.settings.instagram_link.label"
+          },
+          {
+            "type": "url",
+            "id": "share_link",
+            "label": "t:sections.new_instagram.blocks.column.settings.share_link.label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.new_instagram.presets.name",
+        "blocks": [
+          {
+            "type": "column"
+          },
+          {
+            "type": "column"
+          },
+          {
+            "type": "column"
+          },
+          {
+            "type": "column"
+          },
+          {
+            "type": "column"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,284 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement_bar_fHNTbB": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_ekM8VQ": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free shipping & returns over $50",
+            "link": ""
+          }
+        },
+        "announcement_UJCcNQ": {
+          "type": "announcement",
+          "settings": {
+            "text": "Join our email list and receive 20% off your first order.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_ekM8VQ",
+        "announcement_UJCcNQ"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "color_scheme": "background-2",
+        "show_line_separator": false,
+        "show_social": false,
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "megamenu_meqE9f": {
+          "type": "megamenu",
+          "settings": {
+            "parent_link": "Shop All",
+            "hide_default_menu": "False",
+            "custom_mega_menu_columns": 6,
+            "menu_layout": "full_bleed",
+            "mega_menu_bkg_color": "#ededed",
+            "mega_menu_text_color": "#101010",
+            "mega_menu_border_radius": 6,
+            "heading_alignment": "left",
+            "menu_item_type1": "show_image_with_text",
+            "image1": "shopify://shop_images/Mega_manu-1.webp",
+            "linklist1": "",
+            "collection1": "",
+            "product1": "",
+            "title1": "Sweaters",
+            "content1": "",
+            "btntitle1": "",
+            "btnurl1": "shopify://collections/sweaters",
+            "menu_item_type2": "show_image_with_text",
+            "image2": "shopify://shop_images/Mega_manu-2.webp",
+            "linklist2": "",
+            "collection2": "",
+            "product2": "",
+            "title2": "Jackets & Coats",
+            "content2": "",
+            "btntitle2": "",
+            "btnurl2": "shopify://collections/jackets-coats",
+            "menu_item_type3": "show_image_with_text",
+            "image3": "shopify://shop_images/Mega_manu-3.webp",
+            "linklist3": "",
+            "collection3": "",
+            "product3": "",
+            "title3": "Hoodies",
+            "content3": "",
+            "btntitle3": "",
+            "btnurl3": "shopify://collections/hoodies",
+            "menu_item_type4": "show_image_with_text",
+            "image4": "shopify://shop_images/Mega_manu-4.webp",
+            "linklist4": "",
+            "collection4": "",
+            "product4": "",
+            "title4": "Goggles",
+            "content4": "",
+            "btntitle4": "",
+            "btnurl4": "shopify://collections/goggles",
+            "menu_item_type5": "show_image_with_text",
+            "image5": "shopify://shop_images/Mega_manu-5.webp",
+            "linklist5": "",
+            "collection5": "",
+            "product5": "",
+            "title5": "Sneakers",
+            "content5": "",
+            "btntitle5": "",
+            "btnurl5": "shopify://collections/sneakers",
+            "menu_item_type6": "show_image_with_text",
+            "image6": "shopify://shop_images/Mega_manu-6.webp",
+            "linklist6": "",
+            "collection6": "",
+            "product6": "",
+            "title6": "Travel Bags",
+            "content6": "",
+            "btntitle6": "",
+            "btnurl6": "shopify://collections/travel-bags",
+            "menu_item_type7": "show_image_with_text",
+            "linklist7": "",
+            "collection7": "",
+            "product7": "",
+            "title7": "",
+            "content7": "",
+            "btntitle7": "",
+            "btnurl7": "",
+            "menu_item_type8": "show_image_with_text",
+            "linklist8": "",
+            "collection8": "",
+            "product8": "",
+            "title8": "",
+            "content8": "",
+            "btntitle8": "",
+            "btnurl8": "",
+            "menu_item_type9": "show_image_with_text",
+            "linklist9": "",
+            "collection9": "",
+            "product9": "",
+            "title9": "",
+            "content9": "",
+            "btntitle9": "",
+            "btnurl9": "",
+            "menu_item_type10": "show_image_with_text",
+            "linklist10": "",
+            "collection10": "",
+            "product10": "",
+            "title10": "",
+            "content10": "",
+            "btntitle10": "",
+            "btnurl10": ""
+          }
+        },
+        "custom_dropdown_megamenu_ky7a7f": {
+          "type": "custom_dropdown_megamenu",
+          "settings": {
+            "parent_link": "Shop By",
+            "hide_default_menu": "False",
+            "mega_menu_bkg_color": "#ededed",
+            "mega_menu_text_color": "#000000",
+            "mega_menu_border_radius": 0,
+            "image1": "shopify://shop_images/accordion-collections-1.webp",
+            "title1": "Shirts",
+            "sub_title1": "Formal wear",
+            "item1_url": "shopify://collections/shirts",
+            "image2": "shopify://shop_images/accordion-collections-2.webp",
+            "title2": "Dress",
+            "sub_title2": "Casual wear",
+            "item2_url": "shopify://collections/dress",
+            "image3": "shopify://shop_images/accordion-collections-3.webp",
+            "title3": "Tops",
+            "sub_title3": "Summer",
+            "item3_url": "shopify://collections/tops",
+            "image4": "shopify://shop_images/accordion-collections-4.webp",
+            "title4": "Bottom",
+            "sub_title4": "Casual wear",
+            "item4_url": "shopify://collections/bottom",
+            "image5": "shopify://shop_images/accordion-collections-5.webp",
+            "title5": "Belts",
+            "sub_title5": "Formal wear",
+            "item5_url": "shopify://collections/belts",
+            "image6": "shopify://shop_images/accordion-collections-6.webp",
+            "title6": "Wallets",
+            "sub_title6": "Casual wear",
+            "item6_url": "shopify://collections/wallets",
+            "title7": "",
+            "sub_title7": "",
+            "item7_url": "",
+            "title8": "",
+            "sub_title8": "",
+            "item8_url": "",
+            "title9": "",
+            "sub_title9": "Accessories wear",
+            "item9_url": "",
+            "title10": "",
+            "sub_title10": "",
+            "item10_url": ""
+          }
+        },
+        "advance_megamenu_mAxTfG": {
+          "type": "advance_megamenu",
+          "settings": {
+            "parent_link": "Collections",
+            "hide_default_menu": "False",
+            "mega_menu_bkg_color": "#efefef",
+            "mega_menu_text_color": "#000000",
+            "advance_mega_menu_left_side_bkg_color": "#f5f5f5",
+            "advance_mega_menu_product_bkg_color": "#efefef",
+            "mega_menu_border_radius": 6,
+            "collection_title1": "Men Collection",
+            "collection1": [
+              "t-shirts",
+              "shirts",
+              "jackets-coats",
+              "sneakers",
+              "goggles",
+              "belts"
+            ],
+            "collection_title2": "Women Collection",
+            "collection2": [
+              "dress",
+              "tops",
+              "bottom",
+              "bags",
+              "denim-jeans",
+              "jeans",
+              "socks"
+            ],
+            "collection_title3": "Best Seller",
+            "collection3": [
+              "best-sellers"
+            ],
+            "collection_title4": "New Arrival",
+            "collection4": [
+              "new-arrival"
+            ],
+            "collection_title5": "",
+            "collection5": [
+              "goggles"
+            ],
+            "collection_title6": "Accessories",
+            "collection6": [
+              "accessories"
+            ],
+            "collection_view_all": "Shop All",
+            "collection_view_all_url": "shopify://collections/all",
+            "collection_vise_btn_text": "View All"
+          }
+        }
+      },
+      "block_order": [
+        "megamenu_meqE9f",
+        "custom_dropdown_megamenu_ky7a7f",
+        "advance_megamenu_mAxTfG"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "custom_mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": false,
+        "transparent_header": false,
+        "transparent_background": "transparent",
+        "content_color": "#000000",
+        "color_scheme": "scheme-5c2f6738-90ad-435b-abca-0c0c149d151a",
+        "menu_color_scheme": "scheme-222d991d-f162-4e94-be7f-859dba76d3ae",
+        "social_icon_bg_color": "rgba(0,0,0,0)",
+        "social_icon_color": "#101010",
+        "social_icon_bg_hover_color": "rgba(0,0,0,0)",
+        "social_icon_hover_color": "#333333",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "show_social": false,
+        "enable_moremenu": false,
+        "more_menu_limit": 5,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 18,
+        "padding_bottom": 18
+      }
+    }
+  },
+  "order": [
+    "announcement_bar_fHNTbB",
+    "header"
+  ]
+}

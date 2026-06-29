@@ -1,0 +1,736 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "icon_with_text_RLarNY": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "image_left_content_left",
+            "icon_1": "newtruck",
+            "heading_1": "Fast Shipping",
+            "icon_2": "headphone",
+            "heading_2": "24/7 support",
+            "icon_3": "box",
+            "heading_3": "30 days return",
+            "icon_4": "none",
+            "heading_4": ""
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "984a1a06-3307-4e71-98cf-bb630178c506": {
+          "type": "viewer_count",
+          "settings": {
+            "viewer": true,
+            "viewer_text": "People are viewing this right now"
+          }
+        },
+        "d2b31d7d-ceba-4f79-bfb0-5d8858a6cbe1": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true,
+            "delivery_title": ", Delivery by",
+            "delivery_days": "10"
+          }
+        },
+        "f1d7e9a6-b6c1-48c1-ab28-eabef196c446": {
+          "type": "timer",
+          "settings": {
+            "timer_box": true,
+            "time": "29 December 2026 9:56:00",
+            "timer_bg_color": "#ededed",
+            "timer_text_color": "#000000",
+            "timer_border_color": "#3adf4b",
+            "timer_active_border_color": "linear-gradient(180deg, rgba(255, 23, 23, 1), rgba(14, 43, 255, 1) 100%)",
+            "timer_border_radius": 0,
+            "hurry_up_text": "Hurry up! Sales End In",
+            "days": "Days",
+            "hours": "Hours",
+            "minutes": "Min",
+            "seconds": "Sec"
+          }
+        },
+        "offer_img_HBbtbh": {
+          "type": "offer-img",
+          "settings": {
+            "image1": "shopify://shop_images/offer-1.png",
+            "image2": "shopify://shop_images/offer-2.png"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "d5e5e5b5-1d6d-4345-ac2a-b8cb118997cd": {
+          "type": "popup",
+          "settings": {
+            "text": "Size Guide",
+            "page": "size-guide"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "payment_icon_4cUFU4": {
+          "type": "payment-icon",
+          "settings": {}
+        },
+        "complementary_rx6yUk": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "make_collapsible_row": false,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 1,
+            "pagination_style": "dots",
+            "background_color": "#ffffff8f",
+            "image_ratio": "square",
+            "enable_quick_add": false
+          }
+        },
+        "icon_with_text_popup_rH9gP3": {
+          "type": "icon_with_text_popup",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "icon": "truck",
+            "content": "<p>Free shipping and returns available on all orders! We ship all US domestic orders within <strong>5-10 business days!</strong></p>",
+            "page": ""
+          }
+        },
+        "icon_with_text_popup_6UhFVU": {
+          "type": "icon_with_text_popup",
+          "settings": {
+            "heading": "Secure Payment",
+            "icon": "lock",
+            "content": "<p>Your payment is 100% secure. We use [payment gateway] to protect your personal and financial information.</p>",
+            "page": ""
+          }
+        },
+        "icon_with_text_popup_LWPL3t": {
+          "type": "icon_with_text_popup",
+          "disabled": true,
+          "settings": {
+            "heading": "Materials",
+            "icon": "leather",
+            "content": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>",
+            "page": ""
+          }
+        },
+        "09b4814e-0ad0-4d7a-bbc6-1b274bad4d17": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "EXTRA INFORMATION",
+            "icon": "question_mark",
+            "content": "<p>These tabs can be customized to contain any information you need - no app needed.</p>",
+            "page": ""
+          }
+        },
+        "df09ab3c-2ed7-4eec-8843-0d71c6262fc3": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "SHIPPING & RETURNS",
+            "icon": "truck",
+            "content": "<p>Free shipping and returns available on all orders! We ship all US domestic orders within <strong>5-10 business days!</strong></p>",
+            "page": ""
+          }
+        },
+        "e4393b7c-9476-49a9-bceb-a295d0bf7486": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "MATERIALS",
+            "icon": "leather",
+            "content": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "discount_coupon_HraYd3": {
+          "type": "discount_coupon",
+          "settings": {
+            "offer_title": "Get 15% Off Code : <strong>FLAT15 </strong>?",
+            "popup_title": "Discount details",
+            "popup_text_deatil": "<p>Don't forget to use the coupon code to get a free product with your first order!</p>",
+            "copy_text": "Copy Code",
+            "coupon_code": "FLAT15",
+            "popup_text": "<p>Copy the coupon code to receive a 15% discount.</p>"
+          }
+        },
+        "discount_coupon_jkCDBj": {
+          "type": "discount_coupon",
+          "settings": {
+            "offer_title": "Get 30% Off Code : <strong>FLAT30</strong> ?",
+            "popup_title": "Discount details",
+            "popup_text_deatil": "<p>Don't forget to use the coupon code to get a free product with your first order!</p>",
+            "copy_text": "Copy Code",
+            "coupon_code": "FLAT30",
+            "popup_text": "<p>Copy the coupon code to receive a 30% discount.</p>"
+          }
+        },
+        "discount_coupon_zAHgce": {
+          "type": "discount_coupon",
+          "settings": {
+            "offer_title": "Buy 2 Get 1 Code :<strong> FLAT300 </strong>?",
+            "popup_title": "Discount details",
+            "popup_text_deatil": "<p>Don't forget to use the coupon code to get a free product with your first order!</p>",
+            "copy_text": "Copy Code",
+            "coupon_code": "FLAT300",
+            "popup_text": "<p>Copy the coupon code to receive a buy 2 and get 1 free product.</p>"
+          }
+        },
+        "discount_coupon_TCx3qb": {
+          "type": "discount_coupon",
+          "settings": {
+            "offer_title": "Get ₹500 OFF Code : <strong>FLAT500</strong> ?",
+            "popup_title": "Discount details",
+            "popup_text_deatil": "<p>Don't forget to use the coupon code to get a free product with your first order!</p>",
+            "copy_text": "Copy Code",
+            "coupon_code": "FLAT500",
+            "popup_text": "<p>Copy the coupon code to receive a 500 rupees discount.</p>"
+          }
+        },
+        "information_block_HnAxT9": {
+          "type": "information_block",
+          "settings": {
+            "bkg_color": "#ededed",
+            "heading": "<strong>NEED HELP?</strong>",
+            "sub_heading": "Mon to Sat 10 AM to 5 PM",
+            "image_1": "shopify://shop_images/whatsapp-icon.png",
+            "heading_1": "<a href=\"#\" title=\"#\">Order on WhatsApp</a>",
+            "image_2": "shopify://shop_images/chat-icon.png",
+            "heading_2": "<a href=\"#\" title=\"#\">WhatsApp Chat: +91 1234567890</a>",
+            "image_3": "shopify://shop_images/email-icon.png",
+            "heading_3": "<a href=\"#\" title=\"#\">info.example@gmail.com</a>"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "icon_with_text_RLarNY",
+        "title",
+        "price",
+        "984a1a06-3307-4e71-98cf-bb630178c506",
+        "d2b31d7d-ceba-4f79-bfb0-5d8858a6cbe1",
+        "f1d7e9a6-b6c1-48c1-ab28-eabef196c446",
+        "offer_img_HBbtbh",
+        "variant_picker",
+        "d5e5e5b5-1d6d-4345-ac2a-b8cb118997cd",
+        "quantity_selector",
+        "buy_buttons",
+        "payment_icon_4cUFU4",
+        "complementary_rx6yUk",
+        "icon_with_text_popup_rH9gP3",
+        "icon_with_text_popup_6UhFVU",
+        "icon_with_text_popup_LWPL3t",
+        "09b4814e-0ad0-4d7a-bbc6-1b274bad4d17",
+        "df09ab3c-2ed7-4eec-8843-0d71c6262fc3",
+        "e4393b7c-9476-49a9-bceb-a295d0bf7486",
+        "share",
+        "discount_coupon_HraYd3",
+        "discount_coupon_jkCDBj",
+        "discount_coupon_zAHgce",
+        "discount_coupon_TCx3qb",
+        "information_block_HnAxT9"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "background-1",
+        "enable_section_bkg_color": false,
+        "left_bkg_color": "#f9f9f9",
+        "right_bkg_color": "#ffffff",
+        "add_to_cart_btn_bkg_color": "#000000",
+        "add_to_cart_btn_text_color": "#ffffff",
+        "discount_popup_heading": "Offers",
+        "discount_heading": "<strong>OFFER FOR TODAY</strong>",
+        "discount_bkg_color": "#fff",
+        "discount_text_color": "#008000",
+        "media_size": "small",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "thumbnail_postion": "verticle",
+        "thumbnail_image_radius": 10,
+        "verticle_position": "left",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "color_swatch_option": "color_option",
+        "swatch_image_radius": 50,
+        "sticky_atc_enable": true,
+        "sticky_atc_bkg_color": "#ffffff",
+        "sticky_atc_text_color": "#000000",
+        "sticky_atc_img_radius": 5,
+        "padding_top": 32,
+        "padding_bottom": 48
+      }
+    },
+    "172137309121bf68f7": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "79582f51-5736-4bff-b870-bba69393ad36": {
+      "type": "product-tab",
+      "blocks": {
+        "a0d527c7-90dd-49d4-b1ea-1404edf48fb6": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "heading_liquid": "",
+            "icon": "none",
+            "content": "",
+            "liquid_content": "{{ product.description }}",
+            "page": ""
+          }
+        },
+        "e976ee83-b842-472e-9af8-76220b5e4b2b": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Additional Information",
+            "heading_liquid": "",
+            "icon": "none",
+            "content": "<p>Maecenas sed enim ut sem viverra aliquet eget sit. Curabitur gravida arcu ac tortor. Duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Gravida neque convallis a cras. Adipiscing elit duis tristique sollicitudin nibh sit. Justo laoreet sit amet cursus sit amet. Neque vitae tempus quam pellentesque nec nam aliquam.</p><ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li>Nullam porttitor lorem ac purus semper, vitae finibus tellus vehicula.</li><li>Nam faucibus velit et libero auctor, at molestie metus pellentesque.</li></ul>",
+            "liquid_content": "",
+            "page": ""
+          }
+        },
+        "313a2685-db5d-4b49-81ab-55517588ec25": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping And Delivery",
+            "heading_liquid": "",
+            "icon": "none",
+            "content": "<ul><li><strong>Shipping:</strong><br/>⦁ Processing time usually takes 1 -2 business days.<br/>⦁ Delivery times may vary depending on the shipping distance.<br/><strong>Returns:</strong><br/>⦁ All products purchased online through store can be exchanged within 10 days with below mention conditions</li></ul>",
+            "liquid_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "a0d527c7-90dd-49d4-b1ea-1404edf48fb6",
+        "e976ee83-b842-472e-9af8-76220b5e4b2b",
+        "313a2685-db5d-4b49-81ab-55517588ec25"
+      ],
+      "settings": {
+        "class": "",
+        "custom_page_width": "1500",
+        "tab_style": "horizontal",
+        "color_scheme": "",
+        "tab_text_color": "#000000",
+        "active_tab_text_color": "#888888",
+        "active_tab_border_color": "#888888",
+        "padding_top": 50,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_f3YeUy": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_Ee6Tqz": {
+          "type": "caption",
+          "settings": {
+            "caption": "— Welcome To The Fashora",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_RUwxzB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fashion Collections For Top Holiday Gifts",
+            "heading_size": "h1"
+          }
+        },
+        "text_rfVpNT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Celebrate the magic of the holidays with our specially curated fashion collections! From statement-making evening wear to cozy, elevated essentials, each piece is designed to spark confidence, creativity, and endless festive style. Discover the season’s top holiday picks that make every moment brighter and every look unforgettable.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_axetg8": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections",
+            "button_style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "caption_Ee6Tqz",
+        "heading_RUwxzB",
+        "text_rfVpNT",
+        "button_axetg8"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "section_layout": "grid",
+        "class_name": "",
+        "image": "shopify://shop_images/Product-page-image.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_Ya3Wzj": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_WcA3XJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I place an order?",
+            "icon": "none",
+            "row_content": "<p>Simply browse our website, add your desired items to the cart, and proceed to checkout. Follow the instructions to complete your purchase.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Twy89e": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does shipping take?",
+            "icon": "none",
+            "row_content": "<p>Standard shipping takes 5-7 business days, while express shipping takes 2-3 business days. International shipping may vary by location.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bzke46": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy?",
+            "icon": "none",
+            "row_content": "<p>We accept returns within 30 days of delivery. Items must be unworn, unwashed, and in original packaging with tags attached. Sale items and final sale products are non-refundable.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Cd9RJN": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I initiate a return or exchange?",
+            "icon": "none",
+            "row_content": "<p>To request a return, visit our Returns Portal [insert link] or contact customer support. Follow the instructions to send back your item. For exchanges, specify the desired replacement item.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_HbDQf3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I find the right size?",
+            "icon": "none",
+            "row_content": "<p>Refer to our <strong>Size Guide</strong> on each product page. If you’re unsure, contact us for personalized sizing advice.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_WcA3XJ",
+        "collapsible_row_Twy89e",
+        "collapsible_row_bzke46",
+        "collapsible_row_Cd9RJN",
+        "collapsible_row_HbDQf3"
+      ],
+      "settings": {
+        "custom_class": "",
+        "caption": "",
+        "heading": "Faq's",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 48,
+        "padding_bottom": 100
+      }
+    },
+    "custom_announcement_bar_NXMafz": {
+      "type": "custom-announcement-bar",
+      "blocks": {
+        "announcement_qmmUMw": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free shipping on orders over £75",
+            "link": ""
+          }
+        },
+        "announcement_ykenpY": {
+          "type": "announcement",
+          "settings": {
+            "text": "10% OFF on all clothing",
+            "link": ""
+          }
+        },
+        "announcement_X8nmXx": {
+          "type": "announcement",
+          "settings": {
+            "text": "Returns extended to 60 days",
+            "link": ""
+          }
+        },
+        "announcement_qdUyCn": {
+          "type": "announcement",
+          "settings": {
+            "text": "SALE 20% off all. Use code SPEEDO",
+            "link": ""
+          }
+        },
+        "announcement_QKGpib": {
+          "type": "announcement",
+          "settings": {
+            "text": "Join our Email List and receive 20% off",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_qmmUMw",
+        "announcement_ykenpY",
+        "announcement_X8nmXx",
+        "announcement_qdUyCn",
+        "announcement_QKGpib"
+      ],
+      "settings": {
+        "auto_rotate": true,
+        "text_alignment": "center",
+        "color_scheme": "scheme-5c2f6738-90ad-435b-abca-0c0c149d151a",
+        "show_border": true,
+        "padding_top": 4,
+        "padding_bottom": 0
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h1",
+        "description": "",
+        "heading_alignment": "center",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 100,
+        "padding_bottom": 36
+      }
+    },
+    "custom_testimonial_errm4W": {
+      "type": "custom-testimonial",
+      "blocks": {
+        "testimonial_XTV7xa": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/author-1.png",
+            "image_rating_stars": "shopify://shop_images/5-star.svg",
+            "description": "<p>This product feels lightweight and absorbs quickly, leaving the skin soft and hydrated. With regular use, it enhances natural glow and improves texture.</p>",
+            "author": "<p>- Jenny Wilson</p>"
+          }
+        },
+        "testimonial_QqTTD3": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/author-2.png",
+            "image_rating_stars": "shopify://shop_images/5-star.svg",
+            "description": "<p>Provides long-lasting hydration without feeling greasy. Skin looks healthier and more radiant with regular use.</p>",
+            "author": "<p>- Kenji Tanaka</p>"
+          }
+        },
+        "testimonial_XCETDB": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/author-3.png",
+            "image_rating_stars": "shopify://shop_images/5-star.svg",
+            "description": "<p>A smooth and effective formula that delivers visible results without irritation. Perfect for daily use and suitable for all skin types.</p>",
+            "author": "<p>- Carlos Rodriguez</p>"
+          }
+        },
+        "testimonial_gkQJEC": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/author-4.png",
+            "image_rating_stars": "shopify://shop_images/5-star.svg",
+            "description": "<p>Leaves skin feeling refreshed, nourished, and radiant. The gentle formula works well even on sensitive skin.</p>",
+            "author": "<p>- Priya Singh</p>"
+          }
+        },
+        "testimonial_4CXUdQ": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/author-5.png",
+            "image_rating_stars": "shopify://shop_images/5-star.svg",
+            "description": "<p>The texture is smooth and lightweight, making it easy to apply. It leaves the skin feeling fresh, soft, and naturally glowing.</p>",
+            "author": "<p>- Sarah Miller</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_XTV7xa",
+        "testimonial_QqTTD3",
+        "testimonial_XCETDB",
+        "testimonial_gkQJEC",
+        "testimonial_4CXUdQ"
+      ],
+      "name": "t:sections.custom-testimonial.presets.name",
+      "settings": {
+        "page-width": "1020",
+        "full_width": false,
+        "heading": "What Clients Are Saying",
+        "heading_size": "h1",
+        "heading-alignment": "center",
+        "block-content-alignment": "center",
+        "image_ratio": "adapt",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_instagram_D3z3RX": {
+      "type": "custom-instagram",
+      "blocks": {
+        "image_K8j4LE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/instagram-img-1.webp",
+            "link": "#"
+          }
+        },
+        "image_EE9ahJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/instagram-img-2.webp",
+            "link": "#"
+          }
+        },
+        "image_WaAdyV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/instagram-img-3.webp",
+            "link": "#"
+          }
+        },
+        "image_6iYBBW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/instagram-img-4.webp",
+            "link": "#"
+          }
+        },
+        "image_TkcxBL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/instagram-img-5.webp",
+            "link": "#"
+          }
+        },
+        "image_bGiFGg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/instagram-img-6.webp",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "image_K8j4LE",
+        "image_EE9ahJ",
+        "image_WaAdyV",
+        "image_6iYBBW",
+        "image_TkcxBL",
+        "image_bGiFGg"
+      ],
+      "name": "t:sections.custom_instagram_img.presets.name",
+      "settings": {
+        "heading": "@FashiPassion",
+        "sub_title": "#follow on social media",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "image_ratio": "adapt",
+        "full_width": false,
+        "gap_items": false,
+        "color_scheme": "",
+        "columns_desktop": 6,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_desktop_slider": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "172137309121bf68f7",
+    "79582f51-5736-4bff-b870-bba69393ad36",
+    "image_with_text_f3YeUy",
+    "collapsible_content_Ya3Wzj",
+    "custom_announcement_bar_NXMafz",
+    "related-products",
+    "custom_testimonial_errm4W",
+    "custom_instagram_D3z3RX"
+  ]
+}

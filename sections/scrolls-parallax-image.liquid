@@ -1,0 +1,270 @@
+{{ 'section-scrolls-parallax-image.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .section-{{ section.id }}-track.scrolls-parallax-image {
+    background-color: {{ section.settings.bg_color }};
+    height: {{ section.settings.scroll_duration }}vh;
+    /* overflow: hidden; */
+    padding: 0 !important; 
+    margin-bottom: 0 !important;
+  }
+  .section-{{ section.id }}-track.scrolls-parallax-image .scrolls-parallax-image-content .scrolls-parallax-image-heading {
+    color: {{ section.settings.heading_color }};
+  }
+  .section-{{ section.id }}-track.scrolls-parallax-image .scrolls-parallax-image-content .scrolls-parallax-image-subheading {
+    color: {{ section.settings.subheading_color }};
+  }
+  .section-{{ section.id }}-track.scrolls-parallax-image .scrolls-parallax-image-content .scrolls-parallax-image-button {
+    background: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_color }};
+    border: 1px solid {{ section.settings.button_border_color }};
+  }
+  .section-{{ section.id }}-track.scrolls-parallax-image .scrolls-parallax-image-content .scrolls-parallax-image-button:hover {
+    background: {{ section.settings.button_bg_hover_color }};
+    color: {{ section.settings.button_hover_color }};
+    border: 1px solid {{ section.settings.button_border_hover_color }};
+  }
+  #Image1-{{ section.id }}, #Image2-{{ section.id }} {
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+  }
+
+  @media screen and (max-width: 989px) {
+    .section-{{ section.id }}-track.scrolls-parallax-image {
+      background-color: {{ section.settings.bg_color }};
+      height: {{ section.settings.scroll_duration_mobile }}vh; 
+      min-height: {{ section.settings.scroll_duration_mobile }}vh; 
+      overflow: hidden;
+    }
+  }
+{% endstyle %}
+
+<div id="Track-{{ section.id }}" class="section-{{ section.id }}-track scrolls-parallax-image">
+  <div id="Sticky-{{ section.id }}" class="section-{{ section.id }}-sticky scrolls-parallax-image-inner">
+    <div id="Image1-{{ section.id }}" class="scrolls-parallax-image-polaroid scrolls-parallax-image-image-1">
+      {% if section.settings.image_1 != blank %}
+        {% comment %} {{ section.settings.image_1 | image_url: width: 600 | image_tag: loading: 'eager' }} {% endcomment %}
+        {{ section.settings.image_1 | image_url: width: 600 | image_tag: loading: 'lazy' }}
+      {% else %}
+        {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+
+    <div class="scrolls-parallax-image-content">
+      {% if section.settings.subheading != blank %}
+        <span class="scrolls-parallax-image-subheading">{{ section.settings.subheading }}</span>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="scrolls-parallax-image-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link }}" class="scrolls-parallax-image-button">
+          {{ section.settings.button_label }}
+          {{- 'left-arrow.svg' | inline_asset_content -}}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="scrolls-parallax-image-polaroid scrolls-parallax-image-image-2" id="Image2-{{ section.id }}">
+      {% if section.settings.image_2 != blank %}
+        {{ section.settings.image_2 | image_url: width: 600 | image_tag: loading: 'lazy' }}
+      {% else %}
+        {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sectionId = '{{ section.id }}';
+  const track = document.getElementById(`Track-${sectionId}`);
+  const sticky = document.getElementById(`Sticky-${sectionId}`);
+  const img1 = document.getElementById(`Image1-${sectionId}`);
+  const img2 = document.getElementById(`Image2-${sectionId}`);
+
+  if (!track || !sticky || !img1 || !img2) return;
+
+  // Configuration object for easy adjustments
+  const config = {
+    desktop: { y1: -900, y2: -768 },
+    mobile:  { y1: -950, y2: -650 },
+    breakpoint: 990
+  };
+
+  let isVisible = false;
+
+  // 1. Efficiency: Only run the loop when the section is actually on screen
+  const observer = new IntersectionObserver((entries) => {
+    isVisible = entries[0].isIntersecting;
+  }, { threshold: 0 });
+
+  observer.observe(track);
+
+  const animate = () => {
+    if (isVisible) {
+      const trackRect = track.getBoundingClientRect();
+      const stickyHeight = sticky.offsetHeight;
+      const totalDistance = track.offsetHeight - stickyHeight;
+
+      // 2. Simplified Progress Calculation
+      let progress = -trackRect.top / totalDistance;
+      progress = Math.max(0, Math.min(1, progress));
+
+      // 3. Dynamic Values based on screen width
+      const isDesktop = window.innerWidth >= config.breakpoint;
+      const settings = isDesktop ? config.desktop : config.mobile;
+
+      const y1 = progress * settings.y1;
+      const y2 = progress * settings.y2;
+
+      // 4. Performance: Using translate3d triggers GPU acceleration
+      img1.style.transform = `translate3d(0, ${y1}px, 0) rotate(-15deg)`;
+      img2.style.transform = `translate3d(0, ${y2}px, 0) rotate(11deg)`;
+    }
+
+    requestAnimationFrame(animate);
+  };
+
+  // Start the loop
+  requestAnimationFrame(animate);
+});
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.scrolls_parallax_image.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.scrolls_parallax_image.settings.header_content.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:sections.scrolls_parallax_image.settings.Subheading.label",
+      "default": "t:sections.scrolls_parallax_image.settings.Subheading.default"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.scrolls_parallax_image.settings.heading.label",
+      "default": "t:sections.scrolls_parallax_image.settings.heading.default"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "button_label",
+      "label": "t:sections.scrolls_parallax_image.settings.button_label.label",
+      "default": "t:sections.scrolls_parallax_image.settings.button_label.default"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.scrolls_parallax_image.settings.button_link.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.scrolls_parallax_image.settings.header_layout.content"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "t:sections.scrolls_parallax_image.settings.bg_color.label",
+      "default": "#EFEFEF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "t:sections.scrolls_parallax_image.settings.heading_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "t:sections.scrolls_parallax_image.settings.subheading_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "t:sections.scrolls_parallax_image.settings.button_bg_color.label",
+      "default": "#BFBFBF"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "t:sections.scrolls_parallax_image.settings.button_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "t:sections.scrolls_parallax_image.settings.button_border_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_hover_color",
+      "label": "t:sections.scrolls_parallax_image.settings.button_bg_hover_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "t:sections.scrolls_parallax_image.settings.button_hover_color.label",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_border_hover_color",
+      "label": "t:sections.scrolls_parallax_image.settings.button_border_hover_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.scrolls_parallax_image.settings.header_Image.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "t:sections.scrolls_parallax_image.settings.image_1.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "t:sections.scrolls_parallax_image.settings.image_2.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.scrolls_parallax_image.settings.header_animation.content"
+    },
+    {
+      "type": "range",
+      "id": "scroll_duration",
+      "min": 150,
+      "max": 500,
+      "step": 50,
+      "unit": "vh",
+      "default": 300,
+      "label": "t:sections.scrolls_parallax_image.settings.scroll_duration.label",
+      "info": "t:sections.scrolls_parallax_image.settings.scroll_duration.info"
+    },
+    {
+      "type": "range",
+      "id": "scroll_duration_mobile",
+      "min": 50,
+      "max": 200,
+      "step": 5,
+      "unit": "vh",
+      "default": 100,
+      "label": "t:sections.scrolls_parallax_image.settings.scroll_duration_mobile.label",
+      "info": "t:sections.scrolls_parallax_image.settings.scroll_duration_mobile.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.scrolls_parallax_image.presets.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,1074 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "3b7cb796-4e44-4edc-96f9-002a08ba8170": {
+      "type": "slideshow",
+      "blocks": {
+        "template--20518683476274__3b7cb796-4e44-4edc-96f9-002a08ba8170-slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/main-banner-1.webp",
+            "mobile_image": "shopify://shop_images/m.v-main-banner-1.webp",
+            "caption": "Style That Defines You",
+            "heading": "BOLD LOOKS FOR UNIQUE PERSONALITIES",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "SHOP NOW",
+            "link": "shopify://collections/all",
+            "button_label_2": "",
+            "link_2": "",
+            "button_style": "solid",
+            "box_align": "bottom-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "inverse",
+            "second_btn_bkg_color": "#ffffff",
+            "second_btn_text_color": "#000000",
+            "second_btn_bkg_color_hover": "#000000",
+            "second_btn_text_color_hover": "#ffffff",
+            "text_alignment_mobile": "center-bottom"
+          }
+        },
+        "slide_LNaK4H": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/main-banner-2.webp",
+            "mobile_image": "shopify://shop_images/m.v-main-banner-2.webp",
+            "caption": "Style That Defines You",
+            "heading": "BOLD LOOKS FOR UNIQUE PERSONALITIES",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "SHOP NOW",
+            "link": "shopify://collections/all",
+            "button_label_2": "",
+            "link_2": "",
+            "button_style": "solid",
+            "box_align": "bottom-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "inverse",
+            "second_btn_bkg_color": "#ffffff",
+            "second_btn_text_color": "#000000",
+            "second_btn_bkg_color_hover": "#000000",
+            "second_btn_text_color_hover": "#ffffff",
+            "text_alignment_mobile": "center-bottom"
+          }
+        }
+      },
+      "block_order": [
+        "template--20518683476274__3b7cb796-4e44-4edc-96f9-002a08ba8170-slide-1",
+        "slide_LNaK4H"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_arrow": true,
+        "pagination": false,
+        "slider_visual": "counter",
+        "pagination_active_color": "#000000",
+        "pagination_color": "#000000",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "enable_effect": true,
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "0617c2f2-69ec-4df8-a506-b2616d4e1db4": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "BEST SELLERS",
+        "heading_size": "h1",
+        "heading_alignment": "space-between",
+        "description": "<p>Explore the essence of modern fashion with our iconic best sellers that blend luxury, comfort, and creativity. Designed for the trendsetters and dreamers, each piece captures timeless appeal and empowers you to express your style with grace and confidence every day.</p>",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "best-sellers",
+        "products_to_show": 6,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-5c2f6738-90ad-435b-abca-0c0c149d151a",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 80,
+        "padding_bottom": 40
+      }
+    },
+    "custom_announcement_bar_zqchrk": {
+      "type": "custom-announcement-bar",
+      "blocks": {
+        "announcement_Yj8Axf": {
+          "type": "announcement",
+          "settings": {
+            "text": "Enjoy 50% Off Everything!",
+            "link": ""
+          }
+        },
+        "announcement_C4yNgr": {
+          "type": "announcement",
+          "settings": {
+            "text": "New Arrivals",
+            "link": ""
+          }
+        },
+        "announcement_itj7Dh": {
+          "type": "announcement",
+          "settings": {
+            "text": "Fashion Offers You Can’t Miss",
+            "link": ""
+          }
+        },
+        "announcement_PQiXHT": {
+          "type": "announcement",
+          "settings": {
+            "text": "Flash Sale",
+            "link": ""
+          }
+        },
+        "announcement_4KqYY8": {
+          "type": "announcement",
+          "settings": {
+            "text": "Shop Best Sellers Collections",
+            "link": ""
+          }
+        },
+        "announcement_Mfih3w": {
+          "type": "announcement",
+          "settings": {
+            "text": "Men’s Fashion",
+            "link": ""
+          }
+        },
+        "announcement_mxb6GJ": {
+          "type": "announcement",
+          "settings": {
+            "text": "Women’s Fashion",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_Yj8Axf",
+        "announcement_C4yNgr",
+        "announcement_itj7Dh",
+        "announcement_PQiXHT",
+        "announcement_4KqYY8",
+        "announcement_Mfih3w",
+        "announcement_mxb6GJ"
+      ],
+      "settings": {
+        "auto_rotate": true,
+        "text_alignment": "center",
+        "color_scheme": "scheme-5c2f6738-90ad-435b-abca-0c0c149d151a",
+        "show_border": true,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
+    "07468762-302d-4441-92a3-3b98a30b4cbe": {
+      "type": "collection-list",
+      "blocks": {
+        "template--20518683476274__07468762-302d-4441-92a3-3b98a30b4cbe-featured_collection-1": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_img": "shopify://shop_images/hp_collection_list_01_img_01.webp",
+            "collection": "hoodies",
+            "collection_title": "HOODIES",
+            "button_title": "",
+            "button_link": ""
+          }
+        },
+        "template--20518683476274__07468762-302d-4441-92a3-3b98a30b4cbe-featured_collection-2": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_img": "shopify://shop_images/hp_collection_list_01_img_02.webp",
+            "collection": "t-shirts",
+            "collection_title": "T-SHIRTS",
+            "button_title": "",
+            "button_link": ""
+          }
+        },
+        "featured_collection_p7nMPY": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_img": "shopify://shop_images/hp_collection_list_01_img_03.webp",
+            "collection": "jeans",
+            "collection_title": "JEANS",
+            "button_title": "",
+            "button_link": ""
+          }
+        },
+        "featured_collection_4CT9Vd": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_img": "shopify://shop_images/hp_collection_list_01_img_04.webp",
+            "collection": "sneakers",
+            "collection_title": "SNEAKERS",
+            "button_title": "",
+            "button_link": ""
+          }
+        },
+        "featured_collection_6Kky63": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_img": "shopify://shop_images/hp_collection_list_01_img_05.webp",
+            "collection": "goggles",
+            "collection_title": "GOGGLES",
+            "button_title": "",
+            "button_link": ""
+          }
+        },
+        "featured_collection_dMf3C4": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_img": "shopify://shop_images/hp_collection_list_01_img_06.webp",
+            "collection": "bags",
+            "collection_title": "BAGS",
+            "button_title": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--20518683476274__07468762-302d-4441-92a3-3b98a30b4cbe-featured_collection-1",
+        "template--20518683476274__07468762-302d-4441-92a3-3b98a30b4cbe-featured_collection-2",
+        "featured_collection_p7nMPY",
+        "featured_collection_4CT9Vd",
+        "featured_collection_6Kky63",
+        "featured_collection_dMf3C4"
+      ],
+      "settings": {
+        "layout": "grid",
+        "title": "SHOP BY CATEGORY",
+        "heading_size": "h1",
+        "description": "",
+        "heading_alignment": "left",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "color_scheme": "inverse",
+        "title_position": "above_image",
+        "image_border_radius": 0,
+        "button_alignment": "center",
+        "title_bg_color": "#fff",
+        "title_text_color": "#000000",
+        "title_bg_hover_color": "#000000",
+        "title_text_hover_color": "#ffffff",
+        "title_text_border_color": "#ffffff",
+        "title_text_border_hover_color": "#ffffff",
+        "collection_title_text_color": "#ffffff",
+        "button_style": "solid",
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "button_alignment_mobile": "center",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "scrolls_parallax_image_hXfY7g": {
+      "type": "scrolls-parallax-image",
+      "name": "Scrolls parallax image",
+      "settings": {
+        "subheading": "New Collection",
+        "heading": "TRENDING FASHION STYLES YOU CAN’T MISS!",
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "bg_color": "#efefef",
+        "heading_color": "#000000",
+        "subheading_color": "#000000",
+        "button_bg_color": "#bfbfbf",
+        "button_color": "#000000",
+        "button_border_color": "#000000",
+        "button_bg_hover_color": "#000000",
+        "button_hover_color": "#ffffff",
+        "button_border_hover_color": "#000000",
+        "image_1": "shopify://shop_images/scrolls-parallax-image-1.webp",
+        "image_2": "shopify://shop_images/scrolls-parallax-image-2.webp",
+        "scroll_duration": 200,
+        "scroll_duration_mobile": 85
+      }
+    },
+    "custom_announcement_bar_xwqpr6": {
+      "type": "custom-announcement-bar",
+      "blocks": {
+        "announcement_bTf9AK": {
+          "type": "announcement",
+          "settings": {
+            "text": "Enjoy 50% Off Everything!",
+            "link": ""
+          }
+        },
+        "announcement_zPpJKD": {
+          "type": "announcement",
+          "settings": {
+            "text": "New Arrivals",
+            "link": ""
+          }
+        },
+        "announcement_dbX3Uy": {
+          "type": "announcement",
+          "settings": {
+            "text": "Fashion Offers You Can’t Miss",
+            "link": ""
+          }
+        },
+        "announcement_EgUcfc": {
+          "type": "announcement",
+          "settings": {
+            "text": "Flash Sale",
+            "link": ""
+          }
+        },
+        "announcement_nMaC3V": {
+          "type": "announcement",
+          "settings": {
+            "text": "Shop Best Sellers Collections",
+            "link": ""
+          }
+        },
+        "announcement_QpFFXp": {
+          "type": "announcement",
+          "settings": {
+            "text": "Men’s Fashion",
+            "link": ""
+          }
+        },
+        "announcement_C6FHhX": {
+          "type": "announcement",
+          "settings": {
+            "text": "Women’s Fashion",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_bTf9AK",
+        "announcement_zPpJKD",
+        "announcement_dbX3Uy",
+        "announcement_EgUcfc",
+        "announcement_nMaC3V",
+        "announcement_QpFFXp",
+        "announcement_C6FHhX"
+      ],
+      "settings": {
+        "auto_rotate": true,
+        "text_alignment": "center",
+        "color_scheme": "inverse",
+        "show_border": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "new_collection_list_UQgDLE": {
+      "type": "new-collection-list",
+      "blocks": {
+        "featured_collection_WxqhNB": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_img": "shopify://shop_images/new-collection-list-1.webp",
+            "collection": "sweaters"
+          }
+        },
+        "featured_collection_AzyKRz": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_img": "shopify://shop_images/new-collection-list-2.webp",
+            "collection": "denim-jeans"
+          }
+        },
+        "featured_collection_hcaHLa": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_img": "shopify://shop_images/new-collection-list-3.webp",
+            "collection": "jackets-coats"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_WxqhNB",
+        "featured_collection_AzyKRz",
+        "featured_collection_hcaHLa"
+      ],
+      "name": "t:sections.new-collection-list.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "title": "",
+        "sub_title": "",
+        "heading_alignment": "center",
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "border_color": "#000000",
+        "color_scheme": "background-1",
+        "title_top_color": "#ffffff",
+        "title_bg_color": "#ffffff",
+        "title_bottom_color": "#ffffff",
+        "title_bg_hover_color": "#000000",
+        "title_text_hover_color": "#ffffff",
+        "show_view_all": false,
+        "swipe_on_desktop": false,
+        "image_above_title_style": "style_1",
+        "style2_button_bkg_color": "rgba(0,0,0,0)",
+        "style2_button_border_color": "#ffffff",
+        "style2_button_text_color": "#ffffff",
+        "style2_button_bkg_hvr_color": "#ffffff",
+        "style2_button_border_hvr_color": "#000000",
+        "style2_button_text_hvr_color": "#000000",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "lookbook_product_slider_9xi7KY": {
+      "type": "lookbook-product-slider",
+      "blocks": {
+        "product_spot_a8ipeA": {
+          "type": "product_spot",
+          "settings": {
+            "product": "midnight-rebel-leather-jacket-1",
+            "top": 81,
+            "left": 46
+          }
+        },
+        "product_spot_He3c6r": {
+          "type": "product_spot",
+          "settings": {
+            "product": "scarlet-ribbed-high-neck-sweater",
+            "top": 54,
+            "left": 56
+          }
+        },
+        "product_spot_jXWx48": {
+          "type": "product_spot",
+          "settings": {
+            "product": "vintage-red-enamel-french-beret",
+            "top": 11,
+            "left": 59
+          }
+        },
+        "product_spot_NYGzFr": {
+          "type": "product_spot",
+          "settings": {
+            "product": "venture-round-golden-sunglasses",
+            "top": 22,
+            "left": 55
+          }
+        }
+      },
+      "block_order": [
+        "product_spot_a8ipeA",
+        "product_spot_He3c6r",
+        "product_spot_jXWx48",
+        "product_spot_NYGzFr"
+      ],
+      "name": "t:sections.lookbook-product-slider.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "heading": "WEEKLY TOP DEALS",
+        "image": "shopify://shop_images/lookbook-card-slider.webp",
+        "bg_color": "#ffffff",
+        "Border_color": "#000000",
+        "quick_add": "standard",
+        "margin_top": 0,
+        "margin_bottom": 80,
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "featured_collections_list_QDRqhW": {
+      "type": "featured-collections-list",
+      "blocks": {
+        "collection_item_8nXe4q": {
+          "type": "collection_item",
+          "settings": {
+            "hover_image": "shopify://shop_images/accordion-collections-1.webp",
+            "collection": "shirts",
+            "title_override": "SHIRTS"
+          }
+        },
+        "collection_item_HQbcFx": {
+          "type": "collection_item",
+          "settings": {
+            "hover_image": "shopify://shop_images/accordion-collections-2.webp",
+            "collection": "dress",
+            "title_override": "DRESS"
+          }
+        },
+        "collection_item_6eFpaW": {
+          "type": "collection_item",
+          "settings": {
+            "hover_image": "shopify://shop_images/accordion-collections-3.webp",
+            "collection": "tops",
+            "title_override": "TOPS"
+          }
+        },
+        "collection_item_FjgaVr": {
+          "type": "collection_item",
+          "settings": {
+            "hover_image": "shopify://shop_images/accordion-collections-4.webp",
+            "collection": "bottom",
+            "title_override": "BOTTOM"
+          }
+        },
+        "collection_item_WkrzbT": {
+          "type": "collection_item",
+          "settings": {
+            "hover_image": "shopify://shop_images/accordion-collections-5.webp",
+            "collection": "belts",
+            "title_override": "BELTS"
+          }
+        },
+        "collection_item_pcFXHc": {
+          "type": "collection_item",
+          "settings": {
+            "hover_image": "shopify://shop_images/accordion-collections-6.webp",
+            "collection": "wallets",
+            "title_override": "WALLETS"
+          }
+        },
+        "collection_item_e6N6XN": {
+          "type": "collection_item",
+          "settings": {
+            "hover_image": "shopify://shop_images/accordion-collections-7.webp",
+            "collection": "socks",
+            "title_override": "SOCKS"
+          }
+        },
+        "collection_item_R4jD3B": {
+          "type": "collection_item",
+          "settings": {
+            "hover_image": "shopify://shop_images/accordion-collections-8.webp",
+            "collection": "travel-bags",
+            "title_override": "TRAVEL BAGS"
+          }
+        },
+        "collection_item_gQVjbi": {
+          "type": "collection_item",
+          "settings": {
+            "hover_image": "shopify://shop_images/accordion-collections-9.webp",
+            "collection": "accessories",
+            "title_override": "ACCESSORIES"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_8nXe4q",
+        "collection_item_HQbcFx",
+        "collection_item_6eFpaW",
+        "collection_item_FjgaVr",
+        "collection_item_WkrzbT",
+        "collection_item_pcFXHc",
+        "collection_item_e6N6XN",
+        "collection_item_R4jD3B",
+        "collection_item_gQVjbi"
+      ],
+      "name": "Featured List Hover",
+      "settings": {
+        "layout": "full_bleed",
+        "title": "FEATURED COLLECTIONS",
+        "description": "<p>Unveil your signature style with our Featured Collections where elegance meets everyday comfort. Each piece is crafted with fine detailing, bold colors, and premium textures to make you stand out effortlessly. Redefine your wardrobe with timeless fashion that truly speaks confidence.</p>",
+        "bg_color": "#ededed",
+        "collection_item_hover_color": "#000000",
+        "collection_item_hover_text_color": "#ffffff",
+        "text_color": "#000000",
+        "border_color": "#000000",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_review_slider_mhDgQg": {
+      "type": "image-review-slider",
+      "blocks": {
+        "text_YrwbPx": {
+          "type": "text",
+          "settings": {
+            "product": "vintage-red-enamel-french-beret",
+            "rating_img": "shopify://shop_images/stars.svg",
+            "text": "<p>“I’ve been searching for a true red beret, and this one’s perfect. The color, texture, and shape — everything is just right. It adds instant elegance!”</p>",
+            "reviewer_name": "Emily Carter",
+            "post": "New York, NY"
+          }
+        },
+        "text_bgf8hC": {
+          "type": "text",
+          "settings": {
+            "product": "midnight-rebel-leather-jacket-1",
+            "rating_img": "shopify://shop_images/stars.svg",
+            "text": "<p>“I’ve been searching for a true red beret, and this one’s perfect. The color, texture, and shape — everything is just right. It adds instant elegance!”</p>",
+            "reviewer_name": "Isla Ashley",
+            "post": "Singapore"
+          }
+        },
+        "text_UETFrM": {
+          "type": "text",
+          "settings": {
+            "product": "scarlet-ribbed-high-neck-sweater",
+            "rating_img": "shopify://shop_images/stars.svg",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "reviewer_name": "Freya Harper",
+            "post": "Rome, Italy"
+          }
+        },
+        "text_TnUr9M": {
+          "type": "text",
+          "settings": {
+            "product": "venture-round-golden-sunglasses",
+            "rating_img": "shopify://shop_images/stars.svg",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "reviewer_name": "Elsie Addison",
+            "post": "Chicago, USA"
+          }
+        }
+      },
+      "block_order": [
+        "text_YrwbPx",
+        "text_bgf8hC",
+        "text_UETFrM",
+        "text_TnUr9M"
+      ],
+      "name": "t:sections.image_review_slider.presets.name",
+      "settings": {
+        "section_width": "full_bleed",
+        "title": "OUR CUSTOMER REVIEWS",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "content": "",
+        "image": "shopify://shop_images/Image-review-slide.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 40
+      }
+    },
+    "logo_slider_4AEKhQ": {
+      "type": "logo-slider",
+      "blocks": {
+        "column_RppAew": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-1.webp",
+            "link": "#"
+          }
+        },
+        "column_Fnqmti": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-2.webp",
+            "link": "#"
+          }
+        },
+        "column_mrUTy7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-3.webp",
+            "link": "#"
+          }
+        },
+        "column_rAfBcj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-4.webp",
+            "link": "#"
+          }
+        },
+        "column_7U7Lz8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-5.webp",
+            "link": "#"
+          }
+        },
+        "column_nbwCVn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-6.webp",
+            "link": "#"
+          }
+        },
+        "column_wYWFct": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-7.webp",
+            "link": "#"
+          }
+        },
+        "column_nzwwmw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-8.webp",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "column_RppAew",
+        "column_Fnqmti",
+        "column_mrUTy7",
+        "column_rAfBcj",
+        "column_7U7Lz8",
+        "column_nbwCVn",
+        "column_wYWFct",
+        "column_nzwwmw"
+      ],
+      "custom_css": [
+        ".section-logo-slider {content-visibility: auto; contain-intrinsic-size: auto 315px;}"
+      ],
+      "name": "t:sections.logo-slider.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "title": "BRANDS POPULAR",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur donec sodales sed nibh id vehicula.</p>",
+        "heading_alignment": "center",
+        "auto_rotate": true,
+        "reverse_direction": false,
+        "columns_desktop": 8,
+        "columns_mobile": "3",
+        "padding_top": 40,
+        "padding_bottom": 5
+      }
+    },
+    "logo_slider_Wf9X76": {
+      "type": "logo-slider",
+      "blocks": {
+        "column_3qRKQx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-9.webp",
+            "link": "#"
+          }
+        },
+        "column_dFjMWk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-10.webp",
+            "link": "#"
+          }
+        },
+        "column_whyPcB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-11.webp",
+            "link": "#"
+          }
+        },
+        "column_MfqQ47": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-12.webp",
+            "link": "#"
+          }
+        },
+        "column_efH9XB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-13.webp",
+            "link": "#"
+          }
+        },
+        "column_bJNwMa": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-14.webp",
+            "link": "#"
+          }
+        },
+        "column_hPYdxk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-15.webp",
+            "link": "#"
+          }
+        },
+        "column_iyen9F": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/logo-16.webp",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "column_3qRKQx",
+        "column_dFjMWk",
+        "column_whyPcB",
+        "column_MfqQ47",
+        "column_efH9XB",
+        "column_bJNwMa",
+        "column_hPYdxk",
+        "column_iyen9F"
+      ],
+      "custom_css": [
+        ".section-logo-slider {content-visibility: auto; contain-intrinsic-size: auto 150px;}"
+      ],
+      "name": "t:sections.logo-slider.presets.name",
+      "settings": {
+        "layout": "grid",
+        "title": "",
+        "description": "",
+        "heading_alignment": "center",
+        "auto_rotate": true,
+        "reverse_direction": true,
+        "columns_desktop": 8,
+        "columns_mobile": "3",
+        "padding_top": 5,
+        "padding_bottom": 0
+      }
+    },
+    "scrolls_parallax_banner_c4tNwk": {
+      "type": "scrolls-parallax-banner",
+      "blocks": {
+        "card_awDjUy": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/scrolls-parallax-banner-1.webp",
+            "title": "SWEATSHIRT",
+            "link_text": "VIEW COLLECTION",
+            "link": ""
+          }
+        },
+        "card_CHNxNb": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/scrolls-parallax-banner-2.webp",
+            "title": "JUMPSUIT",
+            "link_text": "VIEW COLLECTION",
+            "link": ""
+          }
+        },
+        "card_hjpGBL": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/scrolls-parallax-banner-3.webp",
+            "title": "BEACHWEAR",
+            "link_text": "VIEW COLLECTION",
+            "link": ""
+          }
+        },
+        "card_eTjrXH": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/scrolls-parallax-banner-4.webp",
+            "title": "STREETWEAR",
+            "link_text": "VIEW COLLECTION",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_awDjUy",
+        "card_CHNxNb",
+        "card_hjpGBL",
+        "card_eTjrXH"
+      ],
+      "name": "Scrolls parallax banner",
+      "settings": {
+        "layout": "full_bleed",
+        "card_height": 90,
+        "stack_offset": 45,
+        "width_step": 6,
+        "title_alignment": "left",
+        "text_color": "#ffffff",
+        "padding_top": 30,
+        "padding_bottom": 80
+      }
+    },
+    "video_slider_7CQyyU": {
+      "type": "video-slider",
+      "blocks": {
+        "column_Aw3ifB": {
+          "type": "column",
+          "settings": {
+            "image_video": "video",
+            "image": "shopify://shop_images/instagram-1.webp",
+            "video": "shopify://files/videos/Instagram-video-1.mp4",
+            "cover_image": "shopify://shop_images/instagram-1.webp",
+            "enable_video_looping": true,
+            "instagram_img": "shopify://shop_images/instagram_img.svg",
+            "instagram_name": "Fashora_Fashion_Brand",
+            "instagram_link": "https://www.instagram.com",
+            "share_link": "https://www.instagram.com"
+          }
+        },
+        "column_FGmmQa": {
+          "type": "column",
+          "settings": {
+            "image_video": "video",
+            "image": "shopify://shop_images/instagram-2.webp",
+            "video": "shopify://files/videos/Instagram-video-2.mp4",
+            "cover_image": "shopify://shop_images/instagram-2.webp",
+            "enable_video_looping": false,
+            "instagram_name": "Fashora_Fashion_Brand",
+            "instagram_link": "https://www.instagram.com",
+            "share_link": "https://www.instagram.com"
+          }
+        },
+        "column_UTqi8c": {
+          "type": "column",
+          "settings": {
+            "image_video": "video",
+            "image": "shopify://shop_images/instagram-3.webp",
+            "video": "shopify://files/videos/Instagram-video-3.mp4",
+            "cover_image": "shopify://shop_images/instagram-3.webp",
+            "enable_video_looping": false,
+            "instagram_name": "Fashora_Fashion_Brand",
+            "instagram_link": "https://www.instagram.com",
+            "share_link": "https://www.instagram.com"
+          }
+        },
+        "column_kXeNa8": {
+          "type": "column",
+          "settings": {
+            "image_video": "video",
+            "image": "shopify://shop_images/instagram-4.webp",
+            "video": "shopify://files/videos/Instagram-video-4.mp4",
+            "cover_image": "shopify://shop_images/instagram-4.webp",
+            "enable_video_looping": true,
+            "instagram_name": "Fashora_Fashion_Brand",
+            "instagram_link": "https://www.instagram.com",
+            "share_link": "https://www.instagram.com"
+          }
+        },
+        "column_AtpADF": {
+          "type": "column",
+          "settings": {
+            "image_video": "video",
+            "image": "shopify://shop_images/instagram-5.webp",
+            "video": "shopify://files/videos/Instagram-video-5.mp4",
+            "cover_image": "shopify://shop_images/instagram-5.webp",
+            "enable_video_looping": false,
+            "instagram_name": "Fashora_Fashion_Brand",
+            "instagram_link": "https://www.instagram.com",
+            "share_link": "https://www.instagram.com"
+          }
+        }
+      },
+      "block_order": [
+        "column_Aw3ifB",
+        "column_FGmmQa",
+        "column_UTqi8c",
+        "column_kXeNa8",
+        "column_AtpADF"
+      ],
+      "name": "Video slider",
+      "settings": {
+        "layout": "full_bleed",
+        "title": "FOLLOW IN #INSTAGRAM",
+        "sub_text": "<p>Join our fashion journey on Instagram where elegance meets everyday style. Discover how our followers redefine trends with effortless charm, inspiring you to express your own unique fashion story.</p>",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "color_scheme": "",
+        "button_label": "VIEW ALL",
+        "button_link": "https://www.instagram.com",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "trust_features_bar_Kw9Nef": {
+      "type": "trust-features-bar",
+      "blocks": {
+        "feature_DKwi7C": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-1.svg",
+            "text": "Free Shipping"
+          }
+        },
+        "feature_7pnCJC": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-2.svg",
+            "text": "Money Back Guarantee"
+          }
+        },
+        "feature_D9TbWx": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-3.svg",
+            "text": "Quick & Easy Returns"
+          }
+        },
+        "feature_3XeQb4": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-4.svg",
+            "text": "24/7 Customer Support"
+          }
+        },
+        "feature_FpUDCW": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/trust-icon-5.svg",
+            "text": "Secure Payments"
+          }
+        }
+      },
+      "block_order": [
+        "feature_DKwi7C",
+        "feature_7pnCJC",
+        "feature_D9TbWx",
+        "feature_3XeQb4",
+        "feature_FpUDCW"
+      ],
+      "name": "Trust Features Bar",
+      "settings": {
+        "bg_color": "#ededed",
+        "border_color": "#000000",
+        "column_border_color": "#bfbfbf",
+        "text_color": "#000000",
+        "icon_width": 30,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "3b7cb796-4e44-4edc-96f9-002a08ba8170",
+    "0617c2f2-69ec-4df8-a506-b2616d4e1db4",
+    "custom_announcement_bar_zqchrk",
+    "07468762-302d-4441-92a3-3b98a30b4cbe",
+    "scrolls_parallax_image_hXfY7g",
+    "custom_announcement_bar_xwqpr6",
+    "new_collection_list_UQgDLE",
+    "lookbook_product_slider_9xi7KY",
+    "featured_collections_list_QDRqhW",
+    "image_review_slider_mhDgQg",
+    "logo_slider_4AEKhQ",
+    "logo_slider_Wf9X76",
+    "scrolls_parallax_banner_c4tNwk",
+    "video_slider_7CQyyU",
+    "trust_features_bar_Kw9Nef"
+  ]
+}

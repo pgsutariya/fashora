@@ -1,0 +1,55 @@
+# ==========================================
+# Shopify Theme .gitignore Template
+# ==========================================
+
+# Environment & Credentials
+.env
+.env.*
+secrets.json
+
+# Shopify CLI & Build Tool Artifacts
+.shopify/
+.jekyll-metadata
+.sass-cache/
+.cache/
+dist/
+upload/
+deploy.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+bower_components/
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# ==========================================
+# Optional Customizations (Uncomment if needed)
+# ==========================================
+# If you build assets using Webpack/Vite/Mix into the /assets folder, 
+# you can ignore compiled assets to keep the repository clean.
+# assets/theme.css
+# assets/theme.js
+
+# If you want to prevent store-specific settings from overwriting your repo templates,
+# you can ignore them. (Warning: read the GitHub Integration section below first).
+# config/settings_data.json
+# templates/*.json

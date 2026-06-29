@@ -1,0 +1,43 @@
+<script>
+  window.SpeedoFashoraTheme = window.SpeedoFashoraTheme || {};
+  if (!window.SpeedoFashoraTheme.swiperAssetsLoaded) {
+    window.SpeedoFashoraTheme.swiperAssetsLoaded = true;
+
+    var preloadCss = document.createElement('link');
+    preloadCss.rel = 'preload';
+    preloadCss.as = 'style';
+    preloadCss.href = "{{ 'swiper.min.css' | asset_url }}";
+    document.head.appendChild(preloadCss);
+
+    var stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = "{{ 'swiper.min.css' | asset_url }}";
+    stylesheet.media = 'print';
+    stylesheet.onload = function() { this.media = 'all'; };
+    document.head.appendChild(stylesheet);
+
+    window.SpeedoFashoraTheme.swiperLoaderPromise = new Promise(function(resolve, reject) {
+      var script = document.createElement('script');
+      script.src = "{{ 'swiper-bundle.min.js' | asset_url }}";
+      script.defer = true;
+      script.onload = function() {
+        resolve(window.Swiper);
+      };
+      script.onerror = function() {
+        reject(new Error('Failed to load Swiper'));
+      };
+      document.head.appendChild(script);
+    });
+  } else if (!window.SpeedoFashoraTheme.swiperLoaderPromise) {
+    window.SpeedoFashoraTheme.swiperLoaderPromise = Promise.resolve(window.Swiper);
+  }
+
+  window.SpeedoFashoraTheme.waitForSwiper = function(callback) {
+    if (window.SpeedoFashoraTheme.swiperLoaderPromise) {
+      window.SpeedoFashoraTheme.swiperLoaderPromise.then(callback).catch(function() {});
+    } else {
+      callback();
+    }
+  };
+</script>
+<noscript><link rel="stylesheet" href="{{ 'swiper.min.css' | asset_url }}"></noscript>

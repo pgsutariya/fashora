@@ -1,0 +1,278 @@
+/* newsletter popup */
+.newsletter-popup {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* .newsletter-popup .popup_inside .left_img .desktop_img {
+  display: none;
+}*/
+
+.newsletter-popup .popup_inside {
+  width: 750px;
+  max-width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  z-index: 999999;
+  opacity:0;
+  transition: all .5s ease-out;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  overflow: hidden;
+}
+
+body.popup-active .newsletter-popup .popup_inside {
+  opacity: 1;
+  visibility: visible;
+  transition: all .5s ease-out;
+}
+
+.newsletter-popup .popup_inside .left_img {
+  width: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+.newsletter-popup .popup_inside .left_img img {
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.newsletter-popup .popup_inside .newsletter_form {
+  width: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 30px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletter-popup .popup_inside .newsletter_form  .newsletter-form  { 
+  max-width: 100%;
+}
+
+.newsletter-popup .popup_inside .newsletter_form .title {
+  margin:0;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+  
+.site-popup__newsletter .newsletter-form .field:after, .site-popup__newsletter .newsletter-form .field .field__button:after,
+.site-popup__newsletter .newsletter-form .field .field__button:before, .site-popup__newsletter .newsletter-form .field:before {
+  display:none;
+}
+
+.site-popup__newsletter .newsletter-form .field {
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.site-popup__newsletter .newsletter-form .field .field__input {
+  padding:11px 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  border: 1px solid; 
+  outline: 0;
+  box-shadow: none;
+  background:transparent;
+}
+
+.site-popup__newsletter .newsletter-form .field .field__button {
+  padding: 11px 10px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  position: static;
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  text-transform: uppercase;
+  min-height: 4.5rem;
+}
+
+.site-popup__newsletter .newsletter-form .field .field__button:hover {
+  opacity:0.6;
+}
+
+.site-popup__newsletter .field__input:focus-visible {
+  outline: 0;
+  box-shadow: none;
+}
+ 
+.newsletter-popup .popup_inside .newsletter_form .footer_content_right .site-popup__newsletter .contact-form {
+  padding-top: 10px;
+}
+
+.newsletter-popup .popup_inside .newsletter_form .footer_content_right .site-popup__newsletter .contact-form .field__input {
+  display: block;
+  width: 100%;
+}
+
+.newsletter-popup .popup_inside .newsletter_form .footer_content_right .site-popup__newsletter .contact-form .field__input input {
+  background: initial;
+  color: #000;
+  border: 1px solid #878787;
+  font-size: 15px;
+  font-weight: normal;
+  border-radius: 0;
+  margin-right: 15px;
+  outline: none;
+  padding: 7px 10px;
+  width: 100%;
+  font-size: 14px;
+  min-height: 40px;
+}
+
+.newsletter-popup .popup_inside .close_popup {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 0 0 5px #0006;
+}
+
+.popup-active:after {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  content: '';
+}
+
+@media only screen and (min-width: 750px) {
+  .newsletter-popup .popup_inside .left_img .desktop_img {
+    display: block;
+  }
+
+  .newsletter-popup .popup_inside .left_img .mobile_img {
+    display: none;
+  }
+
+  .newsletter-popup .popup_inside .left_img {
+    transform: translate(50%);
+    transition: transform 1s ease;
+  }
+
+  .newsletter-popup .popup_inside .newsletter_form {
+    transform: translate(-50%);
+    transition: transform 1s ease;
+  }
+
+  body.popup-active .newsletter-popup .popup_inside .left_img,
+  body.popup-active .newsletter-popup .popup_inside .newsletter_form {
+    transform: translate(0);
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .newsletter-popup .popup_inside {
+    width: 700px;
+    height: 327px;
+  }
+
+  .newsletter-popup .popup_inside .newsletter_form {
+    padding: 10px 20px;
+  }
+}
+
+@media only screen and (max-width: 749px) {
+  .newsletter-popup .popup_inside .left_img .desktop_img {
+    display: none;
+  }
+
+  .newsletter-popup .popup_inside {
+    width: 400px;
+    display: block;
+    max-height: 70%;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .newsletter-popup .popup_inside .left_img {
+    width: 100%;
+  }
+
+  .newsletter-popup .popup_inside .newsletter_form {
+    width:100%;
+    padding: 20px 15px;
+    margin: 0;
+  }
+
+  .newsletter-popup .popup_inside .close_popup { 
+    right: 5px;
+    top: 5px;
+  }
+
+  .newsletter-popup .popup_inside .newsletter_form .title {
+    font-size: 16px;
+  }
+
+  .newsletter-popup .popup_inside .newsletter_form p {
+    margin: 5px 0;
+  }
+
+  .footer_content_right.left {
+    text-align:center;
+  }
+
+  .footer_content_right.left .title > hr {
+    margin: 4px auto 0;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .newsletter-popup .popup_inside {
+    width: 300px;
+  }
+
+  .newsletter-popup .popup_inside .left_img img {
+    /*width: 250px;*/
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .site-popup__newsletter .newsletter-form .field .field__input {
+    padding: 10px 10px;
+  }
+
+  .site-popup__newsletter .newsletter-form .field .field__button {
+    padding: 10px;
+    min-height: 4.3rem;
+  }
+
+  .newsletter-popup .popup_inside .newsletter_form .title {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .newsletter-popup .popup_inside {
+    width: calc(100% - 20px);
+  }
+}
+

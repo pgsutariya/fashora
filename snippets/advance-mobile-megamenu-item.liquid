@@ -1,0 +1,150 @@
+{% if mega_collection_title != blank %}
+  <details id="Details-menu-drawer-menu-item-{{ forloop.index }}-{{ index_number }}">
+    <summary
+      id="HeaderDrawer-{{ mega_collection_title.handle }}"
+      class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
+      aria-label="{{ mega_collection_title }}"
+    >
+      {{ mega_collection_title }}
+      {% render 'icon-arrow' %}
+      {% render 'icon-caret' %}
+    </summary>
+    <div
+      id="link-{{ mega_collection.handle | escape }}-{{ index_number }}"
+      class="menu-drawer__submenu has-submenu gradient motion-reduce"
+      tabindex="-1"
+    >
+      <div class="menu-drawer__inner-submenu">
+        <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true" aria-label="{{ mega_collection_title }}">
+          {% render 'icon-arrow' %}
+          {{ mega_collection_title }}
+        </button>
+        {%- for collection in mega_collection -%}
+          <div class="mega_col_product_list_item">
+            <div class="mega_header">
+              <div class="mega_col_title_name">
+                 {{ collection.title}}
+              </div>
+            </div>
+            <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+              {%- for product in collection.products limit: 15 -%}
+                <li>
+                  {%- if product and product != empty -%}
+                    {%- liquid
+                      assign ratio = 1
+                      if product.featured_media and media_aspect_ratio == 'portrait'
+                        assign ratio = 0.8
+                      elsif product.featured_media and media_aspect_ratio == 'adapt'
+                        assign ratio = product.featured_media.aspect_ratio
+                      endif
+                      if ratio == 0 or ratio == null
+                        assign ratio = 1
+                      endif
+                    -%}
+                    <div class="card-wrapper product-card-wrapper underline-links-hover">
+                      <div
+                        class="
+                          card card--{{ settings.card_style }}
+                          {% if product.featured_media %} card--media{% else %} card--text{% endif %}
+                          {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
+                          {% if image_shape and image_shape != 'default' %} card--shape{% endif %}
+                          {% if extend_height %} card--extend-height{% endif %}
+                          {% if product.featured_media == nil and settings.card_style == 'card' %} ratio{% endif %}
+                          {% if horizontal_class %} card--horizontal{% endif %}
+                        "
+                        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+                      >
+                        <div
+                          class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
+                          style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+                        >
+                          {%- if product.featured_media -%}
+                            <a
+                              href="{{ product.url | within: collection }}"
+                              id="CardLink-{{ section_id }}-{{ product.id }}"
+                              class="full-unstyled-link"
+                              aria-labelledby="CardLink-{{ section_id }}-{{ product.id }} Badge-{{ section_id }}-{{ product.id }}"
+                              aria-label="{{ product.title | escape }}"
+                            >
+                              <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+                                <div class="media media--transparent media--hover-effect">
+                                  {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+                                  <img
+                                    srcset="
+                                      {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                                      {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                                      {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                                      {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                                      {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                                      {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                      {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+                                    "
+                                    src="{{ product.featured_media | image_url: width: 533 }}"
+                                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                    alt="{{ product.featured_media.alt | escape }}"
+                                    class="motion-reduce"
+                                    {% unless lazy_load == false %}
+                                      loading="lazy"
+                                    {% endunless %}
+                                    width="{{ product.featured_media.width }}"
+                                    height="{{ product.featured_media.height }}"
+                                  >
+                                  {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+    
+                                  {%- if product.media[1] != null and show_secondary_image -%}
+                                    <img
+                                      srcset="
+                                        {%- if product.media[1].width >= 165 -%}{{ product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
+                                        {%- if product.media[1].width >= 360 -%}{{ product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}
+                                        {%- if product.media[1].width >= 533 -%}{{ product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
+                                        {%- if product.media[1].width >= 720 -%}{{ product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
+                                        {%- if product.media[1].width >= 940 -%}{{ product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
+                                        {%- if product.media[1].width >= 1066 -%}{{ product.media[1] | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                        {{ product.media[1] | image_url }} {{ product.media[1].width }}w
+                                      "
+                                      src="{{ product.media[1] | image_url: width: 533 }}"
+                                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                      alt=""
+                                      class="motion-reduce"
+                                      loading="lazy"
+                                      width="{{ product.media[1].width }}"
+                                      height="{{ product.media[1].height }}"
+                                    >
+                                  {%- endif -%}
+                                </div>
+                              </div>
+                            </a>
+                          {%- endif -%}
+                        </div>
+                        <div class="card__content">
+                          <div class="card__information">
+                            <div
+                              class="card__heading{% if product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+                              {% if product.featured_media or settings.card_style == 'card' %}
+                                id="title-{{ section_id }}-{{ product.id }}"
+                              {% endif %}
+                            >
+                              <a
+                                href="{{ product.url | within: collection  }}"
+                                id="CardLink-{{ section_id }}-{{ product.id }}"
+                                class="full-unstyled-link"
+                                aria-labelledby="CardLink-{{ section_id }}-{{ product.id }} Badge-{{ section_id }}-{{ product.id }}"
+                                aria-label="{{ product.title | escape }}"
+                              >
+                                {{ product.title | escape }}
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </details>
+{% endif %}

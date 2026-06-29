@@ -1,0 +1,21 @@
+.custom-testimonial .swiper-container { display: none;}
+.custom-testimonial .swiper-container.swiper-initialized { display: block;}
+.custom-testimonial .custom-testimonial-slide-inner-main.swiper-slide .custom-testimonial-text { display: none;}
+.custom-testimonial .custom-testimonial-slide-inner-main.swiper-slide.swiper-slide-active .custom-testimonial-text { display: block; margin-top: 3rem;}
+.custom-testimonial .custom-testimonial-slide-inner-main.swiper-slide.swiper-slide-active .custom-testimonial-text .custom-testimonial-description p { margin: 0; font-size: 2rem; line-height: normal; letter-spacing: 0.6px;}
+.custom-testimonial .custom-testimonial-slide-inner-main.swiper-slide.swiper-slide-active .custom-testimonial-text .custom-testimonial-author p { margin: 2.2rem 0 0; font-size: 1.6rem; line-height: normal; letter-spacing: 0.6px; color: rgba(var(--color-foreground), .75); font-style: italic;}
+.custom-testimonial .main-heading .h1 { font-size: 4rem; line-height: normal; letter-spacing: 0.6px; margin: 0 0 5rem;}
+.custom-testimonial .custom-testimonial-review-img { margin-bottom: 1.6rem;}
+.custom-testimonial .custom-testimonial-slide-inner-main.swiper-slide img { transform: scale(.45); border-radius: 3.5rem;}
+.custom-testimonial .custom-testimonial-slide-inner-main.swiper-slide-prev img,
+.custom-testimonial .custom-testimonial-slide-inner-main.swiper-slide-next img { transform: scale(.65);}
+.custom-testimonial .custom-testimonial-slide-inner-main.swiper-slide.swiper-slide-active img { transform: scale(1);}
+.custom-testimonial .swiper-button-next, .custom-testimonial .swiper-button-prev { width: 3rem; height: 3rem; display: flex; justify-content: center; align-items: center; background-image: none; top: 38%; margin: 0;}
+.custom-testimonial .swiper-button-prev { transform: rotate(180deg); left: 0;}
+.custom-testimonial .swiper-button-next { right: 0;}
+.custom-testimonial .icon-arrow { width: 1.8rem; height: 1.9rem;}
+.custom-testimonial .main-heading .rich-text__heading { margin-top: 0; }
+
+@media only screen and (max-width: 620px) {
+  .custom-testimonial .main-heading .h1 { font-size: 2.5rem; margin: 0 0 2rem;}
+}

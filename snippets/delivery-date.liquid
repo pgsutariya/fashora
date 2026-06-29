@@ -1,0 +1,7 @@
+{% if product.available -%}
+  {%- assign seconds =  d_days | times: 24 | times: 60 | times: 60 %}
+  <div class="instock-pulse">
+     <span class="icon--pulsing"></span>
+     <span> {{ d_title }} <b>{{ 'now' | date: '%s' | plus: seconds | date: format: 'abbreviated_date' }}</b></span>
+  </div>
+{% endif %}

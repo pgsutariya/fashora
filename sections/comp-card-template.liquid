@@ -1,0 +1,23 @@
+{% comment %}
+  Shopify compare
+  Usage:
+    - Replace the snippet name ('product-card') with your existing product card snippet
+    - Pass the product object as a snippet variable named 'product'
+{% endcomment %}
+
+
+
+{%- assign lazy_load = true -%}
+{% render 'compare-card-product', 
+					card_product: product,
+                    media_aspect_ratio: settings.compare_image_ratio,
+                    show_secondary_image: settings.compare_show_secondary_image,
+                    lazy_load: lazy_load,
+                    show_quick_add: settings.compare_enable_quick_add,
+                    section_id: section.id %}
+
+{% schema %}
+  {
+    "templates": ["product"]
+  }
+{% endschema %}

@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "newsletter_logo_image_wLMfMa": {
+          "type": "newsletter_logo_image",
+          "settings": {
+            "image_width": 100,
+            "alignment": "left",
+            "show_social": true
+          }
+        },
+        "bc57a59c-2edb-4c96-b087-ecba4f2df5b7": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick Links",
+            "menu": "footer",
+            "alignment": ""
+          }
+        },
+        "146700e5-8ed4-4684-a284-5392955c7f29": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "shop",
+            "alignment": ""
+          }
+        },
+        "f33514c5-8b09-4623-b51b-76a7350042ec": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Information",
+            "menu": "information",
+            "alignment": ""
+          }
+        },
+        "09e7163f-2cbe-427e-a49b-518fc0774366": {
+          "type": "text",
+          "settings": {
+            "heading": "Support",
+            "subtext": "<p>Help Center</p><p>Contact: <a href=\"tel:1234567890\" title=\"tel:1234567890\">123-456-7890</a> </p><p>Email: <a href=\"mailto:support@fashora.com\" title=\"mailto:support@fashora.com\">support@fashora.com</a></p><p>Do Not Sell My Personal Information</p>",
+            "alignment": ""
+          }
+        }
+      },
+      "block_order": [
+        "newsletter_logo_image_wLMfMa",
+        "bc57a59c-2edb-4c96-b087-ecba4f2df5b7",
+        "146700e5-8ed4-4684-a284-5392955c7f29",
+        "f33514c5-8b09-4623-b51b-76a7350042ec",
+        "09e7163f-2cbe-427e-a49b-518fc0774366"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "color_scheme": "inverse",
+        "newsletter_enable": true,
+        "newsletter_heading": "SUBSCRIBE NEWSLETTER",
+        "newsletter_content": "<p>Subscribe to receive all our updates and offers, and get a 10% discount on your first purchase.</p>",
+        "enable_follow_on_shop": true,
+        "social_icon_border_color": "#333333",
+        "social_icon_bg_color": "rgba(0,0,0,0)",
+        "social_icon_color": "#ffffff",
+        "social_icon_hover_border_color": "#ffffff",
+        "social_icon_hover_bg_color": "rgba(0,0,0,0)",
+        "social_icon_hover_color": "#ffffff",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "copyright_text": "<p>© 2025, Fashora Powered By Shopify</p>",
+        "show_policy": false,
+        "logo_image": "shopify://shop_images/logo-white.svg",
+        "footer_bottom_text": "",
+        "margin_top": 0,
+        "padding_top": 80,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

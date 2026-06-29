@@ -1,0 +1,437 @@
+.meet-the-team .title {
+  margin: 0;
+}
+
+.meet-the-team.no-heading .title {
+  display: none;
+}
+
+.meet-the-team .title-wrapper-with-link {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .meet-the-team .title-wrapper-with-link {
+    margin-bottom: 3rem;
+  }
+
+  .meet-the-team .page-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.meet-the-team-card__image-wrapper--third-width {
+  width: 33.33%;
+}
+.meet-the-team-card__image-wrapper--full-width {
+  width: 100%;
+}
+.meet-the-team-card__image-wrapper--half-width {
+  width: 50%;
+}
+
+.meet-the-team-list__item.center .meet-the-team-card__image-wrapper,
+.meet-the-team-list__item:only-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.meet-the-team .button {
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .meet-the-team .button {
+    margin-top: 4rem;
+  }
+}
+
+.meet-the-team-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.meet-the-team-list__item:only-child {
+  max-width: 72rem;
+}
+
+.meet-the-team-list__item--empty {
+  display: none;
+}
+
+.meet-the-team:not(.background-none) .meet-the-team-card {
+  background: rgb(var(--color-background));
+  height: 100%;
+}
+
+.meet-the-team.background-primary .meet-the-team-card {
+  background: rgb(var(--color-background)) linear-gradient(rgba(var(--color-foreground), 0.04), rgba(var(--color-foreground), 0.04));
+}
+
+.meet-the-team-list h3 {
+  line-height: calc(1 + 0.5 / max(1, var(--font-heading-scale)));
+}
+
+.meet-the-team-list h3,
+.meet-the-team-list p {
+  margin: 0;
+}
+
+.meet-the-team-card-spacing {
+  padding-top: 2.5rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.meet-the-team-card__info > :nth-child(2) {
+  margin-top: 0.5rem;
+  font-size: 16px;
+  letter-spacing: normal;
+}
+
+.meet-the-team-list__item.center .media--adapt,
+.meet-the-team-list__item .media--adapt .meet-the-team-card__image {
+  width: auto;
+}
+
+.meet-the-team-list__item.center .media--adapt img {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* .meet-the-team-list__item.center .meet-the-team-card__image-wrapper {
+    padding: 0 20px;
+} */
+
+.meet-the-team .meet-the-team-list {
+  margin: 0 -20px;
+}
+
+@media screen and (max-width: 749px) {
+  .meet-the-team-list {
+    margin: 0;
+    width: 100%;
+  }
+
+  .meet-the-team-list:not(.slider) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+
+@media screen and (min-width: 750px) {
+  .meet-the-team-list.slider,
+  .meet-the-team-list.grid--4-col-desktop {
+    padding: 0;
+  }
+
+  .meet-the-team-list__item,
+  .grid--4-col-desktop .meet-the-team-list__item {
+    padding-bottom: 0;
+  }
+
+  .background-none .grid--2-col-tablet .meet-the-team-list__item {
+    margin-top: 4rem;
+  }
+}
+
+.background-none .meet-the-team-card-spacing {
+  padding: 0;
+  margin: 0;
+}
+
+.meet-the-team-card__info {
+  padding: 1.5rem;
+}
+
+.background-none .meet-the-team-card__info {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.background-none .slider .meet-the-team-card__info {
+  padding-bottom: 0;
+}
+
+.background-none .meet-the-team-card__image-wrapper + .meet-the-team-card__info {
+  padding-top: 1.5rem;
+}
+
+.background-none .slider .meet-the-team-card__info {
+  padding-left: 0.5rem;
+}
+
+.background-none
+  .slider
+  .meet-the-team-card__image-wrapper
+  + .meet-the-team-card__info {
+  padding-left: 1.5rem;
+}
+
+.background-none
+  .meet-the-team-list:not(.slider)
+  .center
+  .meet-the-team-card__info {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+@media screen and (max-width: 749px) {
+  .background-none .slider .meet-the-team-card__info {
+    padding-bottom: 1rem;
+  }
+
+  .meet-the-team.background-none .slider.slider--mobile {
+    margin-bottom: 0rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .background-none .meet-the-team-card__image-wrapper {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .background-none .meet-the-team-list .meet-the-team-card__info,
+  .background-none
+    .meet-the-team-list:not(.slider)
+    .center
+    .meet-the-team-card__info {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.meet-the-team-card {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.meet-the-team-card > .meet-the-team-card__image-wrapper--full-width:not(.meet-the-team-card-spacing) {
+  border-top-left-radius: calc(var(--text-boxes-radius) - var(--text-boxes-border-width));
+  border-top-right-radius: calc(var(--text-boxes-radius) - var(--text-boxes-border-width));
+  overflow: hidden;
+}
+
+.meet-the-team .meet-the-team-card {
+  border-radius: 0;
+}
+
+.meet-the-team-card__info .list-social {
+  justify-content: center;
+  margin-top: 0;
+}
+
+.meet-the-team-card__info .link {
+  text-decoration: none;
+  font-size: inherit;
+  margin-top: 1rem;
+}
+
+.meet-the-team-card__info .icon-wrap {
+  margin-left: 0.8rem;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 990px) {
+  .meet-the-team-list__item--empty {
+    display: list-item;
+  }
+}
+
+
+.meet-the-team-list h3 {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.three.meet-the-team {
+  margin: 50px 0;
+}
+
+.three.meet-the-team .meet-the-team-card {
+  display: block;
+}
+
+.three.meet-the-team .meet-the-team-card .meet-the-team-card__image-wrapper {
+  width: 20.6%;
+}
+
+.three.meet-the-team .meet-the-team-list h3 {
+  color: #000;
+}
+
+.three.meet-the-team .meet-the-team-list h3:after {
+  content: "";
+  border-bottom: 2px solid var(--gradient-base-accent-1);
+  width: 50px;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 100px;
+}
+
+.three.meet-the-team .meet-the-team-card__info>:nth-child(2) {
+  margin-top: 1.5rem;
+  text-transform: capitalize;
+}
+
+.three.meet-the-team.background-none .meet-the-team-list .meet-the-team-card__info {
+  padding: 2.5rem 3rem 0;
+  width: auto;
+}
+
+.meet-the-team .meet-the-team-card .placeholder-svg {
+  width: 90px;
+  height: auto;
+}
+
+.homepage.meet-the-team .meet-the-team-list .meet-the-team-card:after {
+  content: "";
+  border-right: 1px solid transparent;
+  position: absolute;
+  right: 0;
+  height: 45px;
+  top: 7px;
+  right: 60px;
+}
+
+.homepage.meet-the-team .meet-the-team-list li:last-child .meet-the-team-card:after {
+  border: 0;
+}
+
+
+@media screen and (min-width: 1200px) {
+  .meet-the-team .image-left-content-left .meet-the-team-card {
+    display: flex;
+    align-items: center;
+  }
+  
+  .meet-the-team .image-left-content-left .meet-the-team-card-spacing {
+    margin: 0 5px 0 0;
+  }
+}
+
+@media screen and (max-width: 1269px) {
+  .homepage.meet-the-team .meet-the-team-list .meet-the-team-card:after {
+    right: 30px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .image-left-content-left .meet-the-team-card {
+    display: block;
+    text-align: center;
+  }
+  
+  .meet-the-team .image-left-content-left .meet-the-team-card-spacing {
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .meet-the-team .image-left-content-left .meet-the-team-card__info {
+    padding: 1.5rem 0 0;
+  }
+  
+  .image-left-content-left .meet-the-team-card__info {
+    width: 100%;
+  }
+  
+  .three.meet-the-team.background-none .meet-the-team-list .meet-the-team-card__info {
+    padding: 2.5rem 1rem 0;
+  }
+  
+  .homepage.meet-the-team .meet-the-team-list .meet-the-team-card:after {
+    right: 0;
+    top: 15px;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .meet-the-team  .grid--4-col-desktop .grid__item {
+    width: calc(50% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+  
+  .three.meet-the-team .meet-the-team-list__item.center .media--adapt {
+    width: 100px;
+    height: 100px;
+    padding: 0 !important;
+    margin: 0 auto;
+  }
+  
+  .three.meet-the-team .meet-the-team-card {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+  
+  .three.meet-the-team .meet-the-team-card .meet-the-team-card__image-wrapper {
+    width: auto;
+  }
+  
+  .three.meet-the-team {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  
+  .homepage.meet-the-team .meet-the-team-list .meet-the-team-card:after {
+    display:none;
+  }
+  
+  #section-meet-the-team.meet-the-team {
+    padding: 2rem 0;
+  }
+}
+
+@media screen and (max-width: 989px) and (min-width: 750px) {
+  .meet-the-team .meet-the-team-list.grid--1-col-tablet-down .grid__item {
+    width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+    max-width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .meet-the-team-card {
+    padding-bottom: 10px;
+  }
+  
+  .meet-the-team-card__image-wrapper--third-width {
+    width: 40px;
+  }
+  
+  .meet-the-team  .grid--4-col-desktop .grid__item {
+    max-width: calc(100% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+  
+  .meet-the-team-card__info > :nth-child(2) {
+    font-size: 14px;
+  }
+  
+  .meet-the-team .meet-the-team-list {
+    margin: 0;
+  }
+  
+  /* .meet-the-team-list__item.center .meet-the-team-card__image-wrapper {
+    padding: 0;
+  } */
+   
+  .meet-the-team-list h3 {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  
+  .meet-the-team-card__info .link {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .three.meet-the-team .meet-the-team-card {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,45 @@
+.related-products {
+  display: block;
+}
+
+.related-products__heading {
+  margin: 0 0 1rem;
+}
+
+.related-products .related_description {
+  margin-bottom: 3.5rem;
+}
+
+.related-products .product-grid .grid__item:first-child {
+  margin: 0;
+}
+
+.recommended-products .related-products .slider-mobile-gutter .slider-buttons {
+  opacity:0;
+}
+
+.recommended-products:hover .related-products .slider-mobile-gutter .slider-buttons {
+  transition: all 0.3s ease;
+  opacity:1;
+}
+
+.related-products .slider-mobile-gutter .slider-buttons .slider-button--prev {
+  left: -55px;
+}
+
+.related-products .slider-mobile-gutter .slider-buttons .slider-button--next {
+  right: -55px;
+}
+
+.recommended-products .related-products .slider-mobile-gutter .slider-buttons .slider-counter {
+  display: none;
+}
+
+@media screen and (max-width: 1600px){
+  .related-products .slider-mobile-gutter .slider-buttons .slider-button--prev {
+    left: -20px;
+  }
+  .related-products .slider-mobile-gutter .slider-buttons .slider-button--next {
+    right: -20px
+  }
+}

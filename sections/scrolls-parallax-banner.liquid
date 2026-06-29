@@ -1,0 +1,231 @@
+{{ 'section-scrolls-parallax-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .scrolls-parallax-banner .scrolls-parallax-banner-container {
+    background-color: {{ settings.colors_background_1 }};
+  }
+  .scrolls-parallax-banner .scrolls-parallax-banner-container .scrolls-parallax-banner-title {
+    color: {{ section.settings.text_color }};
+  }
+  .scrolls-parallax-banner .scrolls-parallax-banner-container .scrolls-parallax-banner-button,
+  .scrolls-parallax-banner .scrolls-parallax-banner-container .icon {
+    color: {{ section.settings.text_color }};
+  }
+  .scrolls-parallax-banner .scrolls-parallax-banner-content,
+  .scrolls-parallax-banner .scrolls-parallax-banner-content .banner-bottom-text {
+    text-align: {{ section.settings.title_alignment }};
+    justify-content: {{ section.settings.title_alignment }};
+  }
+{%- endstyle -%}
+
+<div class="scrolls-parallax-banner section-{{ section.id }}-padding">
+  <div class="scrolls-parallax-banner-container {% if section.settings.layout == 'grid' %}page-width{% else %}full-width{% endif %}">
+  {% assign block_count = section.blocks.size %}
+  
+  {% for block in section.blocks %}
+    {% assign reverse_index = block_count | minus: forloop.index %}
+    {% assign width_reduction = reverse_index | times: section.settings.width_step %}
+    {% assign card_width = 100 | minus: width_reduction %}
+    {% assign top_offset = forloop.index0 | times: section.settings.stack_offset %}
+    
+    <div class="scrolls-parallax-banner-card-wrapper" style="position: sticky; top: {{ top_offset }}px; padding-top: 50px;">
+      <div class="scrolls-parallax-banner-card" style="height: {{ section.settings.card_height }}vh; width: {{ card_width }}%;">
+        <a href="{{ block.settings.link }}" class="scrolls-parallax-banner-link">  
+          <div class="scrolls-parallax-banner-image-container">
+             {% if block.settings.image != blank %}
+              <img
+                src="{{ block.settings.image | image_url: width: 2000 }}"
+                alt="{{ block.settings.title }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                class="scrolls-parallax-banner-img"
+              >
+            {% else %}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'scrolls-parallax-banner-img scrolls-parallax-banner-placeholder' }}
+            {% endif %}
+          </div>
+
+          <div class="scrolls-parallax-banner-content">
+            <h2 class="scrolls-parallax-banner-title">{{ block.settings.title }}</h2>
+            {% if block.settings.link_text != blank %}
+              <div class="banner-bottom-text">
+                <span class="scrolls-parallax-banner-button">{{ block.settings.link_text }}</span>
+                {{- 'left-arrow.svg' | inline_asset_content -}}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="scrolls-parallax-banner-overlay"></div>
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.scrolls-parallax-banner.name",
+  "settings": [
+    {
+    "type": "select",
+    "id": "layout",
+    "options": [
+      {
+        "value": "full_bleed",
+        "label": "t:sections.all.layout.options__1.label"
+      },
+      {
+        "value": "grid",
+        "label": "t:sections.all.layout.options__2.label"
+      }
+    ],
+    "default": "full_bleed",
+    "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "range",
+      "id": "card_height",
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "vh",
+      "label": "Card Height (Screen %)",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "stack_offset",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Stacking Offset",
+      "info": "How much of the previous card remains visible at the top.",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "width_step",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "%",
+      "label": "Width Difference",
+      "info": "How much smaller each card is compared to the one below it. Set to 0 for equal widths.",
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "title_alignment",
+      "label": "t:sections.scrolls-parallax-banner.settings.heading_alignment.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.scrolls-parallax-banner.settings.heading_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.scrolls-parallax-banner.settings.heading_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.scrolls-parallax-banner.settings.heading_alignment.options__3.label"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Collection Name"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "View Collection →"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.scrolls-parallax-banner.presets.name",
+      "blocks": [
+        {
+           "type": "card"
+        },
+        {
+           "type": "card"
+        },
+        {
+           "type": "card" 
+        },
+        {
+           "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

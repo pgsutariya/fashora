@@ -1,0 +1,92 @@
+<script defer>
+
+  /* Collection page grid-list button script start */
+  $(function(){
+    
+   {% if template contains "collection" or template contains "search"%}
+      $("body").delegate(".four_columns", "click", function(e) {
+        e.preventDefault();
+        $(".collection #product-grid,.template-search #product-grid").removeClass("collection-list-product grid--2-col-desktop grid--3-col-desktop grid--5-col-desktop");
+        $(".collection #product-grid,.template-search #product-grid").addClass("grid--4-col-desktop");
+        $(this).addClass('active');
+        $(".btn-group .list_columns,.btn-group .two_columns,.btn-group .three_columns,.btn-group .five_columns").removeClass('active');
+      })
+      $("body").delegate(".three_columns", "click", function(e) {
+        e.preventDefault();
+        $(".collection #product-grid,.template-search #product-grid").removeClass("collection-list-product grid--2-col-desktop grid--4-col-desktop grid--5-col-desktop");
+        $(".collection #product-grid,.template-search #product-grid").addClass("grid--3-col-desktop");
+        $(this).addClass('active');
+        $(".btn-group .list_columns,.btn-group .two_columns,.btn-group .four_columns,.btn-group .five_columns").removeClass('active');
+      });
+      $("body").delegate(".two_columns", "click", function(e) {
+        e.preventDefault();
+        $(".collection #product-grid,.template-search #product-grid").removeClass("collection-list-product grid--3-col-desktop grid--4-col-desktop grid--5-col-desktop");
+        $(".collection #product-grid,.template-search #product-grid").addClass("grid--2-col-desktop");
+        $(this).addClass('active');
+        $(".btn-group .list_columns,.btn-group .three_columns,.btn-group .four_columns,.btn-group .five_columns").removeClass('active');
+      });
+      $("body").delegate(".list_columns", "click", function(e) {
+        e.preventDefault();
+        $(".collection #product-grid,.template-search #product-grid").removeClass("grid--2-col-desktop grid--3-col-desktop grid--4-col-desktop grid--5-col-desktop");
+        $(".collection #product-grid,.template-search #product-grid").addClass("collection-list-product");
+        $(this).addClass('active');
+        $(".btn-group .two_columns,.btn-group .three_columns,.btn-group .four_columns,.btn-group .five_columns").removeClass('active');
+      });
+    {% endif %}
+    
+  });
+  /* Collection page grid-list button script end */
+
+
+  /* Mega menu hover script start */
+  {% comment %} if ($(window).width() >= 990) {
+    if($(".header__inline-menu").length > 0){
+      let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+      //console.log(items.length);
+      if (items.length > 0) {
+        items.forEach(item => {
+          item.addEventListener("mouseover", () => {
+            item.setAttribute("open", true);
+            item.querySelector("ul").addEventListener("mouseleave", () => {
+              item.removeAttribute("open");
+            });
+            item.addEventListener("mouseleave", () => {
+              item.removeAttribute("open");
+            });
+          });
+        });
+      }
+    }
+  } {% endcomment %}
+  jQuery(document).ready(function($) {
+    if ($(window).width() >= 990) {
+      if($(".header__inline-menu").length > 0){
+        let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+        //console.log(items.length);
+        if (items.length > 0) {
+          items.forEach(item => {
+            item.addEventListener("mouseover", () => {
+              item.setAttribute("open", true);
+              item.querySelector("ul").addEventListener("mouseleave", () => {
+                item.removeAttribute("open");
+              });
+              item.addEventListener("mouseleave", () => {
+                item.removeAttribute("open");
+              });
+            });
+          });
+        }
+      }
+    }
+  });
+  /* Mega menu hover script end */
+
+
+   /* Swatches script start */
+    $(document).delegate(".product-grid .product_tile_color_holder .color_items span","mouseover", function () {
+      var prourl = $(this).attr("data-pro-org-img");
+      //$(this).parents(".product-card-wrapper .card").find(".card__inner .card__media").find("img").attr("srcset",prourl);
+      $(this).parents(".product-card-wrapper .card").find(".card__inner").find('.swiper-slide.swiper-slide-active').find("img").attr("srcset",prourl);
+    });
+  /* Swatches script end */
+</script>

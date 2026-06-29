@@ -1,0 +1,64 @@
+<style type="text/css">
+  .template-404 .title + * {
+    margin-top: 1rem;
+  }
+  .template-404 .main-title-404 {
+      font-size: 90px;
+      margin-bottom: 0;
+      font-weight: bold;
+      color: rgba(var(--color-foreground));
+  }
+  .template-404 .sub-title {
+      margin-top: 0;
+      margin-bottom: 4rem;
+      font-size: 24px;
+      font-weight: 600;
+      color: rgba(var(--color-foreground));
+  }
+  .template-404 .title {
+      font-weight: bold;
+      margin-bottom: 2rem;
+  }
+  .template-404 .buttons-list {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: 750px) {
+    .template-404 .title + * {
+      margin-top: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 989px) {
+    .template-404 .main-title-404 {
+        font-size: 65px;
+        line-height: 1;
+    }
+    .template-404 .sub-title {
+        font-size: 18px;
+    }
+  }
+</style>
+
+<div class="template-404 page-width page-margin center">
+  <p class="main-title-404">
+    {{ 'templates.404.subtext' | t }}
+  </p>
+  <h1 class="title">
+    {{ 'templates.404.title' | t }}
+  </h1>
+  <p class="sub-title">
+    {{ 'templates.404.sub_title' | t }}
+  </p>
+  <div class="buttons-list">
+    <a href="{{ routes.root_url }}" class="button">
+      {{ 'templates.404.back_to_homepgae' | t }}
+    </a>
+    <a href="{{ routes.all_products_collection_url }}" class="button">
+      {{ 'general.continue_shopping' | t }}
+    </a>
+  </div>
+</div>

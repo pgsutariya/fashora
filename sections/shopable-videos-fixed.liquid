@@ -1,0 +1,331 @@
+{{ 'section-shopable-videos.css' | asset_url | stylesheet_tag }}
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'section-shopable-videos-fixed.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+{% render 'swiper-assets' %}
+
+{% style %}
+  .shopable-videos-fixed {
+     border-radius: {{section.settings.shopable_video_border_radius}}px;
+  }
+{% endstyle %}
+
+{% if section.blocks.size > 0 %}
+<div class="shopable-videos-fixed {% if settings.hide_mobile_shopable_video_popup %} small-hide{% endif %}">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+        {%- when 'video' -%}
+          {% if block.settings.file_video_url != blank %}
+            <div data-slide-index="{{ forloop.index | minus:1 }}" class="video-slider video-slider-{{ section.id }}">
+               {%- if block.settings.file_video_url != blank -%}
+                  {%- if block.settings.file_video_url != blank -%}
+                    <video class="video-slide" id="video{{ forloop.index }}" width="100%" height="auto" autoplay muted {% if forloop.index != 1 %} style=" display:none;" {% endif %}>
+                      <source src="{{ block.settings.file_video_url }}" type="video/mp4">
+                    </video>
+                  {%- endif -%}
+               {% endif %}
+            </div>
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+     {%- endcase -%}
+  {%- endfor -%}
+  <button class="closefixvideo">
+    <svg widht="50px" height="50px" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+      <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
+    </svg>
+  </button>
+</div>
+{% endif %}
+
+<script defer>
+  $(document).ready(function() {
+      let currentVideo = 0;
+      const videos = $('.video-slide');
+
+      videos.on('ended', function() {
+          currentVideo++;
+          if (currentVideo < videos.length) {
+              videos.hide();
+              $(videos[currentVideo]).show();
+              $(videos[currentVideo]).get(0).play();
+          } else {
+              currentVideo = 0;
+              videos.hide();
+              $(videos[currentVideo]).show();
+              $(videos[currentVideo]).get(0).play();
+          }
+      });
+
+      $(videos[currentVideo]).get(0).play();
+     $('.closefixvideo').click(function(){ $('.shopable-videos-fixed').hide(); }); 
+  });
+</script>
+
+<!-- main-video-swiper -->
+<div class="main-video-swiper main-video-swiper-{{ section.id }} shopable-videos">
+   <div class="swiper-container popup-video-slider">
+        <div
+          class="swiper-wrapper product-grid contains-card{% if settings.card_style == 'standard' %} contains-card--standard{% endif %}"
+          role="list"
+          aria-label="{{ 'sections.featured_collection.slider' | t }}"
+        >
+        {%- for block in section.blocks -%}
+          <div
+            class="swiper-slide"
+          >
+            {%- case block.type -%}
+              {%- when 'video' -%}
+                 {%- liquid
+                     assign video_alt = block.settings.file_video_url.alt | default: block.settings.description
+                    assign alt = 'sections.video.load_video' | t: description: video_alt | escape
+                    assign video_id = block.settings.file_video_url.id | default: block.settings.video_url.id
+                   assign loop = '&loop=1&playlist=' | append: video_id
+                  -%}
+              
+                <div class="shopable-video-inner {% if block.settings.shop_product != blank %} shop-product-style{% endif %}">
+                  <div data-slide-index="{{ forloop.index | minus:1 }}" class="video-slider video{% if block.settings.file_video_url == null %} placeholder{% endif %}">
+                    <div class="video-section isolate">
+                      <div
+                        class="video-section__media media deferred-media no-js-hidden gradient global-media-settings"
+                        data-media-id="{{ video_id }}"
+                        {% if section.settings.enable_story_style == true %}
+                           style="--ratio-percent: 100%;"
+                        {% else %}
+                           style="--ratio-percent: 150%;"
+                        {% endif %}
+                      >
+
+                         {%- if block.settings.file_video_url == null and block.settings.video_url != null -%}
+                           {%- if block.settings.video_url.type == 'youtube' -%}
+                            <iframe
+                              src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1&mute=1&controls=0{{ loop }}"
+                              class="js-youtube shop-video"
+                              allow="autoplay; encrypted-media"
+                              allowfullscreen
+                              muted
+                              title="{{ section.settings.description | escape }}"
+                            ></iframe>
+                          {%- else -%}
+                            <iframe
+                              src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1&mute=1&controls=0{{ loop }}"
+                              class="js-vimeo shop-video"
+                              allow="autoplay; encrypted-media"
+                              allowfullscreen
+                              muted
+                              title="{{ block.settings.description | escape }}"
+                            ></iframe>
+                          {%- endif -%}
+                        {% else %}
+                          {%- if block.settings.file_video_url != blank -%}
+                            {%- liquid
+                              assign video_id = block.settings.file_video_url.id
+                            -%}
+                              {%- if block.settings.file_video_url != blank -%}
+                                <video class="shop-video" width="100%" height="auto" autoplay muted loop playsInline>
+                                  <source src="{{ block.settings.file_video_url}}" type="video/mp4">
+                                </video>
+                              {%- endif -%}
+                          {% else %}
+                            <div class="video-section__placeholder">
+                              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                            </div>
+                          {% endif %}
+                        {% endif %}
+                      </div>
+                    </div>
+                </div>
+
+                {% if block.settings.shop_product != blank %}
+                  {% assign shoppro = block.settings.shop_product %}
+                  <div class="shopable-product">
+                    <div class="product-item product__item-js style-as-standard">
+                      <div class="product-item__wrapper hover_zoom">
+                        <div class="product-item__inner hover-effect">
+                          <a
+                            href="{{ block.settings.shop_product.url }}"
+                            class="product__media product-item__media--ratio"
+                            style="--aspect-ratio: 3/4;"
+                          >
+                            <img
+                              src="{{ block.settings.shop_product.featured_media | image_url }}"
+                              alt="{{ block.settings.shop_product.featured_media.alt }}"
+                              width="{{ block.settings.shop_product.featured_media.width }}"
+                              height="{{ block.settings.shop_product.featured_media.height }}"
+                              loading="lazy"
+                              class="product-image first-image"
+                            >
+                          </a>
+                        </div>
+
+                        <div class="product-item__information">
+                          <a
+                            aria-label="{{ block.settings.shop_product.title }}"
+                            class="product-item__name heading-style"
+                            href="{{ block.settings.shop_product.url }}"
+                          >
+                            {{- block.settings.shop_product.title -}}
+                          </a>
+
+                          {% render 'price', product: shoppro, price_class: '', show_compare_at_price: true %}
+
+                          <div class="shopable-add-to-cart">
+                            {% if shoppro.variants[0].available %}
+                              <product-form data-section-id="{{ section.id }}">
+                                {% assign product_form_id = shoppro.id %}
+                                {%- form 'product',
+                                  shoppro,
+                                  id: product_form_id,
+                                  class: 'form',
+                                  novalidate: 'novalidate',
+                                  data-type: 'add-to-cart-form'
+                                -%}
+                                  <input
+                                    type="hidden"
+                                    name="id"
+                                    value="{{ shoppro.selected_or_first_available_variant.id }}"
+                                    class="product-variant-id"
+                                    {% if shoppro.selected_or_first_available_variant.available == false %}
+                                      disabled
+                                    {% endif %}
+                                  >
+                                  <button
+                                    id="{{ product_form_id }}-submit"
+                                    type="submit"
+                                    name="add"
+                                    class="quick-add__submit button button--full-width button--primary{% if horizontal_quick_add %} card--horizontal__quick-add{% endif %}"
+                                    aria-haspopup="dialog"
+                                    aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ shoppro.id }}"
+                                    aria-live="polite"
+                                    data-sold-out-message="true"
+                                    {% if shoppro.selected_or_first_available_variant.available == false %}
+                                      disabled
+                                    {% endif %}
+                                  >
+                                    <span>
+                                      
+                                      {%- if shoppro.selected_or_first_available_variant.available -%}
+                                        {{ 'products.product.add_to_cart' | t }}
+                                      {%- else -%}
+                                        {{ 'products.product.sold_out' | t }}
+                                      {%- endif -%}
+                                    </span>
+                                    <span class="sold-out-message hidden">
+                                      {{ 'products.product.sold_out' | t }}
+                                    </span>
+                                    {%- render 'loading-spinner' -%}
+                                  </button>
+                                {%- endform -%}
+                              </product-form>
+                            {% else %}
+                              soldout
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endcase -%}
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="swiper-button swiper-button-prev"> {% render 'icon-caret' %} </div>
+      <div class="swiper-button swiper-button-next"> {% render 'icon-caret' %} </div>
+  </div>
+            
+   <a class="closevideo" style="cursor: pointer;">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+      <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
+    </svg>
+  </a>
+</div>
+
+<script defer>
+   $(function() {
+    window.SpeedoFashoraTheme.waitForSwiper(function() {
+      $('.video-slider-{{ section.id }}').on('click', function() {
+
+        var $fixslide = $(this).attr("data-slide-index");
+        $(".main-video-swiper-{{ section.id }}").show();
+        var mySwiper = new Swiper(".main-video-swiper-{{ section.id }} .popup-video-slider", {
+        spaceBetween: 1,
+        slidesPerView: 3,
+        centeredSlides: true,
+        roundLengths: true,
+        loop: true,
+        loopAdditionalSlides: 30,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          990: {
+              slidesPerView: 3
+          },
+          320: {
+              slidesPerView: 1
+          }
+        }
+      });
+      mySwiper.slideTo($fixslide); // Correctly calls slideNext to go to the next slide
+    });
+
+    $('.main-video-swiper-{{ section.id }} .closevideo').click(function(){ $('.main-video-swiper-{{ section.id }}').hide(); }); 
+    $('.main-video-swiper-{{ section.id }} .shopable-add-to-cart .quick-add__submit').click(function(){ $('.main-video-swiper-{{ section.id }}').hide(); }); 
+     
+  });
+</script>
+        
+
+{% schema %}
+{
+  "name": "t:sections.shopable-videos-fixed.name",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "shopable_video_border_radius",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 6
+    }
+  ],
+  "blocks": [
+    {
+      "type":"video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "header",
+          "content": "File video"
+        },
+        {
+          "type": "url",
+          "id": "file_video_url",
+          "label": "File video Url",
+          "info": "Go to admin>content>files option add/upload the video then copy the link and paste it here."
+        },
+        {
+          "type": "product",
+          "id": "shop_product",
+          "label": "Select Product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

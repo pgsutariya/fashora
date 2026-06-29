@@ -1,0 +1,72 @@
+.logo-slider-msg .logo-slider-message {
+  display: flex;
+  align-items: center;
+  font-size: 6.4rem;
+  font-weight: 400;
+  letter-spacing: 11.52px;
+  line-height: 1.65;
+  font-family: var(--font-heading-family);
+  text-align: center;
+  margin: 0;  
+  min-height: 3.5rem;
+  gap: 8px;
+}
+.swiper-container .logo-slider {
+  display: block;
+}
+.logo-slider-msg .swiper-slide { 
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  position: relative;
+}
+.logo-slider-msg .logo-slider-message .slider-image {
+  max-width: 14.6rem;
+  width: 100%;
+  display: inline-block;
+  margin: 0 1.2rem;
+}
+.logo-slider-msg .announcement-bar__link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 1.5rem;
+}
+.logo-slider-msg>.swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+.logo-slider-msg .logo-slider .slider-image {
+  opacity: 0.3;
+  transition: all 0.5s ease-out allow-discrete;
+  width: 100%;
+}
+.logo-slider-msg .logo-slider .slider-image:hover {
+  opacity: 1;
+  transition: all 0.5s ease-out allow-discrete;
+}
+.logo-slider-msg .title-wrapper {
+  margin-bottom: 4rem;
+}
+.logo-slider-msg .title-wrapper .logo-title {
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 0;
+  margin: 0;
+}
+.logo-slider-msg .title-wrapper .logo_description {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 750px) {
+  .logo-slider-msg .logo-slider-message {
+    font-size: 3rem;
+  }
+  .logo-slider-msg .logo-slider-message .slider-image {
+    max-width: 10rem; 
+  }
+}

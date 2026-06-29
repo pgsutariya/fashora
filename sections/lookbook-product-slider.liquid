@@ -1,0 +1,331 @@
+{{ 'section-lookbook-product-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.bg_color }};
+    border-top: 1px solid {{ section.settings.Border_color }};
+    border-bottom: 1px solid {{ section.settings.Border_color }};
+  }
+  .section-{{ section.id }}-padding {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding main-lookbook">
+  <div class="{% if section.settings.layout == 'grid' %}page-width{% else %}full-width{% endif %}">
+    {% if section.settings.heading != blank %}
+      <h2 class="lookbook-heading-mobile">{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="lookbook-container"> 
+      <div class="lookbook-left-column">
+        {% if section.settings.heading != blank %}
+          <h2 class="lookbook-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        <div class="lookbook-slider-container">    
+          <button class="lookbook-arrow lookbook-prev" aria-label="Previous product">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          </button>
+
+          <div class="lookbook-card-wrapper" id="Slider-{{ section.id }}">
+            {%- for block in section.blocks -%}
+              {%- if block.settings.product != blank -%}
+                <div class="lookbook-product-card {% if forloop.first %}active{% endif %}" 
+                     data-index="{{ forloop.index0 }}">
+                  {% render 'card-product',
+                    card_product: block.settings.product,
+                    media_aspect_ratio: 'adapt',
+                    show_secondary_image: true,
+                    show_vendor: false,
+                    show_rating: false,
+                    quick_add: section.settings.quick_add
+                  %}
+                </div>
+              {%- else -%}
+                 <div class="lookbook-product-card {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+                   {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                   <div class="center h4" style="padding: 1rem;">Select a product in block settings</div>
+                 </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          <button class="lookbook-arrow lookbook-next" aria-label="Next product">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+
+        </div>
+      </div>
+
+      <div class="lookbook-right-column">
+        <div class="lookbook-image-wrapper">
+          {%- if section.settings.image != blank -%}
+            {{ section.settings.image | image_url: width: 1500 | image_tag: 
+              loading: 'lazy', 
+              width: section.settings.image.width, 
+              height: section.settings.image.height,
+              class: 'lookbook-main-image' 
+            }}
+            
+            {%- for block in section.blocks -%}
+              <button class="lookbook-hotspot {% if forloop.first %}active{% endif %}"
+                      style="top: {{ block.settings.top }}%; left: {{ block.settings.left }}%;"
+                      data-index="{{ forloop.index0 }}"
+                      aria-label="View product {{ block.settings.product.title }}">
+                      <span class="lookbook-card__pin"></span>
+              </button>
+            {%- endfor -%}
+
+          {%- else -%}
+            {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const section = document.querySelector('.section-{{ section.id }}-padding');
+    const hotspots = section.querySelectorAll('.lookbook-hotspot');
+    const cards = section.querySelectorAll('.lookbook-product-card');
+    const prevBtn = section.querySelector('.lookbook-prev');
+    const nextBtn = section.querySelector('.lookbook-next');
+    
+    let currentIndex = 0;
+    const totalSlides = cards.length;
+
+    // Main Function to change slide
+    function showSlide(index) {
+      // Wrap around logic
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      
+      currentIndex = index;
+
+      // Update Cards
+      cards.forEach(c => c.classList.remove('active'));
+      if(cards[currentIndex]) cards[currentIndex].classList.add('active');
+
+      // Update Hotspots
+      hotspots.forEach(h => h.classList.remove('active'));
+      const activeHotspot = section.querySelector(`.lookbook-hotspot[data-index="${currentIndex}"]`);
+      if(activeHotspot) activeHotspot.classList.add('active');
+    }
+
+    // 1. Hotspot Hover Interaction
+    hotspots.forEach(spot => {
+      spot.addEventListener('mouseenter', function() {
+        const index = parseInt(this.getAttribute('data-index'));
+        showSlide(index);
+      });
+      // Click fallback for mobile
+      spot.addEventListener('click', function() {
+        const index = parseInt(this.getAttribute('data-index'));
+        showSlide(index);
+      });
+    });
+
+    // 2. Arrow Click Interaction
+    if(prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        showSlide(currentIndex - 1);
+      });
+    }
+
+    if(nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        showSlide(currentIndex + 1);
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.lookbook-product-slider.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+          {
+            "value": "full_bleed",
+            "label": "t:sections.all.layout.options__1.label"
+          },
+          {
+            "value": "grid",
+            "label": "t:sections.all.layout.options__2.label"
+          }
+      ],
+      "default": "full_bleed",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.lookbook-product-slider.settings.heading.label",
+      "default": "t:sections.lookbook-product-slider.settings.heading.default"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.lookbook-product-slider.settings.image.label"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "t:sections.lookbook-product-slider.settings.bg_color.label",
+      "default": "#EFEFEF"
+    },
+    {
+      "type": "color",
+      "id": "Border_color",
+      "label": "t:sections.lookbook-product-slider.settings.border_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.lookbook-product-slider.settings.header.content"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.lookbook-product-slider.settings.margin_top.label",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.lookbook-product-slider.settings.margin_bottom.label",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_spot",
+      "name": "Product Hotspot",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "t:sections.lookbook-product-slider.blocks.product.name"
+        },
+        {
+          "type": "range",
+          "id": "top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook-product-slider.blocks.product.settings.top.label",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.lookbook-product-slider.blocks.product.settings.left.label",
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.lookbook-product-slider.presets.name",
+      "blocks": [
+        {
+          "type": "product_spot",
+          "settings": {
+            "top": 30,
+            "left": 40
+          }
+        },
+        {
+          "type": "product_spot",
+          "settings": {
+            "top": 60,
+            "left": 70
+          }
+        },
+        {
+          "type": "product_spot",
+          "settings": {
+            "top": 40,
+            "left": 50
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

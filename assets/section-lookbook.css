@@ -1,0 +1,157 @@
+.section-lookbook {
+  z-index: 2;
+  position: relative;
+}
+
+.lookbook {
+  display: block;
+}
+
+.lookbook .section-header .title {
+  margin-top: 0;
+}
+
+.lookbook .tooltip .product-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.lookbook .section-header .description {
+  margin-bottom: 2rem;
+}
+
+.lookbook-inner {
+  position: relative;
+}
+
+.lookbook .img-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lookbook .img-wrapper-mobile {
+  display: block;
+}
+
+.lookbook .img-wrapper-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .lookbook .img-wrapper-mobile {
+    display: none;
+  }
+
+  .lookbook .img-wrapper-desktop {
+    display: block;
+  }
+}
+
+.lookbook-point-list-item button {
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+}
+
+.lookbook-point-list-item button > span {
+  display: block;
+  padding: .30rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  background-color: transparent;
+  transition: all .2s ease-out;
+}
+
+.lookbook-point-list-item button:hover > span, 
+.lookbook-point-list-item button:focus > span {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.lookbook-point-list-item button > span > span {
+  background: currentColor;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.lookbook .tooltip {
+  display: none;
+  width: max-content;
+  width: 320px;
+  max-width: 90vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  color: #121212;
+  padding: 1.5rem;
+  border-radius: 4px;
+  line-height: normal;
+  z-index: 9999;
+  border-radius: var(--product-card-corner-radius);
+}
+
+.lookbook .tooltip.show {
+  display: block;
+  animation: ks_tooltip_animation_showing .4s ease-out both;
+}
+
+.lookbook .tooltip.hiding {
+  display: block;
+  animation: ks_tooltip_animation_hiding .2s ease-out both;
+}
+
+@keyframes ks_tooltip_animation_showing {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ks_tooltip_animation_hiding {
+  to {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+.lookbook .tooltip .title {
+  font-size: calc(var(--font-heading-scale) * 1.5rem);
+  color: currentColor;
+  margin: 0 0 .75rem;
+}
+
+.lookbook .tooltip .description {
+  font-size: .85em;
+  margin-bottom: 1rem;
+}
+
+.lookbook .tooltip .lookbook-product-img {
+  width: 100%;
+  height: auto;
+  margin: 0 0 1rem;
+  border-radius: var(--product-card-corner-radius);
+}
+
+.lookbook .tooltip .lookbook-product-price {
+  margin: 0 0 1.2rem;
+}
+
+.lookbook .tooltip .lookbook-product-price-compare {
+  opacity: .6;
+  margin-right: .5rem;
+}
+
+.lookbook .tooltip a {
+  width: 100%;
+}

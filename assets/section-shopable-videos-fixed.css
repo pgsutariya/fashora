@@ -1,0 +1,42 @@
+.shopable-videos-fixed {
+  width: 100%;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width: 200px;
+  height: 200px;
+  margin: auto;border:5px solid #fff;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.shopable-videos-fixed .video-slide {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.shopable-videos-fixed .closefixvideo {
+  width: 35px;
+  height: 35px;
+  padding: 8px;
+  margin: 0;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  background: #ffffffcf;
+  border-radius: 0px;
+  fill: #fff;
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  border: none;
+}
+
+.shopable-videos-fixed .closefixvideo .icon-close {
+  width: 20px;
+  height: 20px;
+}

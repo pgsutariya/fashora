@@ -1,0 +1,199 @@
+{{ 'newsletter-popup.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+   .newsletter-popup .popup_inside {
+     border-radius : {{ section.settings.newsletter_popup_border_radius }}px;
+   }
+  
+  @media only screen and (max-width: 749px) {
+    .newsletter-popup .popup_inside .close_popup{
+       border-radius : {{ section.settings.newsletter_popup_border_radius }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="newsletter-popup color-{{ section.settings.color_scheme }} gradient">
+  <div class="popup_inside zenon_popup">
+    <img width="" height="" class="close_popup" loading="lazy" src="{{ 'newsletter_modal_close_button.png' | asset_url }}" alt="" />
+    <div class="left_img">
+      {% if section.settings.image != blank %}
+      	<img width="" height="" class="desktop_img" src="{{ section.settings.image | image_url: width: master }}" loading="lazy" alt="{{ section.settings.image.alt | escape }}">
+        {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+      {% endif %}
+
+      {% if section.settings.mobile_image != blank %}
+      	<img width="" height="" class="mobile_img" src="{{ section.settings.mobile_image | image_url: width: master }}" loading="lazy" alt="{{ section.settings.mobile_image.alt | escape }}">
+        {% else %}
+        <img width="" height="" class="mobile_img" src="{{ section.settings.image | image_url: width: master }}" loading="lazy" alt="{{ section.settings.image.alt | escape }}">
+      {% endif %}     
+      
+    </div>
+    <div class="newsletter_form color-{{ section.settings.color_scheme }} gradient">
+      <div class="footer_content_right center">
+        <div class="site-popup__newsletter
+          {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
+          {%- assign formId = 'ContactFooter' -%}
+          {% if section.settings.title != blank %}
+          	<h2 class="title h2">{{ section.settings.title }}</h2>
+          {% endif %}
+          {% if section.settings.content != blank %}
+          	<p>{{ section.settings.content }}</p>
+          {% endif %}
+          {% form 'customer', class: 'newsletter-form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="newsletter-form__field-wrapper">
+                <div class="field">
+                  <input
+                    id="NewsletterForm--{{ section.id }}"
+                    type="email"
+                    name="contact[email]"
+                    class="field__input"
+                    value="{{ form.email }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="Newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="Newsletter-success--{{ section.id }}"
+                    {% endif %}
+                    placeholder="{{ 'newsletter.label' | t }}"
+                    required
+                  >
+                  <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                    {{ 'newsletter.label' | t }}
+                  </label>
+                  <button type="submit" class="newsletter-form__button field__button button button--primary" name="commit" id="Subscribe" aria-label="{{ section.settings.button_label }}">{{ section.settings.button_label }}</button>
+                </div>
+                {%- if form.errors -%}
+                  <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+                {%- endif -%}
+              </div>
+              {%- if form.posted_successfully? -%}
+                <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
+              {%- endif -%}
+            {% endform %}
+        </div>
+  	</div>
+	</div>
+</div>
+</div>
+  
+  
+  
+
+{% if template contains "index" %}
+  <script type="text/javascript" defer>
+    /* Newsletter popup */   
+    $(function() {
+      var delay = 100;
+      function createCookie(name,value,days) {
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime()+(days*24*60*60*1000));
+          var expires = "; expires="+date.toGMTString();
+        }
+        else var expires = "";
+        document.cookie = name+"="+value+expires+"; path=/";
+      }
+      function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+      }
+      function eraseCookie(name) {
+        createCookie(name,"",-1);
+      }
+
+
+      var covalue = "no";
+      if (readCookie('zenon-popup') !== null && readCookie('zenon-popup') !== undefined) {
+        //console.log("innn");
+        covalue = readCookie('zenon-popup');
+        $(".zenon_popup").hide();
+      }
+      if (covalue == "no"){
+        setTimeout(function(){
+          $(".zenon_popup").show();
+          $('body').addClass('popup-active');
+        }, 5000);
+      }
+      $(".close_popup").click(function(){
+        $(this).parent(".zenon_popup").hide();
+        $.cookie('zenon-popup', 'yes', {expires: 1, path:"/" });
+        $('body').removeClass('popup-active');
+      });
+    });
+  </script>
+  
+{% endif %}
+  
+{% schema %}
+  {
+    "name": "t:sections.newsletter__popup.name",
+    "settings": [
+  	{
+  		"type": "image_picker",
+  		"id": "image",
+        "info": "Recommended image size is (375 x 350)px",
+        "label": "t:sections.newsletter__popup.settings.image.label"
+  	},
+    {
+  		"type": "image_picker",
+  		"id": "mobile_image",
+        "info": "Recommended image size is (375 x 200)px",
+        "label": "t:sections.newsletter__popup.settings.mobile_image.label"
+  	},
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+  	{
+  		"type": "text",
+  		"id": "title",
+  		"label": "t:sections.newsletter__popup.settings.title.label",
+        "default": "Get the newsletter Get 10% off."
+  	},
+  	{
+  		"type": "textarea",
+  		"id": "content",
+        "label": "t:sections.newsletter__popup.settings.content.label",
+        "default": "Stay up to date with our exciting products developments, get special offers, and receive"
+  	},
+  	{
+  		"type": "text",
+  		"id": "button_label",
+  		"label": "t:sections.newsletter__popup.settings.button_label.label",
+        "default": "Subscribe"
+  	},
+    {
+      "type": "range",
+      "id": "newsletter_popup_border_radius",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+  	  "label": "t:sections.newsletter__popup.settings.newsletter_popup_border_radius.label",
+      "default": 6
+  	}
+  	
+  	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

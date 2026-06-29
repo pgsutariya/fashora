@@ -1,0 +1,291 @@
+{{ 'section-collage-grid.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    --fbg-gap: {{ section.settings.gap | times: 0.50 | round: 0  }}px;
+    --media-radius: {{ section.settings.media-radius }}px;
+    --section-padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      --fbg-gap: {{ section.settings.gap | times: 0.75 | round: 0  }}px;
+      --section-padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .section-{{ section.id }}-padding {
+      --fbg-gap: {{ section.settings.gap }}px;
+      --section-padding-top: {{ section.settings.padding_top }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="collage-grid section-{{ section.id }}-padding color-{{ section.settings.section_color_scheme }} gradient{% if section.settings.full_width %} collage-grid--full-width full-width{% endif %}" id="collage-grid-{{ section.id }}">
+  <div class="collage-grid__inner page-width">
+    {%- if section.settings.heading != blank or section.settings.subheading != blank or section.settings.tagline != blank -%}
+      <div class="collage-grid__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="collage-grid__title {{ section.settings.heading_size }}">{{- section.settings.heading -}}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.subheading != blank -%}
+          <div class="collage-grid__subheading rte">{{- section.settings.subheading -}}</div>
+        {%- endif -%}
+
+        {%- if section.settings.tagline != blank -%}
+          <p class="collage-grid__tagline">{{- section.settings.tagline -}}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="collage-grid__mosaic">
+        {%- comment -%} Row 1: blocks 1, 2, 3 {%- endcomment -%}
+        <div class="collage-grid__row collage-grid__row--top">
+          {%- for block in section.blocks -%}
+            {%- if forloop.index <= 3 -%}
+              <div class="collage-grid__item collage-grid__item--row1-col{{ forloop.index }}" {{ block.shopify_attributes }} {% if block.settings.image != blank %}style="--aspect-ratio: {{ block.settings.image.aspect_ratio }}; --padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"{% endif %}>
+                {%- if block.settings.image != blank -%}
+                  <a
+                    class="collage-grid__link"
+                    {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% else %}role="presentation"{% endif %}
+                  >
+                    <div class="collage-grid__image-wrapper">
+                      {{
+                        block.settings.image
+                        | image_url: width: 1200
+                        | image_tag:
+                          loading: 'lazy',
+                          widths: '400, 600, 800, 1000, 1200',
+                          class: 'collage-grid__image',
+                          alt: block.settings.image.alt | escape
+                      }}
+                      {%- if block.settings.overlay_label != blank -%}
+                        <div class="collage-grid__overlay">
+                          <span class="collage-grid__overlay-text">{{ block.settings.overlay_label | escape }}</span>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </a>
+                {%- else -%}
+                  <div class="collage-grid__placeholder">
+                    {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        {%- comment -%} Row 2: blocks 4, 5, 6 {%- endcomment -%}
+        {%- if section.blocks.size > 3 -%}
+          <div class="collage-grid__row collage-grid__row--bottom">
+            {%- for block in section.blocks -%}
+              {%- if forloop.index >= 4 and forloop.index <= 6 -%}
+                {%- assign col_index = forloop.index | minus: 3 -%}
+                <div class="collage-grid__item collage-grid__item--row2-col{{ col_index }}"
+                     {{ block.shopify_attributes }}>
+                  {%- if block.settings.image != blank -%}
+                    <a
+                      class="collage-grid__link"
+                      {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% else %}role="presentation"{% endif %}
+                    >
+                      <div class="collage-grid__image-wrapper">
+                        {{
+                          block.settings.image
+                          | image_url: width: 1200
+                          | image_tag:
+                            loading: 'lazy',
+                            widths: '400, 600, 800, 1000, 1200',
+                            class: 'collage-grid__image',
+                            alt: block.settings.image.alt | escape
+                        }}
+                        {%- if block.settings.overlay_label != blank -%}
+                          <div class="collage-grid__overlay">
+                            <span class="collage-grid__overlay-text">{{ block.settings.overlay_label | escape }}</span>
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    </a>
+                  {%- else -%}
+                    <div class="collage-grid__placeholder">
+                      {{ 'collection-' | append: col_index | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.collage-grid.name",
+  "tag": "section",
+  "class": "section section-collage-grid",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.collage-grid.settings.heading.default",
+      "label": "t:sections.collage-grid.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "t:sections.collage-grid.settings.subheading.label",
+      "default": "t:sections.collage-grid.settings.subheading.default"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "tagline",
+      "label": "t:sections.collage-grid.settings.tagline.label",
+      "default": "t:sections.collage-grid.settings.tagline.default"
+    },
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.collage-grid.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay_on_hover",
+      "label": "t:sections.collage-grid.settings.show_overlay_on_hover.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.collage-grid.settings.gap.label",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "media-radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.collage-grid.settings.media-radius.label",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:sections.collage-grid.blocks.image.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.collage-grid.blocks.image.settings.image.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.collage-grid.blocks.image.settings.link.label"
+        },
+        {
+          "type": "text",
+          "id": "overlay_label",
+          "label": "t:sections.collage-grid.blocks.image.settings.overlay_label.label",
+          "info": "t:sections.collage-grid.blocks.image.settings.overlay_label.info"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collage-grid.presets.name",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ],
+  "max_blocks": 6
+}
+{% endschema %}

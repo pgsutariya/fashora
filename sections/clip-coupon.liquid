@@ -1,0 +1,283 @@
+{{ 'clip-coupon.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .clip-coupon.section-{{ section.id }}-padding .clip-coupon__content .text-section__callout .text-section__callout-inner{
+     background: {{ section.settings.coupon_detail_bkg_color }};
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }} isolate gradient clip-coupon-section">
+  <div
+    class="clip-coupon section-{{ section.id }}-padding"
+    id="clip-coupon-{{ section.id }}"
+    data-id="{{ section.id }}"
+  >
+    <div class="clip-coupon__title title-wrapper {{ section.settings.text_alignment }} title-wrapper--no-top-margin page-width">
+      {%- if section.settings.caption != blank -%}
+        <div class="clip-coupon__caption rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          <p>{{ section.settings.caption }}</p>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <div class="clip-coupon__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.description -}}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="clip-coupon__content content-wrapper page-width">
+      <div class="text-section__divider">
+        {% if section.settings.scissor_to_show == true %}
+          <div id="scissors" class="scissors scissors_top">
+            <div id="top-part" class="top-part">
+              <div id="rotator-top" class="rotator-top">
+                <div class="blade" class="blade"></div>
+                <div class="hole" class="hole"></div>
+              </div>
+            </div>
+            <div id="bottom-part" class="bottom-part">
+              <div id="rotator-bottom" class="rotator-bottom">
+                <div class="blade" class="blade"></div>
+                <div class="hole" class="hole"></div>
+                <div class="screw" class="screw"></div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+      <div class="text-section__callout">
+        <div class="text-section__callout-inner is-inview">
+          {%- if section.settings.heading != blank or section.settings.sub-heading != blank -%}
+            <div class="text-section__callout-texts">
+              {%- if section.settings.heading != blank -%}
+                <h3>{{ section.settings.heading }}</h3>
+              {%- endif -%}
+              {%- if section.settings.sub-heading != blank -%}
+                <p>{{ section.settings.sub-heading }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+          {%- if section.settings.image != blank -%}
+            <div class="text-section__callout-icon">
+              <div class="media media--transparent media--adapt gobal-media-setting" style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;">
+                <img src="{{ section.settings.image | image_url }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="lazy" alt="{{ section.settings.image.alt }}" class="clip-coupon-image" />
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.button_label != blank -%}
+          <div class="text-section__callout-ctas">
+            <a
+              class="button button--primary"
+              {% if section.settings.button_link == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ section.settings.button_link }}" target="_blank" rel="noreferrer noopener"
+              {% endif %}
+            >
+              {{ section.settings.button_label | escape }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="text-section__divider reverse">
+        {% if section.settings.scissor_to_show == true %}
+          <div id="scissors" class="scissors scissors_bottom">
+            <div id="top-part" class="top-part">
+              <div id="rotator-top" class="rotator-top">
+                <div class="blade" class="blade"></div>
+                <div class="hole" class="hole"></div>
+              </div>
+            </div>
+            <div id="bottom-part" class="bottom-part">
+              <div id="rotator-bottom" class="rotator-bottom">
+                <div class="blade" class="blade"></div>
+                <div class="hole" class="hole"></div>
+                <div class="screw" class="screw"></div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.clip-coupon.name",
+    "tag": "section",
+    "class": "section section-clip-coupon",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "caption",
+        "default": "t:sections.clip-coupon.settings.caption.default",
+        "label": "t:sections.clip-coupon.settings.caption.label"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "default": "t:sections.clip-coupon.settings.title.default",
+        "label": "t:sections.clip-coupon.settings.title.label"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h0",
+            "label": "t:sections.all.heading_size.options__3.label"
+          },
+          {
+            "value": "hxl",
+            "label": "t:sections.all.heading_size.options__4.label"
+          },
+          {
+            "value": "hxxl",
+            "label": "t:sections.all.heading_size.options__5.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "default": "t:sections.clip-coupon.settings.description.default",
+        "label": "t:sections.clip-coupon.settings.description.label"
+      },
+      {
+        "type": "select",
+        "id": "description_style",
+        "label": "t:sections.clip-coupon.settings.description_style.label",
+        "options": [
+          {
+            "value": "body",
+            "label": "t:sections.clip-coupon.settings.description_style.options__1.label"
+          },
+          {
+            "value": "subtitle",
+            "label": "t:sections.clip-coupon.settings.description_style.options__2.label"
+          },
+          {
+            "value": "uppercase",
+            "label": "t:sections.clip-coupon.settings.description_style.options__3.label"
+          }
+        ],
+        "default": "body"
+      },
+      {
+        "type": "text_alignment",
+        "id": "text_alignment",
+        "label": "t:sections.clip-coupon.settings.text_alignment.label",
+        "default": "center"
+      },
+      {
+        "type": "checkbox",
+        "id": "scissor_to_show",
+        "label": "t:sections.clip-coupon.settings.scissor_to_show.label",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "t:sections.clip-coupon.settings.header.content"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "t:sections.clip-coupon.settings.heading.default",
+        "label": "t:sections.clip-coupon.settings.heading.label"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "sub-heading",
+        "default": "t:sections.clip-coupon.settings.sub-heading.default",
+        "label": "t:sections.clip-coupon.settings.sub-heading.label"
+      },
+      {
+        "type": "color",
+        "id": "coupon_detail_bkg_color",
+        "default": "#efefef",
+        "label": "t:sections.clip-coupon.settings.coupon_detail_bkg_color.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "t:sections.clip-coupon.settings.image.label"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "t:sections.clip-coupon.settings.button_label.default",
+        "label": "t:sections.clip-coupon.settings.button_label.label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "t:sections.clip-coupon.settings.button_link.label"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "info": "t:sections.all.colors.has_cards_info",
+        "default": "scheme-1"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.clip-coupon.presets.name"
+      }
+    ]
+  }
+{% endschema %}

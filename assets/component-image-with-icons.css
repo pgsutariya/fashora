@@ -1,0 +1,597 @@
+.image-with-icons .grid {
+  margin-bottom: 0;
+}
+
+.image-with-icons .grid__item {
+  position: relative;
+}
+
+@media screen and (min-width: 750px) {
+  .image-with-icons__grid--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.image-with-icons__media {
+  min-height: 100%;
+  overflow: visible;
+}
+
+.image-with-icons__media--small {
+  height: 19.4rem;
+}
+
+.image-with-icons__media--medium {
+  height: 29.6rem;
+}
+
+.image-with-icons__media--large {
+  height: 43.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .image-with-icons__media--small {
+    height: 31.4rem;
+  }
+
+  .image-with-icons__media--medium {
+    height: 46rem;
+  }
+
+  .image-with-icons__media--large {
+    height: 69.5rem;
+  }
+}
+
+.image-with-icons__media--placeholder {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-with-icons__media--placeholder:after {
+  content: '';
+  position: absolute;
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.image-with-icons__media--adapt {
+  height: 20rem;
+}
+
+@media screen and (min-width: 750px) {
+  .image-with-icons__media--adapt {
+    height: 30rem;
+  }
+}
+
+.image-with-icons__media--placeholder > svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.image-with-icons__media--placeholder:is(.animate--ambient, .animate--zoom-in) > svg {
+  top: 0;
+  left: 0;
+  transform: translate(0);
+}
+
+.image-with-icons__content {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-self: center;
+  padding: 4rem calc(4rem / var(--font-body-scale)) 5rem;
+  position: relative;
+  z-index: 1;
+  border: none;
+}
+
+.image-with-icons .grid__item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.image-with-icons:not(.image-with-icons--overlap) .image-with-icons__media-item:after {
+  border-radius: var(--media-radius);
+  box-shadow: var(--media-shadow-horizontal-offset) var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius)
+    rgba(var(--color-shadow), var(--media-shadow-opacity));
+}
+
+.image-with-icons:not(.image-with-icons--overlap) .image-with-icons__text-item:after {
+  border-radius: var(--text-boxes-radius);
+  box-shadow: var(--text-boxes-shadow-horizontal-offset) var(--text-boxes-shadow-vertical-offset)
+    var(--text-boxes-shadow-blur-radius) rgba(var(--color-shadow), var(--text-boxes-shadow-opacity));
+}
+
+.image-with-icons .image-with-icons__media-item > * {
+  border-radius: var(--media-radius);
+  overflow: hidden;
+  box-shadow: var(--media-shadow-horizontal-offset) var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius)
+    rgba(var(--color-shadow), var(--media-shadow-opacity));
+}
+
+.image-with-icons .global-media-settings {
+  overflow: hidden !important;
+  border: none;
+}
+
+.image-with-icons .image-with-icons__text-item > * {
+  border-radius: var(--text-boxes-radius);
+  overflow: hidden;
+  box-shadow: var(--text-boxes-shadow-horizontal-offset) var(--text-boxes-shadow-vertical-offset)
+    var(--text-boxes-shadow-blur-radius) rgba(var(--color-shadow), var(--text-boxes-shadow-opacity));
+}
+
+.image-with-icons:not(.image-with-icons--overlap) .image-with-icons__media-item > *,
+.image-with-icons:not(.image-with-icons--overlap) .image-with-icons__text-item > * {
+  box-shadow: none;
+}
+
+@media screen and (max-width: 749px) {
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap) .image-with-icons__media-item:after,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap) .grid__item .image-with-icons__media,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap) .image-with-icons__media img,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap) .image-with-icons__media .placeholder-svg {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap) .image-with-icons__text-item:after,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap) .grid__item .image-with-icons__content {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .image-with-icons.collapse-borders:not(.image-with-icons--overlap) .image-with-icons__content {
+    border-top: 0;
+  }
+}
+
+.image-with-icons__content--mobile-right > * {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.image-with-icons__content--mobile-center > * {
+  align-self: center;
+  text-align: center;
+}
+
+.image-with-icons--overlap .image-with-icons__content {
+  width: 90%;
+  margin: -3rem auto 0;
+}
+
+@media screen and (min-width: 750px) {
+  .image-with-icons__grid--reverse .image-with-icons__content {
+    margin-left: auto;
+  }
+
+  .image-with-icons__content--bottom {
+    justify-content: flex-end;
+    align-self: flex-end;
+  }
+
+  .image-with-icons__content--top {
+    justify-content: flex-start;
+    align-self: flex-start;
+  }
+
+  .image-with-icons__content--desktop-right > * {
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  .image-with-icons__content--desktop-left > * {
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .image-with-icons__content--desktop-center > * {
+    align-self: center;
+    text-align: center;
+  }
+
+  .image-with-icons--overlap .image-with-icons__text-item {
+    display: flex;
+    padding: 3rem 0;
+  }
+
+  .image-with-icons--overlap .image-with-icons__content {
+    height: auto;
+    width: calc(100% + 4rem);
+    min-width: calc(100% + 4rem);
+    margin-top: 0;
+    margin-left: -4rem;
+  }
+
+  .image-with-icons--overlap .image-with-icons__grid--reverse .image-with-icons__content {
+    margin-left: 0;
+    margin-right: -4rem;
+  }
+
+  .image-with-icons--overlap .image-with-icons__grid--reverse .image-with-icons__text-item {
+    justify-content: flex-end;
+  }
+
+  .image-with-icons--overlap .image-with-icons__media-item--top {
+    align-self: flex-start;
+  }
+
+  .image-with-icons--overlap .image-with-icons__media-item--middle {
+    align-self: center;
+  }
+
+  .image-with-icons--overlap .image-with-icons__media-item--bottom {
+    align-self: flex-end;
+  }
+
+  .image-with-icons__media-item--small,
+  .image-with-icons__media-item--large + .image-with-icons__text-item {
+    flex-grow: 0;
+  }
+
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .grid:not(.image-with-icons__grid--reverse)
+    .image-with-icons__media-item:after,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .grid:not(.image-with-icons__grid--reverse)
+    .image-with-icons__media,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .grid:not(.image-with-icons__grid--reverse)
+    .image-with-icons__media
+    img,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .grid:not(.image-with-icons__grid--reverse)
+    .image-with-icons__media
+    .placeholder-svg,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .image-with-icons__grid--reverse
+    .image-with-icons__text-item:after,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .image-with-icons__grid--reverse
+    .image-with-icons__content,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .image-with-icons__grid--reverse
+    .image-with-icons__content:after {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .grid:not(.image-with-icons__grid--reverse)
+    .image-with-icons__text-item:after,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .grid:not(.image-with-icons__grid--reverse)
+    .image-with-icons__content,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .grid:not(.image-with-icons__grid--reverse)
+    .image-with-icons__content:after,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .image-with-icons__grid--reverse
+    .image-with-icons__media-item:after,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .image-with-icons__grid--reverse
+    .image-with-icons__media,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .image-with-icons__grid--reverse
+    .image-with-icons__media
+    img,
+  .image-with-icons.collapse-corners:not(.image-with-icons--overlap)
+    .image-with-icons__grid--reverse
+    .image-with-icons__media
+    .placeholder-svg {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .image-with-icons.collapse-borders:not(.image-with-icons--overlap) .grid:not(.image-with-icons__grid--reverse) .image-with-icons__content {
+    border-left: 0;
+    padding-right: 0;
+  }
+
+  .image-with-icons.collapse-borders:not(.image-with-icons--overlap) .image-with-icons__grid--reverse .image-with-icons__content {
+    border-right: 0;
+    padding-left: 0;
+  }
+}
+
+.image-with-icons:not(.collapse-corners, .image-with-icons--overlap) .image-with-icons__media-item {
+  z-index: 2;
+}
+
+/* Needed for gradient continuity with or without animation so that transparent PNG images come up as we would expect */
+.image-with-icons--overlap .backround-transparent,
+.image-with-icons:not(.image-with-icons--overlap) .background-transparent {
+  background: transparent;
+}
+
+/* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
+.image-with-icons .gradient {
+  transform: perspective(0);
+}
+
+.image-with-icons__content {
+  border-radius: var(--text-boxes-radius);
+  box-shadow: var(--text-boxes-shadow-horizontal-offset) var(--text-boxes-shadow-vertical-offset)
+    var(--text-boxes-shadow-blur-radius) rgba(var(--color-shadow), var(--text-boxes-shadow-opacity));
+  word-break: break-word;
+  color: rgba(var(--color-foreground), 1);
+}
+
+@media screen and (min-width: 990px) {
+  .image-with-icons__content {
+    padding: 6rem;
+  }
+}
+
+.image-with-icons__content > * + * {
+  margin-top: 2.5rem;
+}
+
+.image-with-icons__content > .image-with-icons__text:empty ~ a {
+  margin-top: 2rem;
+}
+
+.image-with-icons__content > :first-child:is(.image-with-icons__heading),
+.image-with-icons__text--caption + .image-with-icons__heading,
+.image-with-icons__text--caption:first-child {
+  margin-top: 0;
+}
+
+.image-with-icons__content :last-child:is(.image-with-icons__heading),
+.image-with-icons__text--caption {
+  margin-bottom: 0;
+}
+
+.image-with-icons__content .button + .image-with-icons__text {
+  margin-top: 2rem;
+}
+
+.image-with-icons__content .image-with-icons__text + .button {
+  margin-top: 4rem;
+}
+
+.image-with-icons__heading {
+  margin-bottom: 0;
+}
+
+.image-with-icons__text p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .collapse-padding .image-with-icons__grid .image-with-icons__content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .collapse-padding .image-with-icons__grid:not(.image-with-icons__grid--reverse) .image-with-icons__content:not(.image-with-icons__content--desktop-center) {
+    padding-right: 0;
+  }
+
+  .collapse-padding .image-with-icons__grid--reverse .image-with-icons__content:not(.image-with-icons__content--desktop-center) {
+    padding-left: 0;
+  }
+}
+
+/* check for flexbox gap in older Safari versions */
+@supports not (inset: 10px) {
+  .image-with-icons .grid {
+    margin-left: 0;
+  }
+}
+
+/*
+  Multirow
+  note: consider removing from this stylesheet if multirow-specific styles increase signficantly
+*/
+.multirow__inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--grid-mobile-vertical-spacing);
+}
+
+@media screen and (min-width: 750px) {
+  .multirow__inner {
+    row-gap: var(--grid-desktop-vertical-spacing);
+  }
+}
+
+.image-with-icons__heading {
+  padding-bottom: 1rem;
+}
+
+.image-with-icons__text {
+  color: rgba(var(--color-foreground), 1);
+  line-height: 1.5;
+}
+
+.image-with-icons__text--caption {
+  font-size: 1.6rem;
+  line-height: 1.3125;
+  letter-spacing: 0.048rem;
+  color: rgba(var(--color-button), 1);
+  font-weight: bold;
+}
+
+.image-with-icons__heading + .image-with-icons__text {
+  margin-top: 1rem;
+}
+
+.image-with-icons__text--caption + .image-with-icons__heading {
+  margin-top: 2rem;
+}
+
+/* Icon with text */
+.icons-with-text {
+  margin: 2.5rem 0;
+  max-width: 60rem;
+}
+
+.icons-with-text--vertical {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.icons-with-text .icon {
+  fill: rgb(var(--color-foreground));
+  height: 6.2rem;
+  width: 6.2rem;
+}
+
+.icons-with-text--vertical .icon {
+  min-height: 6.2rem;
+  min-width: 6.2rem;
+}
+
+.icons-with-text .img_wrap {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--color-background), 0.50);
+}
+
+.icons-with-text .img_wrap img {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  object-fit: contain;
+}
+
+.icons-with-text__item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-direction: column;
+  align-items: baseline;
+  width: calc(50% - 2rem);
+}
+
+.icons-with-text {
+  margin: 7rem 0 0;
+}
+
+.icons-with-text .h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.icons-with-text .p {
+  margin: 0.5rem 0 0;
+  letter-spacing: 0;
+  color: rgba(var(--color-foreground), 1);
+}
+
+
+/**** about default layout css ****/
+.image-with-icons-section.one-column .icons-with-text--vertical {
+  flex-direction: column;
+}
+
+.image-with-icons-section.one-column .icons-with-text__item {
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.image-with-icons-section.one-column .icons-with-text__item .content {
+  width: 70%;
+}
+.image-with-icons-section.one-column .icons-with-text .img_wrap {
+  border: 0;
+  border-radius: 0;
+}
+.image-with-icons-section.one-column .icons-with-text .img_wrap img {
+  padding: 0.7rem;
+}
+/**** end about default layout css ****/
+
+
+@media only screen and (max-width: 1279px) {
+  .image-with-icons__content {
+    padding: 4rem 0 4rem 4rem;
+  }
+
+  .icons-with-text--vertical {
+    column-gap: 2rem;
+  }
+
+  .icons-with-text__item {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media only screen and (max-width: 989px) {
+  .image-with-icons__content {
+    padding: 3rem 0 3rem 3rem;
+  }
+
+  .icons-with-text--vertical {
+    row-gap: 2rem;
+  }
+
+  .image-with-icons.collapse-borders:not(.image-with-icons--overlap) .image-with-icons__grid--reverse .image-with-icons__content {
+    padding-right: 1.5rem;
+  }
+
+  .image-with-icons-section.one-column .icons-with-text__item .content {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 749px) {
+  .image-with-icons__content {
+    padding: 3rem 1.5rem;
+  }
+
+  .icons-with-text--vertical {
+    row-gap: 2rem;
+  }
+
+  .icons-with-text__item {
+    width: calc(50% - 1rem);
+  }
+
+  .icons-with-text {
+    margin-top: 3rem;
+  }
+  .image-with-icons-section.one-column .icons-with-text--vertical {
+    margin-top: 2rem;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .icons-with-text--vertical {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  .icons-with-text__item {
+    width: 100%;
+  }
+}

@@ -1,0 +1,165 @@
+{% if section.settings.menu != blank and section.settings.menu_type_desktop == 'advance_mega_menu' %}
+  <nav class="header__inline-menu">
+      <ul class="list-menu list-menu--inline" role="list">
+        {%- for link in section.settings.menu.links -%}
+          <li>
+            {% for block in section.blocks %}
+              {% if block.settings.parent_link == link.title and block.type == 'advance_megamenu' %}
+                  {% assign  parent_link = block.settings.parent_link %}
+                  {% continue %}
+               {% endif %}
+            {% endfor %}
+            {%- if parent_link == link.title -%}
+              <header-menu>
+                <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+                  <summary class="header__menu-item list-menu__item link focus-inset">
+                      <a href="{{ link.url }}" aria-label="{{ link.title | escape }}">
+                        <span {%- if link.child_active %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                        {% render 'icon-caret' %}
+                      </a>
+                  </summary>
+                   {%- for block in section.blocks -%}
+                      <div id="MegaMenu-Content-{{ forloop.index }}" class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup" tabindex="-1">
+                         <ul class="advance-mega-menu mega-menu__list {% if block.settings.menu_layout == 'grid' %} page-width{% else %} full-width{% endif %} {% comment %}{% if link.levels == 1 %} mega-menu__list--condensed {% endif %}{% endcomment %}" role="list">
+  
+                            {% if block.settings.parent_link == link.title %}
+                              {% if block.settings.hide_default_menu != "true" %}
+                                {%- for childlink in link.links -%}
+                                  <li>
+                                    <a href="{{ childlink.url }}" class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %} aria-label="{{ childlink.title | escape }}">
+                                      {{ childlink.title | escape }}
+                                    </a>
+                                    {%- if childlink.links != blank -%}
+                                    <ul class="list-unstyled" role="list">
+                                      {%- for grandchildlink in childlink.links -%}
+                                      <li>
+                                        <a href="{{ grandchildlink.url }}" class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %} aria-label="{{ grandchildlink.title | escape }}">
+                                          {{ grandchildlink.title | escape }}
+                                        </a>
+                                      </li>
+                                      {%- endfor -%}
+                                    </ul>
+                                    {%- endif -%}
+                                  </li>
+                                {%- endfor -%}
+                              {% endif %}
+  
+                              {% render 'advance-megamenu-item', mega_collection_title: block.settings.collection_title1, mega_collection: block.settings.collection1, view_all:block.settings.collection_vise_btn_text %} 
+                              {% render 'advance-megamenu-item', mega_collection_title: block.settings.collection_title2, mega_collection: block.settings.collection2, view_all:block.settings.collection_vise_btn_text %} 
+                              {% render 'advance-megamenu-item', mega_collection_title: block.settings.collection_title3, mega_collection: block.settings.collection3, view_all:block.settings.collection_vise_btn_text %}
+                              {% render 'advance-megamenu-item', mega_collection_title: block.settings.collection_title4, mega_collection: block.settings.collection4, view_all:block.settings.collection_vise_btn_text %}
+                              {% render 'advance-megamenu-item', mega_collection_title: block.settings.collection_title5, mega_collection: block.settings.collection5, view_all:block.settings.collection_vise_btn_text %}
+                              {% render 'advance-megamenu-item', mega_collection_title: block.settings.collection_title6, mega_collection: block.settings.collection6, view_all:block.settings.collection_vise_btn_text %}  
+    
+                              {% if block.settings.collection_view_all != blank %}
+                                <div class="advance-mega-menu-btn-view-all">
+                                  <a class="button" href="{{  block.settings.collection_view_all_url }}" aria-label="{{ block.settings.collection_view_all }}">
+                                      {{ block.settings.collection_view_all }}
+                                  </a>
+                                </div>
+                              {% endif %}
+                            {% break %}
+                          {% endif %}
+                         </ul>
+                      </div>
+                   {% endfor %}
+                </details>
+              </header-menu>
+            {%- else -%}
+              {%- if link.links != blank and parent_link != link.title -%}
+                <header-menu>
+                  <details id="Details-HeaderMenu-{{ forloop.index }}">
+                      <summary
+                        id="HeaderMenu-{{ link.handle }}"
+                        class="header__menu-item list-menu__item link focus-inset"
+                      >
+                        <span
+                          {%- if link.child_active %}
+                            class="header__active-menu-item"
+                          {% endif %}
+                        >
+                          {{- link.title | escape -}}
+                        </span>
+                        {% render 'icon-caret' %}
+                      </summary>
+                      <ul
+                            id="HeaderMenu-MenuList-{{ forloop.index }}"
+                            class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+                           role="list"
+                            tabindex="-1"
+                      >
+                        {%- for childlink in link.links -%}
+                        <li>
+                          {%- if childlink.links == blank -%}
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                                href="{{ childlink.url }}"
+                                      class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
+                                {% if childlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                                aria-label="{{ childlink.title | escape }}"
+                              >
+                                {{ childlink.title | escape }}
+                              </a>
+                          {%- else -%}
+                            <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
+                              <summary
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                                class="header__menu-item link link--text list-menu__item focus-inset caption-large"
+                              >
+                                <span>{{ childlink.title | escape }}</span>
+                                {% render 'icon-caret' %}
+                              </summary>
+                              <ul
+                                id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                class="header__submenu list-menu motion-reduce"
+                              >
+                                  {%- for grandchildlink in childlink.links -%}
+                                    <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                      class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                                aria-label="{{ grandchildlink.title | escape }}"
+                              >
+                                        {{ grandchildlink.title | escape }}
+                                      </a>
+                                    </li>
+                                  {%- endfor -%}
+                                </ul>
+                            </details>
+                              {%- endif -%}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                   </details>
+                </header-menu>
+              {%- else -%}
+                <a
+                    id="HeaderMenu-{{ link.handle }}"
+                    href="{{ link.url }}"
+                    class="{% if forloop.index > more_menu_limit %} hidden {% endif %} header__menu-item list-menu__item link link--text focus-inset"
+                    {% if link.current %}
+                      aria-current="page"
+                    {% endif %}
+                    aria-label="{{ link.title | escape }}"
+                  >
+                    <span
+                      {%- if link.current %}
+                        class="header__active-menu-item"
+                      {% endif %}
+                    >
+                      {{- link.title | escape -}}
+                    </span>
+                </a>
+            {%- endif -%}
+          {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+{% endif %}

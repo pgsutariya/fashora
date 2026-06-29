@@ -1,0 +1,111 @@
+<div class="top-linklist-and-products-part">
+  <div class="top-linklist-part">
+    {% if menu_title_1 != blank or menu_image_1 != blank or link_list_1 != blank %}
+      <li>
+        <a href="{{ menu_image_1_url }}" class="mega-menu__link mega-menu__link--level-2 link" aria-label="{{ menu_title_1 | escape }}">{{ menu_title_1 | escape }}</a>
+        <a href="{{ menu_image_1_url }}" aria-label="{{ menu_title_1 | escape }}">
+          <img src="{{ menu_image_1 | image_url }}" alt="" width="100%" height="auto" loading="lazy" /> 
+        </a>
+        {% for link_list1 in link_list_1.links %}
+          <ul class="list-unstyled" role="list">
+            <li>
+              <a href="{{ link_list1.url }}" class="mega-menu__link link{% if link_list1.current %} mega-menu__link--active{% endif %}"{% if link_list1.current %} aria-current="page"{% endif %} aria-label="{{ link_list1.title | escape }}">
+                {{ link_list1.title | escape }}
+              </a>
+            </li>
+          </ul>
+        {% endfor %}
+      </li>
+    {% endif %}
+    
+    {% if menu_title_2 != blank or menu_image_2 != blank or link_list_2 != blank %}
+      <li>
+        <a href="{{ menu_image_2_url }}" class="mega-menu__link mega-menu__link--level-2 link" aria-label="{{ menu_title_2 | escape }}">{{ menu_title_2 | escape }}</a>
+        <a href="{{ menu_image_2_url }}" aria-label="{{ menu_title_2 | escape }}"> 
+         <img src="{{ menu_image_2 | image_url }}" alt="" width="100%" height="auto" loading="lazy" />
+        </a>
+        {% for link_list2 in link_list_2.links %}
+        <ul class="list-unstyled" role="list">
+          <li>
+            <a href="{{ link_list2.url }}" class="mega-menu__link link{% if link_list2.current %} mega-menu__link--active{% endif %}"{% if link_list2.current %} aria-current="page"{% endif %} aria-label="{{ link_list2.title | escape }}">
+              {{ link_list2.title | escape }}
+            </a>
+          </li>
+        </ul>
+        {% endfor %}
+      </li>
+    {% endif %}
+    
+    
+    {% if menu_title_3 != blank or menu_image_3 != blank or link_list_3 != blank %}
+      <li>
+        <a href="{{ menu_image_3_url }}" class="mega-menu__link mega-menu__link--level-2 link" aria-label="{{ menu_title_3 | escape }}">{{ menu_title_3 | escape }}</a>
+        <a href="{{ menu_image_3_url }}" aria-label="{{ menu_title_3 | escape }}"> 
+         <img src="{{ menu_image_3 | image_url }}" alt="" width="100%" height="auto" loading="lazy" />
+        </a>
+        {% for link_list3 in link_list_3.links %}
+        <ul class="list-unstyled" role="list">
+          <li>
+            <a href="{{ link_list3.url }}" class="mega-menu__link link{% if link_list3.current %} mega-menu__link--active{% endif %}"{% if link_list3.current %} aria-current="page"{% endif %} aria-label="{{ link_list3.title | escape }}">
+              {{ link_list3.title | escape }}
+            </a>
+          </li>
+        </ul>
+        {% endfor %}
+      </li>
+    {% endif %}
+  </div>
+  {% if collection_title != blank and product_collection != blank %}
+    <div class="top-products-part">
+      <div class="products-slider">
+         <h3 class="collection-title">{{ collection_title }}</h3> 
+          <slider-component class="slider-mobile-gutter">
+              <ul id="Slider-{{ section.id }}" class="grid product-grid contains-card grid--4-col {% if settings.card_style == 'standard' %} contains-card--standard{% endif %} slider slider--desktop  slider slider--tablet">
+                {%- for product in product_collection.products -%}
+                <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="grid__item slider__slide">
+                  {% render 'mini-card-product',
+                    card_product: product,
+                    section_id: section.id,
+                    image_shape: 'default',
+                    add_cart_show: true
+                  %}
+                </li>
+                {%- endfor -%}
+              </ul>
+              <div class="slider-buttons no-js-hidden">
+                <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}" aria-controls="Slider-{{ section.id }}">{% render 'icon-caret' %}</button>
+                <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}" aria-controls="Slider-{{ section.id }}">{% render 'icon-caret' %}</button>
+              </div>
+          </slider-component>
+       </div>
+    </div>
+  {% endif %}
+</div>
+
+
+{% if image_1 != blank or image_2 != blank %}
+  <div class="bottom-image-part">
+     {% if image_1 != blank %}
+       <div class="banner-image image-1">
+          {% if image_1_url != blank %}
+            <a href="{{ image_1_url }}">
+          {% endif %}
+            <img src="{{ image_1 | image_url }}" alt="" width="100%" height="auto" loading="lazy" />
+          {% if image_1_url != blank %}
+            </a>
+          {% endif %}
+       </div>
+     {% endif %}
+     {% if image_2 != blank %}
+       <div class="banner-image image-2">
+          {% if image_2_url != blank %}
+            <a href="{{ image_2_url }}">
+          {% endif %}
+            <img src="{{ image_2 | image_url }}" alt="" width="100%" height="auto" loading="lazy" />
+          {% if image_2_url != blank %}
+            </a>
+          {% endif %}
+       </div>
+      {% endif %}
+  </div>
+{% endif %}

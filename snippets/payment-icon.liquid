@@ -1,0 +1,110 @@
+{% comment %}
+  Renders payment icon block
+
+  Accepts:
+  - block: {Object} passes in the block information.
+
+
+  Usage:
+  {% render 'payment-icon',
+    block: block
+  %}
+{% endcomment %}
+
+<div class="payment-icon-block">
+  <ul
+    class="payment-icon-list list-unstyled"
+    {{ block.shopify_attributes }}
+  >
+    <li>
+        {%- if block.settings.image_1 != blank -%}
+          <img
+            src="{{ block.settings.image_1 | image_url }}"
+            {% if block.settings.image_1.alt != blank %}
+              alt="{{ block.settings.image_1.alt | escape }}"
+            {% else %}
+              role="presentation"
+            {% endif %}
+            height="auto"
+            width="auto"
+            loading="lazy"
+          >
+        {%- endif -%}
+    </li>
+    <li>
+        {%- if block.settings.image_2 != blank -%}
+          <img
+            src="{{ block.settings.image_2 | image_url }}"
+            {% if block.settings.image_2.alt != blank %}
+              alt="{{ block.settings.image_2.alt | escape }}"
+            {% else %}
+              role="presentation"
+            {% endif %}
+            height="auto"
+            width="auto"
+            loading="lazy"
+          >
+        {%- endif -%}
+    </li>
+    <li>
+        {%- if block.settings.image_3 != blank -%}
+          <img
+            src="{{ block.settings.image_3 | image_url }}"
+            {% if block.settings.image_3.alt != blank %}
+              alt="{{ block.settings.image_3.alt | escape }}"
+            {% else %}
+              role="presentation"
+            {% endif %}
+            height="auto"
+            width="auto"
+            loading="lazy"
+          >
+        {%- endif -%}
+    </li>
+    <li>
+        {%- if block.settings.image_4 != blank -%}
+          <img
+            src="{{ block.settings.image_4 | image_url }}"
+            {% if block.settings.image_4.alt != blank %}
+              alt="{{ block.settings.image_4.alt | escape }}"
+            {% else %}
+              role="presentation"
+            {% endif %}
+            height="auto"
+            width="auto"
+            loading="lazy"
+          >
+        {%- endif -%}
+    </li>
+    <li>
+        {%- if block.settings.image_5 != blank -%}
+          <img
+            src="{{ block.settings.image_5 | image_url }}"
+            {% if block.settings.image_5.alt != blank %}
+              alt="{{ block.settings.image_5.alt | escape }}"
+            {% else %}
+              role="presentation"
+            {% endif %}
+            height="auto"
+            width="auto"
+            loading="lazy"
+          >
+        {%- endif -%}
+    </li>
+    <li>
+        {%- if block.settings.image_6 != blank -%}
+          <img
+            src="{{ block.settings.image_6 | image_url }}"
+            {% if block.settings.image_6.alt != blank %}
+              alt="{{ block.settings.image_6.alt | escape }}"
+            {% else %}
+              role="presentation"
+            {% endif %}
+            height="auto"
+            width="auto"
+            loading="lazy"
+          >
+        {%- endif -%}
+    </li>
+  </ul>
+</div>

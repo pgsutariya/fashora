@@ -1,0 +1,734 @@
+{{ 'section-deal-image-banner.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
+  {%- style -%}
+    @media screen and (max-width: 749px) {
+      #Deal-Banner-{{ section.id }}::before,
+      #Deal-Banner-{{ section.id }} .banner__media::before,
+      #Deal-Banner-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      #Deal-Banner-{{ section.id }}::before,
+      #Deal-Banner-{{ section.id }} .banner__media::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
+{%- if section.settings.image_height == 'adapt' and section.settings.mobile_image != blank -%}
+  {%- style -%}
+    @media screen and (max-width: 749px) {
+      #Deal-Banner-{{ section.id }}::before,
+      #Deal-Banner-{{ section.id }} .mobile-image::before,
+      #Deal-Banner-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.mobile_image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
+{% if section.settings.layout == 'grid' %}
+ {%- style -%} 
+   #Deal-Banner-{{ section.id }}.deal-banner .deal-banner__media{
+     border-radius: var(--media-radius);
+   }
+ {%- endstyle -%}
+{% endif %}
+
+{%- liquid
+  assign full_width = '100vw'
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+
+  if section.settings.image_behavior == 'ambient'
+    assign half_width = '60vw'
+    assign full_width = '120vw'
+    assign stacked_sizes = '(min-width: 750px) 60vw, 120vw'
+    assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
+  elsif section.settings.image_behavior == 'fixed' or section.settings.image_behavior == 'zoom-in'
+    assign half_width = '100vw'
+    assign stacked_sizes = '100vw'
+  else
+    assign half_width = '50vw'
+    assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
+  endif
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<div class="{% if section.settings.layout == 'grid' %}page-width{% else %}full-width-banner{% endif %}">
+  <div
+    id="Deal-Banner-{{ section.id }}"
+    class="deal-banner deal-banner--content-align-{{ section.settings.desktop_content_alignment }} deal-banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} deal-banner--{{ section.settings.image_height }}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} deal-banner--adapt{% endif %}{% if section.settings.show_text_below %} deal-banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} deal-banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  >
+  {%- if section.settings.image != blank -%}
+    <div class="desktop-image-banner deal-banner__media media{% if section.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {%- liquid
+        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+        assign sizes = full_width
+      -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.image.width,
+            height: image_height,
+            sizes: sizes,
+            widths: widths,
+            fetchpriority: fetch_priority
+        }}
+    </div>
+  {%- else -%}
+    <div class="deal-banner__media media{% if section.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.mobile_image != blank -%}
+      <div class="mobile-image deal-banner__media media {% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+         {%- liquid
+          assign image_height = section.settings.mobile_image.width | divided_by: section.settings.mobile_image.aspect_ratio
+          assign sizes = full_width
+        -%}
+        {{
+          section.settings.mobile_image
+          | image_url: width: 1500
+          | image_tag:
+            width: section.settings.mobile_image.width,
+            height: image_height,
+            sizes: sizes,
+            widths: widths,
+            fetchpriority: fetch_priority
+        }}
+      </div>
+   {% else %}
+      <div class="mobile-image deal-banner__media media{% if section.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+        {%- liquid
+        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+        assign sizes = full_width
+      -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.image.width,
+            height: image_height,
+            sizes: sizes,
+            widths: widths,
+            fetchpriority: fetch_priority
+        }}
+      </div>
+   {%- endif -%}
+  <div class="deal-banner__content deal-banner__content--{{ section.settings.desktop_content_position }} page-width">
+    <div class="deal-banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'heading' -%}
+            <h2
+              class="deal-banner__heading inline-richtext {{ block.settings.heading_size }}"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.heading }}
+            </h2>
+          {%- when 'caption' -%}
+            <div class="deal-banner__caption rte" {{ block.shopify_attributes }}>
+              <p>{{ block.settings.caption }}</p>
+            </div>
+          {%- when 'text' -%}
+            <div class="deal-banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          {%- when 'buttons' -%}
+            <div
+              class="deal-banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} deal-banner__buttons--multiple{% endif %}"
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.button_label_1 != blank -%}
+                <a
+                  {% if block.settings.button_link_1 == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.button_link_1 }}"
+                  {% endif %}
+                    class="{% if block.settings.button_style_1 == 'link' %}link underlined-link{% elsif block.settings.button_style_1 == 'solid' %}button{% else %}button button--secondary{% endif %}"
+                >
+                  {{- block.settings.button_label_1 | escape -}}
+                </a>
+              {%- endif -%}
+              {%- if block.settings.button_label_2 != blank -%}
+                <a
+                  {% if block.settings.button_link_2 == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.button_link_2 }}"
+                  {% endif %}
+                    class="{% if block.settings.button_style_2 == 'link' %}link underlined-link{% elsif block.settings.button_style_2 == 'solid' %}button{% else %}button button--secondary{% endif %}"
+                >
+                  {{- block.settings.button_label_2 | escape -}}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- when 'countdown-timer' -%}
+            <div class="deal-banner__timer timer default">
+              <countdown-timer class="countdown-timer" data-endtime="{{ block.settings.endtime }}" data-timeout-message="{{ block.settings.timeout-message }}" data-format="{{ block.settings.format }}" data-days="{{ block.settings.days }}" data-hours="{{ block.settings.hours }}" data-mins="{{ block.settings.mins }}" data-secs="{{ block.settings.secs }}"></countdown-timer>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- custom HTMLElement countdown-timer start -->
+{% comment %}
+<div class="timer default">
+  <countdown-timer class="countdown-timer" data-endtime="10-09-2026" data-timeout-message="Time expired" data-format="dd:hh:mm:ss" data-days="days" data-hours="hour" data-mins="mins" data-secs="secs"></countdown-timer>
+</div>
+<div class="timer default">
+  <countdown-timer class="countdown-timer" data-endtime="2024-10-31T09:00:00Z" data-days="d" data-hours="h" data-mins="m" data-secs="s"></countdown-timer>
+</div> {% endcomment %}
+<script type="text/javascript">
+  class CountdownTimer extends HTMLElement {
+      constructor() {
+          super(),
+          this.timeoutMessage = this.dataset.timeoutMessage,
+          this.format = this.dataset.format || "dd:hh:mm:ss",
+          this.interval = null,
+          this.init()
+      }
+      init() {
+          const cddl = this.dataset?.endtime
+            , minutesLeft = this.dataset.minutesLeft
+            , countdownAppend = this.querySelector(".countdown-inner");
+          if (countdownAppend ? countdownAppend.innerHTML = this.appendChildHtml(minutesLeft).innerHTML : this.innerHTML = this.appendChildHtml(minutesLeft).innerHTML,
+          cddl) {
+              let isoDate = "";
+              if (this.isISODate(cddl))
+                  isoDate = cddl,
+                  this.mainFunction(isoDate, minutesLeft);
+              else if (this.isValidDate(cddl)) {
+                  const dateParts = cddl.split("-");
+                  isoDate = dateParts[2] + "-" + dateParts[0].padStart(2, "0") + "-" + dateParts[1].padStart(2, "0") + "T00:00:00Z",
+                  this.mainFunction(isoDate, minutesLeft)
+              } else
+                  this.mainFunction(isoDate, minutesLeft)
+          } else
+              this.mainFunction("", minutesLeft)
+      }
+      mainFunction(isoDate, minutesLeft) {
+          let timeLeft = {};
+          const calculateTimeLeft = difference=>{
+              let timeLeft2 = {};
+              return this.format.includes("dd") && (timeLeft2.days_timer = Math.floor(difference / 864e5)),
+              this.format.includes("hh") && (this.format.includes("dd") ? timeLeft2.hours_timer = Math.floor(difference / 36e5 % 24) : timeLeft2.hours_timer = Math.floor(difference / 36e5)),
+              this.format.includes("mm") && (this.format === "mm:ss" ? timeLeft2.minutes_timer = Math.floor(difference / 1e3 / 60) : timeLeft2.minutes_timer = Math.floor(difference / 1e3 / 60 % 60)),
+              this.format.includes("ss") && (timeLeft2.seconds_timer = Math.floor(difference / 1e3 % 60)),
+              timeLeft2
+          }
+          ;
+          if (Date.parse(isoDate) || minutesLeft) {
+              let deadline = new Date(isoDate);
+              minutesLeft && (deadline = new Date(Date.now() + parseInt(minutesLeft) * 6e4));
+              const updateCountdown = ()=>{
+                  const difference = deadline - new Date;
+                  difference > 0 ? timeLeft = calculateTimeLeft(difference) : timeLeft = calculateTimeLeft(0),
+                  timeLeft.days_timer > 0 || timeLeft.hours_timer > 0 || timeLeft.minutes_timer > 0 || timeLeft.seconds_timer > 0 || !this.timeoutMessage ? Object.entries(timeLeft).forEach(([key,value])=>{
+                      this.querySelector("." + key) && (this.querySelector("." + key).innerHTML = value.toString().padStart(2, "0"))
+                  }
+                  ) : this.timeoutMessage ? (this.innerHTML = this.timeoutMessage,
+                  clearInterval(this.interval)) : clearInterval(this.interval),
+                  this.classList.remove("hidden");
+                  const badgesCountdown = this.closest(".product__badges-sale-countdown");
+                  badgesCountdown && (badgesCountdown.classList.remove("hidden"),
+                  badgesCountdown.classList.add("inline-flex"))
+              }
+              ;
+              this.interval = setInterval(updateCountdown, 1e3),
+              updateCountdown()
+          } else
+              timeLeft = calculateTimeLeft(0),
+              Object.entries(timeLeft).forEach(([key,value])=>{
+                  this.querySelector("." + key) && (this.querySelector("." + key).innerHTML = value.toString().padStart(2, "0"))
+              }
+              )
+      }
+      appendChildHtml(minutesLeft) {
+          const days = this.dataset?.days
+            , hours = this.dataset?.hours
+            , mins = this.dataset?.mins
+            , secs = this.dataset?.secs
+            , container = document.createElement("div");
+          return container.innerHTML = `${minutesLeft ? "" : `${this.format.includes("dd") ? `<div class="countdown--container"><span class="days_timer count-timer"></span><span class="timer_announcementbar--text"> ${days || ""}</span></div>` : ""}${this.format.includes("hh") ? `<div class="countdown--container"><span class="hours_timer count-timer"></span><span class="timer_announcementbar--text"> ${hours || ""}</span></div>` : ""}`}<div class="countdown--container"><span class="minutes_timer count-timer"></span><span class="timer_announcementbar--text"> ${minutesLeft ? "m" : mins || ""}</span></div><div class="countdown--container"><span class="seconds_timer count-timer"></span><span class="timer_announcementbar--text"> ${minutesLeft ? "s" : secs || ""}</span></div>`,
+          container
+      }
+      isISODate(dateString) {
+          return /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z$/.test(dateString)
+      }
+      isValidDate(dateString) {
+          var regex = /^\d{2}-\d{2}-\d{4}$/;
+          return !!regex.test(dateString)
+      }
+  }
+  customElements.define("countdown-timer", CountdownTimer);
+</script>
+<!-- custom HTMLElement countdown-timer over -->
+
+{% schema %}
+{
+  "name": "t:sections.deal-image-banner.name",
+  "tag": "section",
+  "class": "section section-deal-image-banner",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "full_bleed",
+          "label": "t:sections.all.layout.options__1.label"
+        },
+        {
+          "value": "grid",
+          "label": "t:sections.all.layout.options__2.label"
+        }
+      ],
+      "default": "full_bleed",
+      "label": "t:sections.all.layout.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.deal-image-banner.settings.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "t:sections.deal-image-banner.settings.mobile_image.label"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "t:sections.deal-image-banner.settings.image_overlay_opacity.label",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.deal-image-banner.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.deal-image-banner.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.deal-image-banner.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.deal-image-banner.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.deal-image-banner.settings.image_height.label",
+      "info": "t:sections.deal-image-banner.settings.image_height.info"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_position.options__1.label"
+        },
+        {
+          "value": "top-center",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_position.options__2.label"
+        },
+        {
+          "value": "top-right",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_position.options__3.label"
+        },
+        {
+          "value": "middle-left",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_position.options__4.label"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_position.options__5.label"
+        },
+        {
+          "value": "middle-right",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_position.options__6.label"
+        },
+        {
+          "value": "bottom-left",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_position.options__7.label"
+        },
+        {
+          "value": "bottom-center",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_position.options__8.label"
+        },
+        {
+          "value": "bottom-right",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_position.options__9.label"
+        }
+      ],
+      "default": "middle-center",
+      "label": "t:sections.deal-image-banner.settings.desktop_content_position.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text_box",
+      "default": true,
+      "label": "t:sections.deal-image-banner.settings.show_text_box.label"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.deal-image-banner.settings.desktop_content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.deal-image-banner.settings.desktop_content_alignment.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.animation.content"
+    },
+    {
+      "type": "select",
+      "id": "image_behavior",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.animation.image_behavior.options__1.label"
+        },
+        {
+          "value": "ambient",
+          "label": "t:sections.all.animation.image_behavior.options__2.label"
+        },
+        {
+          "value": "fixed",
+          "label": "t:sections.all.animation.image_behavior.options__3.label"
+        },
+        {
+          "value": "zoom-in",
+          "label": "t:sections.all.animation.image_behavior.options__4.label"
+        }
+      ],
+      "default": "none",
+      "label": "t:sections.all.animation.image_behavior.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.deal-image-banner.settings.mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.deal-image-banner.settings.mobile_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.deal-image-banner.settings.mobile_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.deal-image-banner.settings.mobile_content_alignment.options__3.label"
+        },
+        {
+          "value": "center-top",
+          "label": "t:sections.deal-image-banner.settings.mobile_content_alignment.options__4.label"
+        },
+        {
+          "value": "center-bottom",
+          "label": "t:sections.deal-image-banner.settings.mobile_content_alignment.options__5.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.deal-image-banner.settings.mobile_content_alignment.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text_below",
+      "default": true,
+      "label": "t:sections.deal-image-banner.settings.show_text_below.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.deal-image-banner.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "t:sections.deal-image-banner.blocks.heading.settings.heading.default",
+          "label": "t:sections.deal-image-banner.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            },
+            {
+              "value": "hxxl",
+              "label": "t:sections.all.heading_size.options__5.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "name": "t:sections.deal-image-banner.blocks.caption.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "caption",
+          "default": "t:sections.deal-image-banner.blocks.caption.settings.caption.default",
+          "label": "t:sections.deal-image-banner.blocks.caption.settings.caption.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.deal-image-banner.blocks.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "t:sections.deal-image-banner.blocks.text.settings.text.default",
+          "label": "t:sections.deal-image-banner.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.deal-image-banner.blocks.text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.deal-image-banner.blocks.text.settings.text_style.options__2.label"
+            },
+            {
+              "value": "caption-with-letter-spacing",
+              "label": "t:sections.deal-image-banner.blocks.text.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.deal-image-banner.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.deal-image-banner.blocks.buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "t:sections.deal-image-banner.blocks.buttons.settings.button_label_1.default",
+          "label": "t:sections.deal-image-banner.blocks.buttons.settings.button_label_1.label",
+          "info": "t:sections.deal-image-banner.blocks.buttons.settings.button_label_1.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "t:sections.deal-image-banner.blocks.buttons.settings.button_link_1.label"
+        },
+        {
+          "type": "select",
+          "id": "button_style_1",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_style_1.label",
+          "options": [
+              {
+                "value": "link",
+                "label": "t:sections.image-banner.blocks.buttons.settings.button_style_1.options__1.label"
+              },
+              {
+                "value": "outline",
+                "label": "t:sections.image-banner.blocks.buttons.settings.button_style_1.options__2.label"
+              },
+              {
+                "value": "solid",
+                "label": "t:sections.image-banner.blocks.buttons.settings.button_style_1.options__3.label"
+              }
+          ],
+          "default": "solid"
+        },
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "default": "t:sections.deal-image-banner.blocks.buttons.settings.button_label_2.default",
+          "label": "t:sections.deal-image-banner.blocks.buttons.settings.button_label_2.label",
+          "info": "t:sections.deal-image-banner.blocks.buttons.settings.button_label_2.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_2",
+          "label": "t:sections.deal-image-banner.blocks.buttons.settings.button_link_2.label"
+        },
+        {
+          "type": "select",
+          "id": "button_style_2",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_style_2.label",
+          "options": [
+              {
+                "value": "link",
+                "label": "t:sections.image-banner.blocks.buttons.settings.button_style_2.options__1.label"
+              },
+              {
+                "value": "outline",
+                "label": "t:sections.image-banner.blocks.buttons.settings.button_style_2.options__2.label"
+              },
+              {
+                "value": "solid",
+                "label": "t:sections.image-banner.blocks.buttons.settings.button_style_2.options__3.label"
+              }
+          ],
+          "default": "solid"
+        }
+      ]
+    },
+    {
+      "type": "countdown-timer",
+      "name": "t:sections.deal-image-banner.blocks.countdown-timer.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "endtime",
+          "label": "t:sections.deal-image-banner.blocks.countdown-timer.settings.endtime.label",
+          "default": "t:sections.deal-image-banner.blocks.countdown-timer.settings.endtime.default",
+          "info": "t:sections.deal-image-banner.blocks.countdown-timer.settings.endtime.info"
+        },
+        {
+          "type": "textarea",
+          "id": "timeout-message",
+          "label": "t:sections.deal-image-banner.blocks.countdown-timer.settings.timeout-message.label",
+          "default": "t:sections.deal-image-banner.blocks.countdown-timer.settings.timeout-message.default"
+        },
+        {
+          "type": "text",
+          "id": "format",
+          "label": "t:sections.deal-image-banner.blocks.countdown-timer.settings.format.label",
+          "default": "t:sections.deal-image-banner.blocks.countdown-timer.settings.format.default",
+          "info": "t:sections.deal-image-banner.blocks.countdown-timer.settings.format.info"
+        },
+        {
+          "type": "text",
+          "id": "days",
+          "label": "t:sections.deal-image-banner.blocks.countdown-timer.settings.days.label",
+          "default": "t:sections.deal-image-banner.blocks.countdown-timer.settings.days.default"
+        },
+        {
+          "type": "text",
+          "id": "hours",
+          "label": "t:sections.deal-image-banner.blocks.countdown-timer.settings.hours.label",
+          "default": "t:sections.deal-image-banner.blocks.countdown-timer.settings.hours.default"
+        },
+        {
+          "type": "text",
+          "id": "mins",
+          "label": "t:sections.deal-image-banner.blocks.countdown-timer.settings.mins.label",
+          "default": "t:sections.deal-image-banner.blocks.countdown-timer.settings.mins.default"
+        },
+        {
+          "type": "text",
+          "id": "secs",
+          "label": "t:sections.deal-image-banner.blocks.countdown-timer.settings.secs.label",
+          "default": "t:sections.deal-image-banner.blocks.countdown-timer.settings.secs.default"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.deal-image-banner.presets.name",
+      "blocks": [
+        {
+          "type": "caption"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "countdown-timer"
+        },
+        {
+          "type": "buttons"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
