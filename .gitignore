@@ -3,10 +3,12 @@
 # ==========================================
 .git
 .git/
+.git/*
 
 # Environment & Credentials
 .env
 .env.*
+.env.local
 secrets.json
 
 # Shopify CLI & Build Tool Artifacts
@@ -17,6 +19,7 @@ secrets.json
 dist
 dist/
 dist-ssr
+public/
 upload/
 deploy.log
 npm-debug.log*
@@ -27,10 +30,13 @@ logs
 *.log
 pnpm-debug.log*
 lerna-debug.log*
+.DS_Store
+Thumbs.db
 
 # Dependencies
 node_modules
 node_modules/
+node_modules/*
 bower_components/
 
 # Operating System Files
@@ -47,6 +53,13 @@ Thumbs.db
 .idea
 .vscode/
 !.vscode/extensions.json
+*.code-workspace
+*.sublime-workspace
+*.sublime-project
+*.tmproj
+*.komodoproject
+*.esproj
+*.sublime-workspace
 *.suo
 *.ntvs*
 *.njsproj
