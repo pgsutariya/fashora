@@ -1,6 +1,8 @@
 # ==========================================
 # Shopify Theme .gitignore Template
 # ==========================================
+.git
+.git/
 
 # Environment & Credentials
 .env

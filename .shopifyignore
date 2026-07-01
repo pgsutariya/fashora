@@ -15,6 +15,7 @@ templates/product.test.json
 
 # Exclude general development files
 README.md
+.git
 .git/
 .gitignore
 .shopifyignore
