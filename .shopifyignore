@@ -1,0 +1,38 @@
+# Exclude node modules and package files
+node_modules/
+package.json
+package-lock.json
+yarn.lock
+
+# Exclude build tools and source code (if you are compiling assets locally)
+src/
+webpack.mix.js
+vite.config.js
+tailwind.config.js
+
+# Exclude specific templates you want to test locally but not push
+templates/product.test.json
+
+# Exclude general development files
+README.md
+.git/
+.gitignore
+.shopifyignore
+*.log
+
+src/
+public/
+.eslintrc.cjs
+.gitignore
+index.html
+package-lock.json
+package.json
+README.md
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+
+sections/*.liquid.bak
+snippets/*.liquid.bak
+*.bak
+*.py
