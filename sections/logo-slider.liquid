@@ -1,4 +1,4 @@
-{{ 'section-logo-slider.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-logo-slider.css' %}
 
 {% render 'swiper-assets' %}
 
@@ -50,7 +50,8 @@
                 <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
               {%- endif -%}
                 {% if block.settings.image != blank  %} 
-                  <img class="lazyload slider-image" src="{{ block.settings.image | image_url }}" width="" height="" alt="{{ logo_alt }}" loading="lazy" fetch_priority="auto" />
+                  {% comment %} <img class="lazyload slider-image" src="{{ block.settings.image | image_url }}" width="" height="" alt="{{ logo_alt }}" loading="lazy" fetch_priority="auto" /> {% endcomment %}
+                  <img class="lazyload slider-image" src="{{ block.settings.image | image_url: width: 300 }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" alt="{{ logo_alt }}" loading="lazy" fetchpriority="low" />
                 {% endif %} 
               {%- if block.settings.link != blank -%}
                 </a>

@@ -1,7 +1,7 @@
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-slider.css' %}
+{% render 'async-style', file: 'component-card.css' %}
+{% render 'async-style', file: 'component-article-card.css' %}
+{% render 'async-style', file: 'section-featured-blog.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

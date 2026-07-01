@@ -1,8 +1,8 @@
-{{ 'section-shopable-videos.css' | asset_url | stylesheet_tag }}
-{{ 'video-section.css' | asset_url | stylesheet_tag }}
-{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'section-shopable-videos-fixed.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-shopable-videos.css' %}
+{% render 'async-style', file: 'video-section.css' %}
+{% render 'async-style', file: 'component-deferred-media.css' %}
+{% render 'async-style', file: 'component-slider.css' %}
+{% render 'async-style', file: 'section-shopable-videos-fixed.css' %}
 
 <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>

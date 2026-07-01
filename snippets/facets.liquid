@@ -12,9 +12,9 @@
   {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical', paginate: paginate %}
 {% endcomment %}
 
-{{ 'component-show-more.css' | asset_url | stylesheet_tag }}
-{{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
-{{ 'component-swatch.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-show-more.css' %}
+{% render 'async-style', file: 'component-swatch-input.css' %}
+{% render 'async-style', file: 'component-swatch.css' %}
 
 
 {%- liquid

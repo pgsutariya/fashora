@@ -1,9 +1,9 @@
-{{ 'component-cart.css' | asset_url | stylesheet_tag }}
-{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
-{{ 'component-totals.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-{{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-cart.css' %}
+{% render 'async-style', file: 'component-cart-items.css' %}
+{% render 'async-style', file: 'component-totals.css' %}
+{% render 'async-style', file: 'component-price.css' %}
+{% render 'async-style', file: 'component-discounts.css' %}
+{% render 'async-style', file: 'quantity-popover.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

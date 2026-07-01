@@ -1,4 +1,4 @@
-{{ 'section-featured-collections-list.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-featured-collections-list.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

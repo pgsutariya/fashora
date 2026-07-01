@@ -15,9 +15,9 @@
   - Add any liquid code before/after the grid element
 {% endcomment %}
 
-{{ 'template-collection.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'template-collection.css' %}
+{% render 'async-style', file: 'component-card.css' %}
+{% render 'async-style', file: 'component-price.css' %}
 
 {%- if settings.enable_quick_add -%}
   <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">

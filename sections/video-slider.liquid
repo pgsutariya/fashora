@@ -1,5 +1,5 @@
-{{ 'video-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'video-slider.css' %}
+{% render 'async-style', file: 'component-deferred-media.css' %}
 
 {% render 'swiper-assets' %}
 

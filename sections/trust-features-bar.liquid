@@ -1,4 +1,4 @@
-{{ 'section-trust-features-bar.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-trust-features-bar.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

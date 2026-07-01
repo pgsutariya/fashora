@@ -35,7 +35,7 @@
   
 {%- endstyle -%}
 
-{{ 'section-product-tab.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-product-tab.css' %}
 
 <div id="product_tab-{{ section.id }}" class="color-{{ section.settings.color_scheme }} gradient product_accordian_tab{% if section.settings.class %} {{ section.settings.class }}{% endif %}"> 
   <div class="product_tab_three section-{{ section.id }}-padding">

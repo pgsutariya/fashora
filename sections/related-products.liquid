@@ -1,9 +1,9 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-card.css' %}
+{% render 'async-style', file: 'component-price.css' %}
+{% render 'async-style', file: 'section-related-products.css' %}
 
 {% if section.settings.image_shape == 'blob' %}
-  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+  {% render 'async-style', file: 'mask-blobs.css' %}
 {%- endif -%}
 
 {%- style -%}

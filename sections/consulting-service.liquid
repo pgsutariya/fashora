@@ -1,4 +1,4 @@
-{{ 'consulting-service.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'consulting-service.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

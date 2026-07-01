@@ -1,15 +1,15 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-card.css' %}
+{% render 'async-style', file: 'component-price.css' %}
 
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'testimonial.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-slider.css' %}
+{% render 'async-style', file: 'testimonial.css' %}
 
 {% if section.settings.image_shape == 'blob' %}
-  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+  {% render 'async-style', file: 'mask-blobs.css' %}
 {%- endif -%}
 
 {%- unless section.settings.quick_add == 'none' -%}
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {% render 'async-style', file: 'quick-add.css' %}
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endunless -%}
 

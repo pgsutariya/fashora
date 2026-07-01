@@ -3,7 +3,7 @@
   // After you create the file, you need to add the snippet by including the code `{% render 'discount-code' %}` in the `sections/main-cart-footer.liquid` file, right after the `<div class="totals"></div>` tag.
 {% endcomment %}
 
-{{ 'discount-code.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'discount-code.css' %}
 
 {% comment %}
 #############################################

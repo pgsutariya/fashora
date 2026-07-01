@@ -1,5 +1,5 @@
-{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-{{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-accordion.css' %}
+{% render 'async-style', file: 'collapsible-content.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

@@ -1,4 +1,4 @@
-{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-main-page.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

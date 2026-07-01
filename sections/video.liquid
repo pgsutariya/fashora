@@ -1,5 +1,5 @@
-{{ 'video-section.css' | asset_url | stylesheet_tag }}
-{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'video-section.css' %}
+{% render 'async-style', file: 'component-deferred-media.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

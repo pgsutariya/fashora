@@ -1,7 +1,7 @@
-{{ 'section-custom-instagram.css' | asset_url | stylesheet_tag }}
-{{ 'video-section.css' | asset_url | stylesheet_tag }}
-{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-custom-instagram.css' %}
+{% render 'async-style', file: 'video-section.css' %}
+{% render 'async-style', file: 'component-deferred-media.css' %}
+{% render 'async-style', file: 'component-slider.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

@@ -1,4 +1,4 @@
-{{ 'section-scrolls-parallax-image.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-scrolls-parallax-image.css' %}
 
 {% style %}
   .section-{{ section.id }}-track.scrolls-parallax-image {

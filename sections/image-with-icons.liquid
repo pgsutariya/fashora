@@ -1,4 +1,4 @@
-{{ 'component-image-with-icons.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-image-with-icons.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

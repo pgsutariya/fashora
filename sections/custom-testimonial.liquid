@@ -1,4 +1,4 @@
-{{ 'custom-testimonial.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'custom-testimonial.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

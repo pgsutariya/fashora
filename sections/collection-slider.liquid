@@ -1,6 +1,6 @@
-{{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}
-{{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-collection-slider.css' %}
+{% render 'async-style', file: 'section-multicolumn.css' %}
+{% render 'async-style', file: 'component-slider.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

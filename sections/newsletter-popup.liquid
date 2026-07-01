@@ -1,4 +1,4 @@
-{{ 'newsletter-popup.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'newsletter-popup.css' %}
 
 {% style %}
    .newsletter-popup .popup_inside {

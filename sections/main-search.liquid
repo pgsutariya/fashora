@@ -1,20 +1,20 @@
-{{ 'template-collection.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-search.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'template-collection.css' %}
+{% render 'async-style', file: 'component-card.css' %}
+{% render 'async-style', file: 'component-price.css' %}
+{% render 'async-style', file: 'component-search.css' %}
 
 {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-  {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+  {% render 'async-style', file: 'component-facets.css' %}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {% if section.settings.image_shape == 'blob' %}
-  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+  {% render 'async-style', file: 'mask-blobs.css' %}
 {%- endif -%}
 
 
 {%- unless section.settings.quick_add == 'none' or section.settings.list_view_quick_add == 'none' -%}
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {% render 'async-style', file: 'quick-add.css' %}
 {%- endunless -%}
 
 {%- if section.settings.quick_add == 'standard' or section.settings.list_view_quick_add == 'standard' -%}

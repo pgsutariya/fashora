@@ -1,4 +1,4 @@
-{{ 'clip-coupon.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'clip-coupon.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

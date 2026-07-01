@@ -19,8 +19,8 @@
     {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
-{{ 'component-rating.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-rating.css' %}
+{% render 'async-style', file: 'component-card.css' %}
 
 {%- if card_product and card_product != empty -%}
   {%- liquid

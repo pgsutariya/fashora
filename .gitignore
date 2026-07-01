@@ -53,3 +53,7 @@ Thumbs.db
 # you can ignore them. (Warning: read the GitHub Integration section below first).
 # config/settings_data.json
 # templates/*.json
+sections/*.liquid.bak
+snippets/*.liquid.bak
+*.bak
+*.py

@@ -1,4 +1,4 @@
-{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-image-with-text.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

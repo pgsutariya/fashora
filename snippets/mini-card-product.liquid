@@ -20,11 +20,11 @@
   {% render 'mini-card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
-{{ 'component-rating.css' | asset_url | stylesheet_tag }}
-{{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-rating.css' %}
+{% render 'async-style', file: 'component-volume-pricing.css' %}
 
 {%- if add_cart_show -%}
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {% render 'async-style', file: 'quick-add.css' %}
   <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}

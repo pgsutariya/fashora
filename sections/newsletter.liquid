@@ -1,5 +1,5 @@
-{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
-{{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-newsletter.css' %}
+{% render 'async-style', file: 'newsletter-section.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

@@ -1,5 +1,5 @@
-{{ 'section-brand-logo.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-brand-logo.css' %}
+{% render 'async-style', file: 'component-slider.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

@@ -1,5 +1,5 @@
 <script src="{{ 'parallax.js' | asset_url }}" defer="defer"></script>
-{{ 'parallax-section.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'parallax-section.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

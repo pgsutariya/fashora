@@ -1,4 +1,4 @@
-{{ 'section-lookbook.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-lookbook.css' %}
 
 {%- style-%}
   #lookbook-{{ section.id }}  {

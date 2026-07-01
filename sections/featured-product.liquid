@@ -11,17 +11,17 @@
     data-zoom-on-hover
   {% endif %}
 >
-  {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-  {{ 'section-featured-product.css' | asset_url | stylesheet_tag }}
-  {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-  {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-  {{ 'component-rating.css' | asset_url | stylesheet_tag }}
-  {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+  {% render 'async-style', file: 'section-main-product.css' %}
+  {% render 'async-style', file: 'section-featured-product.css' %}
+  {% render 'async-style', file: 'component-accordion.css' %}
+  {% render 'async-style', file: 'component-price.css' %}
+  {% render 'async-style', file: 'component-deferred-media.css' %}
+  {% render 'async-style', file: 'component-rating.css' %}
+  {% render 'async-style', file: 'component-volume-pricing.css' %}
   {% unless section.settings.product.has_only_default_variant %}
-    {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
-    {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
-    {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
+    {% render 'async-style', file: 'component-product-variant-picker.css' %}
+    {% render 'async-style', file: 'component-swatch.css' %}
+    {% render 'async-style', file: 'component-swatch-input.css' %}
   {% endunless %}
 
   {%- style -%}
@@ -46,7 +46,7 @@
 
   {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
   {%- if first_3d_model -%}
-    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+    {% render 'async-style', file: 'component-product-model.css' %}
     <link
       id="ModelViewerStyle"
       rel="stylesheet"

@@ -1,5 +1,5 @@
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-slideshow.css' %}
+{% render 'async-style', file: 'component-slider.css' %}
 
 {%- liquid
   assign social_icons = true
@@ -15,7 +15,7 @@
 -%}
 
 {% if social_icons %}
-  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+  {% render 'async-style', file: 'component-list-social.css' %}
 {% endif %}
 
 <div

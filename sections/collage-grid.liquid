@@ -1,4 +1,4 @@
-{{ 'section-collage-grid.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-collage-grid.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

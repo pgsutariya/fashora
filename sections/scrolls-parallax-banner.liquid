@@ -1,4 +1,4 @@
-{{ 'section-scrolls-parallax-banner.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-scrolls-parallax-banner.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

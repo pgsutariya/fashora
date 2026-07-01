@@ -1,6 +1,6 @@
-{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'component-image-with-text.css' %}
+{% render 'async-style', file: 'component-slider.css' %}
+{% render 'async-style', file: 'component-slideshow.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -16,7 +16,7 @@
   }
 {%- endstyle -%}
 
-{{ 'image-review-slider.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'image-review-slider.css' %}
 
 {%- liquid
   assign fetch_priority = 'auto'

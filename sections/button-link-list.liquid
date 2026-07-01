@@ -1,4 +1,4 @@
-{{ 'button-link-list.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'button-link-list.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

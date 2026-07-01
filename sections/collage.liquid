@@ -1,8 +1,8 @@
-{{ 'collage.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-modal-video.css' | asset_url | stylesheet_tag }}
-{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'collage.css' %}
+{% render 'async-style', file: 'component-card.css' %}
+{% render 'async-style', file: 'component-price.css' %}
+{% render 'async-style', file: 'component-modal-video.css' %}
+{% render 'async-style', file: 'component-deferred-media.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {

@@ -1,5 +1,5 @@
-{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
-{{ 'section-contact-form-with-image.css' | asset_url | stylesheet_tag }}
+{% render 'async-style', file: 'section-contact-form.css' %}
+{% render 'async-style', file: 'section-contact-form-with-image.css' %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
