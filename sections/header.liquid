@@ -8,18 +8,27 @@
 {%- endif -%}
 {%- if section.settings.menu_type_desktop == 'mega' or settings.categories_menu != blank or section.settings.menu_type_desktop == 'custom_mega' or section.settings.menu_type_desktop == 'advance_mega_menu' -%}
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-  {{ 'component-rating.css' | asset_url | stylesheet_tag }}
+  {% comment %} {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
   {{ 'component-card.css' | asset_url | stylesheet_tag }}
-  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+  {{ 'component-slider.css' | asset_url | stylesheet_tag }} {% endcomment %}
+  {% render 'async-style', file: 'component-rating.css' %}
+  {% render 'async-style', file: 'component-volume-pricing.css' %}
+  {% render 'async-style', file: 'component-card.css' %}
+  {% render 'async-style', file: 'component-slider.css' %}
 {%- endif -%}
 
 {%- if settings.cart_type == "drawer" -%}
-  {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+  {% comment %} {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
   {{ 'component-cart.css' | asset_url | stylesheet_tag }}
   {{ 'component-totals.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+  {{ 'component-discounts.css' | asset_url | stylesheet_tag }} {% endcomment %}
+  {% render 'async-style', file: 'component-cart-drawer.css' %}
+  {% render 'async-style', file: 'component-cart.css' %}
+  {% render 'async-style', file: 'component-totals.css' %}
+  {% render 'async-style', file: 'component-price.css' %}
+  {% render 'async-style', file: 'component-discounts.css' %}
 {%- endif -%}
 
 <style>

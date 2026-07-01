@@ -348,7 +348,8 @@
       }
     {% endstyle %}
 
-    {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+    {% comment %} {{ 'base.css' | asset_url | stylesheet_tag: preload: true }} {% endcomment %}
+    {% render 'async-style', file: 'base.css' %}
 
     {% if settings.theme_font == true %}
       {% style %}
@@ -448,10 +449,11 @@
     {%- endunless -%}
 
     {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
-      {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
+      {% comment %} {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
       <noscript>
         <link rel="stylesheet" href="{{ 'component-localization-form.css' | asset_url }}">
-      </noscript>
+      </noscript> {% endcomment %}
+      {% render 'async-style', file: 'component-localization-form.css' %}
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
