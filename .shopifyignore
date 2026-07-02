@@ -42,3 +42,5 @@ sections/*.liquid.bak
 snippets/*.liquid.bak
 *.bak
 *.py
+
+*.yml
