@@ -248,38 +248,39 @@
 </div>
 
 <script defer>
-   $(function() {
+  $(function() {
     window.SpeedoFashoraTheme.waitForSwiper(function() {
       $('.video-slider-{{ section.id }}').on('click', function() {
-
         var $fixslide = $(this).attr("data-slide-index");
         $(".main-video-swiper-{{ section.id }}").show();
-        var mySwiper = new Swiper(".main-video-swiper-{{ section.id }} .popup-video-slider", {
-        spaceBetween: 1,
-        slidesPerView: 3,
-        centeredSlides: true,
-        roundLengths: true,
-        loop: true,
-        loopAdditionalSlides: 30,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        breakpoints: {
-          990: {
-              slidesPerView: 3
-          },
-          320: {
-              slidesPerView: 1
-          }
-        }
+        requestAnimationFrame(function() {
+          var mySwiper = new Swiper(".main-video-swiper-{{ section.id }} .popup-video-slider", {
+            spaceBetween: 1,
+            slidesPerView: 3,
+            centeredSlides: true,
+            roundLengths: true,
+            loop: true,
+            loopAdditionalSlides: 30,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev"
+            },
+            breakpoints: {
+              990: {
+                  slidesPerView: 3
+              },
+              320: {
+                  slidesPerView: 1
+              }
+            }
+          });
+          mySwiper.slideTo($fixslide); // Correctly calls slideNext to go to the next slide
+        });
       });
-      mySwiper.slideTo($fixslide); // Correctly calls slideNext to go to the next slide
-    });
 
-    $('.main-video-swiper-{{ section.id }} .closevideo').click(function(){ $('.main-video-swiper-{{ section.id }}').hide(); }); 
-    $('.main-video-swiper-{{ section.id }} .shopable-add-to-cart .quick-add__submit').click(function(){ $('.main-video-swiper-{{ section.id }}').hide(); }); 
-     
+      $('.main-video-swiper-{{ section.id }} .closevideo').click(function(){ $('.main-video-swiper-{{ section.id }}').hide(); }); 
+      $('.main-video-swiper-{{ section.id }} .shopable-add-to-cart .quick-add__submit').click(function(){ $('.main-video-swiper-{{ section.id }}').hide(); }); 
+    });
   });
 </script>
         

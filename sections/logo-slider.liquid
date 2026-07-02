@@ -68,45 +68,47 @@
   <script type="text/javascript" defer>
     $(function() {
       window.SpeedoFashoraTheme.waitForSwiper(function() {
-        let SwiperTop = new Swiper('#logo-slider-{{ section.id }}.logo-slider-msg', {
-          spaceBetween: 0,
-          centeredSlides: true,
-          speed: 4500,
-          autoplay: {
-            delay: 1,
-            {% if section.settings.reverse_direction %}
-            reverseDirection: true,
-            {% endif %}
-          },
-          loop: true,
-          slidesPerView:'auto',
-          disableOnInteraction: true,
-          breakpoints: {
-            1441: {
-              slidesPerView: {{ section.settings.columns_desktop }},
-              spaceBetween: 20
+        requestAnimationFrame(function() {
+          let SwiperTop = new Swiper('#logo-slider-{{ section.id }}.logo-slider-msg', {
+            spaceBetween: 0,
+            centeredSlides: true,
+            speed: 4500,
+            autoplay: {
+              delay: 1,
+              {% if section.settings.reverse_direction %}
+              reverseDirection: true,
+              {% endif %}
             },
-            1280: {
-              slidesPerView: {{ section.settings.columns_desktop | minus: 1 }},
-              spaceBetween: 20
-            },
-            1025: {
-              slidesPerView: {{ section.settings.columns_desktop | minus: 1 }},
-              spaceBetween: 20
-            },
-            750: {
-              slidesPerView: {{ section.settings.columns_desktop | minus: 2 }},
-              spaceBetween: 10
-            },
-            481: {
-              slidesPerView: {{ section.settings.columns_mobile }},
-              spaceBetween: 10
-            },
-            200: {
-              slidesPerView: {{ section.settings.columns_mobile }},
-              spaceBetween: 10
+            loop: true,
+            slidesPerView:'auto',
+            disableOnInteraction: true,
+            breakpoints: {
+              1441: {
+                slidesPerView: {{ section.settings.columns_desktop }},
+                spaceBetween: 20
+              },
+              1280: {
+                slidesPerView: {{ section.settings.columns_desktop | minus: 1 }},
+                spaceBetween: 20
+              },
+              1025: {
+                slidesPerView: {{ section.settings.columns_desktop | minus: 1 }},
+                spaceBetween: 20
+              },
+              750: {
+                slidesPerView: {{ section.settings.columns_desktop | minus: 2 }},
+                spaceBetween: 10
+              },
+              481: {
+                slidesPerView: {{ section.settings.columns_mobile }},
+                spaceBetween: 10
+              },
+              200: {
+                slidesPerView: {{ section.settings.columns_mobile }},
+                spaceBetween: 10
+              }
             }
-          }
+          });
         });
       });
     });

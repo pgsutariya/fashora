@@ -83,8 +83,9 @@
                             {%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}
                             {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
                             {%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}
-                            {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} 1066w,{%- endif -%}
-                              {{ media | image_url }} {{ media.width }}w
+                            {% comment %} {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                            {{ media | image_url }} {{ media.width }}w {% endcomment %}
+                            {%- if media.width >= 1066 -%}{{ media | image_url: width: 1066 }} {{ media.width | at_most: 1066 }}w{%- else -%}{{ media | image_url }} {{ media.width }}w{%- endif -%}
                            "
                           src="{{ media | image_url: width: 533 }}"
                           sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
@@ -1117,28 +1118,30 @@
   <script type="text/javascript" defer>
     $(function() {
       window.SpeedoFashoraTheme.waitForSwiper(function() {
-        let SwiperTop = new Swiper('#card-{{ section_id }}-{{ card_product.id }}', {
-          spaceBetween: 0,
-          // loop: true,
-          slidesPerView: 'auto',
-          autoplay: {
-            delay: 1000,
-            disableOnInteraction: false
-          },
-          navigation: {
-            nextEl: '.swiper-button-next-{{ section_id }}-{{ card_product.id }}',
-            prevEl: '.swiper-button-prev-{{ section_id }}-{{ card_product.id }}',
-          }
-        });
-  
-        SwiperTop.autoplay.stop();
-  
-        $('#card-{{ section_id }}-{{ card_product.id }}').on('mouseenter', function() {
-          SwiperTop.autoplay.start();
-        });
+        requestAnimationFrame(function() {
+          let SwiperTop = new Swiper('#card-{{ section_id }}-{{ card_product.id }}', {
+            spaceBetween: 0,
+            // loop: true,
+            slidesPerView: 'auto',
+            autoplay: {
+              delay: 1000,
+              disableOnInteraction: false
+            },
+            navigation: {
+              nextEl: '.swiper-button-next-{{ section_id }}-{{ card_product.id }}',
+              prevEl: '.swiper-button-prev-{{ section_id }}-{{ card_product.id }}',
+            }
+          });
     
-        $('#card-{{ section_id }}-{{ card_product.id }}').on('mouseleave', function() {
           SwiperTop.autoplay.stop();
+    
+          $('#card-{{ section_id }}-{{ card_product.id }}').on('mouseenter', function() {
+            SwiperTop.autoplay.start();
+          });
+      
+          $('#card-{{ section_id }}-{{ card_product.id }}').on('mouseleave', function() {
+            SwiperTop.autoplay.stop();
+          });
         });
       });
     });

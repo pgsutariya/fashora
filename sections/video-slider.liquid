@@ -165,64 +165,66 @@
 <script type="text/javascript" defer>
   $(document).ready(function () {
     window.SpeedoFashoraTheme.waitForSwiper(function() {
-      var slider = new Swiper('#video-slider-{{ section.id }} .video-slider-content', {
-        loop: true,
-        loopAdditionalSlides: 5,
-        slidesPerView: 5,
-        centeredSlides: true,
-        slideToClickedSlide: true,
+      requestAnimationFrame(function() {
+        var slider = new Swiper('#video-slider-{{ section.id }} .video-slider-content', {
+          loop: true,
+          loopAdditionalSlides: 5,
+          slidesPerView: 5,
+          centeredSlides: true,
+          slideToClickedSlide: true,
 
-        breakpoints: {
-          1440: {
-            slidesPerView: 4.5,
-            spaceBetween: 110
+          breakpoints: {
+            1440: {
+              slidesPerView: 4.5,
+              spaceBetween: 110
+            },
+            1280: {
+              slidesPerView: 4,
+              spaceBetween: 90
+            },
+            1170: {
+              slidesPerView: 4,
+              spaceBetween: 70
+            },
+            990: {
+              slidesPerView: 3.2,
+              spaceBetween: 50
+            },
+            750: { 
+              slidesPerView: 3.2,
+              spaceBetween: 35
+            },
+            480: {
+              slidesPerView: 1.8,
+              spaceBetween: 35
+            },
+            0: {
+              slidesPerView: 1.4,
+              spaceBetween: 25
+            }
           },
-          1280: {
-            slidesPerView: 4,
-            spaceBetween: 90
+
+          navigation: {
+            nextEl: '.swiper-button-next-{{ section.id }}',
+            prevEl: '.swiper-button-prev-{{ section.id }}',
           },
-          1170: {
-            slidesPerView: 4,
-            spaceBetween: 70
-          },
-          990: {
-            slidesPerView: 3.2,
-            spaceBetween: 50
-          },
-          750: { 
-            slidesPerView: 3.2,
-            spaceBetween: 35
-          },
-          480: {
-            slidesPerView: 1.8,
-            spaceBetween: 35
-          },
-          0: {
-            slidesPerView: 1.4,
-            spaceBetween: 25
+
+          on: {
+            init: function () {
+              playActiveVideo(this);
+            },
+            slideChangeTransitionEnd: function () {
+              playActiveVideo(this);
+            }
           }
-        },
+        });
 
-        navigation: {
-          nextEl: '.swiper-button-next-{{ section.id }}',
-          prevEl: '.swiper-button-prev-{{ section.id }}',
-        },
-
-        on: {
-          init: function () {
-            playActiveVideo(this);
-          },
-          slideChangeTransitionEnd: function () {
-            playActiveVideo(this);
+        // When clicking any slide → go to clicked slide smoothly
+        slider.on('click', function (swiper) {
+          if (swiper.clickedIndex !== undefined) {
+            swiper.slideTo(swiper.clickedIndex);
           }
-        }
-      });
-
-      // When clicking any slide → go to clicked slide smoothly
-      slider.on('click', function (swiper) {
-        if (swiper.clickedIndex !== undefined) {
-          swiper.slideTo(swiper.clickedIndex);
-        }
+        });
       });
     });
   });

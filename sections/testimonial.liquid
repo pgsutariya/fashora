@@ -221,54 +221,56 @@
 </script>
 
 {% if show_slider %}
-   <script defer>
+  <script defer>
     $(function() {
       window.SpeedoFashoraTheme.waitForSwiper(function() {
-        let SwiperTop = new Swiper('#testimonial-slider-{{ section.id }}', {
-          spaceBetween: 15,
-          speed: 3000,
-          {% if section.settings.enable_autoplay == true %}
-            autoplay: {
-              delay: 1,
-              {% if section.settings.reverse_direction %}
-                reverseDirection: true,
-              {% endif %}
-            },
-          {% endif %}
-          loop: true,
-          slidesPerView:'auto',
-          disableOnInteraction: true,
+        requestAnimationFrame(function() {
+          let SwiperTop = new Swiper('#testimonial-slider-{{ section.id }}', {
+            spaceBetween: 15,
+            speed: 3000,
+            {% if section.settings.enable_autoplay == true %}
+              autoplay: {
+                delay: 1,
+                {% if section.settings.reverse_direction %}
+                  reverseDirection: true,
+                {% endif %}
+              },
+            {% endif %}
+            loop: true,
+            slidesPerView:'auto',
+            disableOnInteraction: true,
             navigation: {
               nextEl: ".button-next-{{ section.id }}",
               prevEl: ".button-prev-{{ section.id }}",
             },
             breakpoints: {
               1200: {
-                  slidesPerView: {{ section.settings.columns_desktop }},
-                  spaceBetween: 15
+                slidesPerView: {{ section.settings.columns_desktop }},
+                spaceBetween: 15
               },
               1025: {
-                  slidesPerView: {{ section.settings.columns_desktop }}-1,
-                spaceBetween: 15
-            },
-            750: {
                 slidesPerView: {{ section.settings.columns_desktop }}-1,
                 spaceBetween: 15
-            },
-            580: {
+              },
+              750: {
+                slidesPerView: {{ section.settings.columns_desktop }}-1,
+                spaceBetween: 15
+              },
+              580: {
                 slidesPerView: {{ section.settings.columns_desktop }}-2,
                 spaceBetween: 8
-            },
-            350: {
+              },
+              350: {
                 slidesPerView: {{ section.settings.columns_mobile }},
                 spaceBetween: 8
-            },
-            200: {
+              },
+              200: {
                 slidesPerView: {{ section.settings.columns_mobile }},
                 spaceBetween: 8
+              }
             }
-            
-          }
+          });
+        });
       });
     });
   </script>

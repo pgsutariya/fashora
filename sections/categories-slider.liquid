@@ -189,74 +189,76 @@
 
 {% if section.settings.enable_slider == true %}
   <script type="text/javascript" defer>
-     $(function() {
+    $(function() {
       window.SpeedoFashoraTheme.waitForSwiper(function() {
-        var SwiperTop = new Swiper('#Slider-{{ section.id }}', {
-         slidesPerView: {{ section.settings.columns_desktop }},
-          spaceBetween: 40,
-          centeredSlides: true,
-          slideToClickedSlide: true,
-          speed: 2000,
-         {% if section.settings.enable_autoplay == true %}
-            autoplay: {
-              delay: 1,
+        requestAnimationFrame(function() {
+          var SwiperTop = new Swiper('#Slider-{{ section.id }}', {
+            slidesPerView: {{ section.settings.columns_desktop }},
+            spaceBetween: 40,
+            centeredSlides: true,
+            slideToClickedSlide: true,
+            speed: 2000,
+            {% if section.settings.enable_autoplay == true %}
+              autoplay: {
+                delay: 1,
+              },
+            {% endif %}
+            loop: true,
+            slidesPerView:'auto',
+            disableOnInteraction: true,
+            navigation: {
+              nextEl: ".button-next-{{ section.id }}",
+              prevEl: ".button-prev-{{ section.id }}",
             },
-          {% endif %}
-          loop: true,
-          slidesPerView:'auto',
-          disableOnInteraction: true,
-          navigation: {
-            nextEl: ".button-next-{{ section.id }}",
-            prevEl: ".button-prev-{{ section.id }}",
-          },
-        breakpoints: {
-          1300: {
-              slidesPerView: {{ section.settings.columns_desktop }},
-              spaceBetween: 30
-          },
-          1200: {
-              slidesPerView: {{ section.settings.columns_desktop }}-3,
-              spaceBetween: 30
-          },
-          1025: {
-              slidesPerView: {{ section.settings.columns_desktop }}-4,
-              spaceBetween: 30
-          },
-          850: {
-              slidesPerView: {{ section.settings.columns_desktop }}-5,
-              spaceBetween: 30
-          },
-          750: {
-              slidesPerView: {{ section.settings.columns_desktop }}-6,
-              spaceBetween: 20
-          },
-          580: {
-              slidesPerView: {{ section.settings.columns_desktop }}-7,
-              spaceBetween: 20
-          },
-          480: {
-              slidesPerView: {{ section.settings.columns_desktop }}-7,
-              spaceBetween: 20
-          },
-          350: {
-              slidesPerView: {{ section.settings.columns_mobile }},
-              spaceBetween: 20
-          },
-          200: {
-              slidesPerView: {{ section.settings.columns_mobile }},
-              spaceBetween: 20
-          }
-          
-        }
-      });
-  
-      {% if section.settings.enable_autoplay == true %}
-          $('.swiper-slide').hover(function(){
-            SwiperTop.autoplay.stop();
-          }, function(){
-            SwiperTop.autoplay.start();
+            breakpoints: {
+              1300: {
+                slidesPerView: {{ section.settings.columns_desktop }},
+                spaceBetween: 30
+              },
+              1200: {
+                slidesPerView: {{ section.settings.columns_desktop }}-3,
+                spaceBetween: 30
+              },
+              1025: {
+                slidesPerView: {{ section.settings.columns_desktop }}-4,
+                spaceBetween: 30
+              },
+              850: {
+                slidesPerView: {{ section.settings.columns_desktop }}-5,
+                spaceBetween: 30
+              },
+              750: {
+                slidesPerView: {{ section.settings.columns_desktop }}-6,
+                spaceBetween: 20
+              },
+              580: {
+                slidesPerView: {{ section.settings.columns_desktop }}-7,
+                spaceBetween: 20
+              },
+              480: {
+                slidesPerView: {{ section.settings.columns_desktop }}-7,
+                spaceBetween: 20
+              },
+              350: {
+                slidesPerView: {{ section.settings.columns_mobile }},
+                spaceBetween: 20
+              },
+              200: {
+                slidesPerView: {{ section.settings.columns_mobile }},
+                spaceBetween: 20
+              }
+            }
           });
-      {% endif %}
+    
+          {% if section.settings.enable_autoplay == true %}
+            $('.swiper-slide').hover(function(){
+              SwiperTop.autoplay.stop();
+            }, function(){
+              SwiperTop.autoplay.start();
+            });
+          {% endif %}
+        });
+      });
     });
   </script>
 {% endif %} 

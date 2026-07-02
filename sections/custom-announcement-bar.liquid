@@ -52,16 +52,18 @@
   <script defer>
   $(function() {
     window.SpeedoFashoraTheme.waitForSwiper(function() {
-      let SwiperTop = new Swiper('#{{ section.id }}.announcement-bar-msg', {
-        spaceBetween: 0,
-        centeredSlides: true,
-        speed: 5000,
-        autoplay: {
-          delay: 1,
-        },
-        loop: true,
-         slidesPerView:'auto',
-        disableOnInteraction: true
+      requestAnimationFrame(function() {
+        let SwiperTop = new Swiper('#{{ section.id }}.announcement-bar-msg', {
+          spaceBetween: 0,
+          centeredSlides: true,
+          speed: 5000,
+          autoplay: {
+            delay: 1,
+          },
+          loop: true,
+          slidesPerView:'auto',
+          disableOnInteraction: true
+        });
       });
     });
   });

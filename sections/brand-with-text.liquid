@@ -243,16 +243,18 @@
 <script defer>
   $(function() {
     window.SpeedoFashoraTheme.waitForSwiper(function() {
-      let SwiperTop = new Swiper('.brand-offer-text.top', {
-        spaceBetween: 0,
-        centeredSlides: true,
-        speed: 3000,
-        autoplay: {
-          delay: 1,
-        },
-        loop: true,
-         slidesPerView:'auto',
-        disableOnInteraction: true
+      requestAnimationFrame(function() {
+        let SwiperTop = new Swiper('.brand-offer-text.top', {
+          spaceBetween: 0,
+          centeredSlides: true,
+          speed: 3000,
+          autoplay: {
+            delay: 1,
+          },
+          loop: true,
+          slidesPerView:'auto',
+          disableOnInteraction: true
+        });
       });
     });
   });
@@ -260,17 +262,19 @@
 
    $(function() {
     window.SpeedoFashoraTheme.waitForSwiper(function() {
-      let SwiperTop = new Swiper('.brand-offer-text.bottom', {
-        spaceBetween: 0,
-        centeredSlides: true,
-        speed: 3000,
-        autoplay: {
-          delay: 1,
-          reverseDirection: true,
-        },
-        loop: true,
-         slidesPerView:'auto',
-        disableOnInteraction: true
+      requestAnimationFrame(function() {
+        let SwiperTop = new Swiper('.brand-offer-text.bottom', {
+          spaceBetween: 0,
+          centeredSlides: true,
+          speed: 3000,
+          autoplay: {
+            delay: 1,
+            reverseDirection: true,
+          },
+          loop: true,
+          slidesPerView:'auto',
+          disableOnInteraction: true
+        });
       });
     });
   });
