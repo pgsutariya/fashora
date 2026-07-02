@@ -2,5 +2,6 @@
   Renders a CSS file as a non-render-blocking stylesheet.
   Usage: {% render 'async-style', file: 'component-slider.css' %}
 {%- endcomment -%}
+{% comment %} {{ file | asset_url | stylesheet_tag: preload: true }} {% endcomment %}
 <link rel="preload" as="style" href="{{ file | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ file | asset_url }}"></noscript>
