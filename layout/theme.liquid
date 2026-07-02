@@ -20,7 +20,7 @@
 
     {% comment %} 
       {% comment %} preload css start {% endcomment %}
-      {%- assign css_files = 'base.css,component-discounts.css,component-cart.css,component-price.css,component-totals.css,component-cart-drawer.css,component-volume-pricing.css,component-rating.css,component-localization-form.css,quantity-popover.css,component-card.css,component-slider.css,component-slideshow.css,component-list-social.css' | split: ',' -%}
+      {%- assign css_files = 'component-discounts.css,component-cart.css,component-price.css,component-totals.css,component-cart-drawer.css,component-volume-pricing.css,component-rating.css,quantity-popover.css,component-card.css,component-slider.css,component-slideshow.css,component-list-social.css' | split: ',' -%}
 
       {% for css in css_files %}
         <link rel="preload" href="{{ css | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">

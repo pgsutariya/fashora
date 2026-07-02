@@ -72,6 +72,7 @@
                 srcset="
                   {%- if custom_img.width >= 165 -%}{{ custom_img | image_url: width: 165 }} 165w,{%- endif -%}
                   {%- if custom_img.width >= 330 -%}{{ custom_img | image_url: width: 330 }} 330w,{%- endif -%}
+                  {%- if custom_img.width >= 466 -%}{{ custom_img | image_url: width: 466 }} 466w,{%- endif -%}
                   {%- if custom_img.width >= 535 -%}{{ custom_img | image_url: width: 535 }} 535w,{%- endif -%}
                   {%- if custom_img.width >= 750 -%}{{ custom_img | image_url: width: 750 }} 750w,{%- endif -%}
                   {%- if custom_img.width >= 1000 -%}{{ custom_img | image_url: width: 1000 }} 1000w,{%- endif -%}
@@ -110,6 +111,7 @@
                   srcset="
                     {%- if card_collection.featured_image.width >= 165 -%}{{ card_collection.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
                     {%- if card_collection.featured_image.width >= 330 -%}{{ card_collection.featured_image | image_url: width: 330 }} 330w,{%- endif -%}
+                    {%- if card_collection.featured_image.width >= 466 -%}{{ card_collection.featured_image | image_url: width: 466 }} 466w,{%- endif -%}
                     {%- if card_collection.featured_image.width >= 535 -%}{{ card_collection.featured_image | image_url: width: 535 }} 535w,{%- endif -%}
                     {%- if card_collection.featured_image.width >= 750 -%}{{ card_collection.featured_image | image_url: width: 750 }} 750w,{%- endif -%}
                     {%- if card_collection.featured_image.width >= 1000 -%}{{ card_collection.featured_image | image_url: width: 1000 }} 1000w,{%- endif -%}
@@ -117,7 +119,7 @@
                     {%- if card_collection.featured_image.width >= 3000 -%}{{ card_collection.featured_image | image_url: width: 3000 }} 3000w,{%- endif -%}
                     {{ card_collection.featured_image | image_url }} {{ card_collection.featured_image.width }}w
                   "
-                  src="{{ card_collection.featured_image | image_url: width: 1500 }}"
+                  src="{{ card_collection.featured_image | image_url: width: 535 }}"
                   sizes="
                     (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
                     (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},

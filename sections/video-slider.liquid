@@ -113,7 +113,8 @@
                         playsinline: ''
                     }} {% endcomment %}
                     {% capture video_element %}
-                      {{ block.settings.video | video_tag: image_size: 'master', autoplay: true, loop: block.settings.enable_video_looping, controls: false, muted: true, playsinline: '', preload: 'none', aria-hidden: true }}
+                      {% comment %} {{ block.settings.video | video_tag: image_size: 'master', autoplay: true, loop: block.settings.enable_video_looping, controls: false, muted: true, playsinline: '', preload: 'none', aria-hidden: true }} {% endcomment %}
+                      {{ block.settings.video | video_tag: image_size: 'master', loop: block.settings.enable_video_looping, controls: false, muted: true, playsinline: '', preload: 'none', aria-hidden: true }}
                     {% endcapture %}
                     {% if section.index > 1 %}
                       {% comment %} make poster lazy {% endcomment %}
