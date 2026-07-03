@@ -68,7 +68,7 @@
         <a {% if button_link == blank %} href="{{ card_collection.url }}" {% else %} href="{{ button_link }}" {% endif %}  class="full-unstyled-link">
           <div class="card__media">
               <div class="media media--transparent media--hover-effect">
-                <img
+                {% comment %} <img
                   srcset="
                     {%- if custom_img.width >= 165 -%}{{ custom_img | image_url: width: 165 }} 165w,{%- endif -%}
                     {%- if custom_img.width >= 330 -%}{{ custom_img | image_url: width: 330 }} 330w,{%- endif -%}
@@ -84,6 +84,7 @@
                   sizes="
                     (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
                     (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
+                    (max-width: 749px) 50vw, 25vw,
                     calc(100vw - 3rem)
                   "
                   alt="{{ card_collection.title | escape }}"
@@ -91,7 +92,19 @@
                   width="{{ custom_img.width }}"
                   loading="lazy"
                   class="motion-reduce"
-                >
+                  fetch_priority="auto"
+                > {% endcomment %}
+                {{ custom_img | image_url: width: 535
+                  | image_tag: 
+                  widths: '165, 252, 330, 466, 535, 750',
+                  sizes: '(max-width: 767px) 50vw, 25vw', 
+                  class: 'motion-reduce', 
+                  alt: card_collection.title,
+                  width: custom_img.width,
+                  height: custom_img.height,
+                  loading: 'lazy',
+                  fetch_priority: 'auto'
+                }}
               </div>
           </div>
          </a>

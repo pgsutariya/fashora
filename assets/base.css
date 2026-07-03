@@ -2246,7 +2246,8 @@ input[type='checkbox'] {
 
 @media screen and (max-width: 749px) {
   .announcement-bar-slider:only-child {
-    width: 80%;
+    /* width: 80%; */
+    width: 100%;
   }
 }
 .announcement-bar .slider-button--next {

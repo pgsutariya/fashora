@@ -52,27 +52,38 @@
           {% if custom_img %}
             <div class="card__media">
               <div class="media media--transparent media--hover-effect">
-                <img
+                {% comment %} <img
                   srcset="{%- if custom_img.width >= 165 -%}{{ custom_img | image_url: width: 165 }} 165w,{%- endif -%}
-                          {%- if custom_img.width >= 330 -%}{{ custom_img | image_url: width: 330 }} 330w,{%- endif -%}
-                          {%- if custom_img.width >= 466 -%}{{ custom_img | image_url: width: 466 }} 466w,{%- endif -%}
-                          {%- if custom_img.width >= 535 -%}{{ custom_img | image_url: width: 535 }} 535w,{%- endif -%}
-                          {%- if custom_img.width >= 750 -%}{{ custom_img | image_url: width: 750 }} 750w,{%- endif -%}
-                          {%- if custom_img.width >= 1000 -%}{{ custom_img | image_url: width: 1000 }} 1000w,{%- endif -%}
-                          {%- if custom_img.width >= 1500 -%}{{ custom_img | image_url: width: 1500 }} 1500w,{%- endif -%}
-                          {%- if custom_img.width >= 3000 -%}{{ custom_img | image_url: width: 3000 }} 3000w,{%- endif -%}
-                          {{ custom_img | image_url }} {{ custom_img.width }}w"
-                    src="{{ custom_img | image_url: width: 535 }}"
-                    sizes="
-                          (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
-                          (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
-                          calc(100vw - 3rem)"
-                    alt="{{ card_collection.title | escape }}"
-                    height="{{ card_collection.featured_image.height }}"
-                    width="{{ card_collection.featured_image.width }}"
-                    loading="lazy"
-                    class="motion-reduce"
-                  >
+                        {%- if custom_img.width >= 330 -%}{{ custom_img | image_url: width: 330 }} 330w,{%- endif -%}
+                        {%- if custom_img.width >= 466 -%}{{ custom_img | image_url: width: 466 }} 466w,{%- endif -%}
+                        {%- if custom_img.width >= 535 -%}{{ custom_img | image_url: width: 535 }} 535w,{%- endif -%}
+                        {%- if custom_img.width >= 750 -%}{{ custom_img | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if custom_img.width >= 1000 -%}{{ custom_img | image_url: width: 1000 }} 1000w,{%- endif -%}
+                        {%- if custom_img.width >= 1500 -%}{{ custom_img | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {%- if custom_img.width >= 3000 -%}{{ custom_img | image_url: width: 3000 }} 3000w,{%- endif -%}
+                        {{ custom_img | image_url }} {{ custom_img.width }}w"
+                  src="{{ custom_img | image_url: width: 535 }}"
+                  sizes="
+                        (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
+                        (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
+                        calc(100vw - 3rem)"
+                  alt="{{ card_collection.title | escape }}"
+                  height="{{ card_collection.featured_image.height }}"
+                  width="{{ card_collection.featured_image.width }}"
+                  loading="lazy"
+                  class="motion-reduce"
+                > {% endcomment %}
+                {{ custom_img | image_url: width: 535
+                  | image_tag: 
+                  widths: '165, 252, 330, 466, 535, 750',
+                  sizes: '(max-width: 767px) 50vw, 25vw', 
+                  class: 'motion-reduce', 
+                  alt: card_collection.title,
+                  width: custom_img.width,
+                  height: custom_img.height,
+                  loading: 'lazy',
+                  fetch_priority: 'auto'
+                }}
               </div>
             </div>
           {% else %}
