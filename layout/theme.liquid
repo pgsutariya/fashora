@@ -348,12 +348,11 @@
       }
     {% endstyle %}
 
-    {% comment %} {{ 'base.css' | asset_url | stylesheet_tag: preload: true }} {% endcomment %}
-    {% render 'async-style', file: 'base.css' %}
+    {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+    {% comment %} {% render 'async-style', file: 'base.css' %} {% endcomment %}
 
     {% if settings.theme_font == true %}
       {% style %}
-      
         @font-face {
           font-family: 'Avenir Next';
           src: url("{{ 'AvenirNext-Italic.woff2' | file_url }}") format('woff2'),
